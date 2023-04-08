@@ -1,0 +1,24 @@
+Notes : attention, problème de cohérence entre l'énoncé des TPs, et les plans de cablâge  --> Lequel suivre ? 
+
+Rang des 4 - 5 - 6 marche pas, pq ? 
+
+
+--- Laboratory 01 --- 
+
+Question 1: Remove HW (hardware) bc we want to drive the pin directly from the firmware 
+
+Question 2: Move the cursor -> position where we are writing 
+
+III. LCD
+
+Question 3: When transforming 6 to a character it is encoded by the int 48. When calling printChar('6'), what's seen is the number encoding, ergo the 48 (value in ASCII code) 
+
+Question 4: 128 cannot be encoded in 8 bits, so not printable with that function
+
+Question 5: Q3 -> PrintNumber, Q4 -> PrintInt16
+
+IV. Keyboard
+
+Question 6: 
+
+Question 7: 

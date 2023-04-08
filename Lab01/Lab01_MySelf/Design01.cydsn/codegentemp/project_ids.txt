@@ -1,0 +1,7 @@
+D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\Design01.cyprj|53e5033f-bb0d-467a-89e5-1c32677e87dd
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|505e8f98-92d4-47d9-9dc9-a820eb2c9e9f
+C:\Users\thoma\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|bafb9e3e-f7c3-4947-86f7-4c9c053e6ec1
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|9ffe4173-5bc0-4572-959a-6123a0c87d67
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|6255a5f9-56de-4f4f-9933-b29ba0bc70e1
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|fdd10d9c-8c32-4f24-ad94-a13a9ebd6c2f
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\dev\psoc3\AnalogDevice\PSoC35AnalogDevice.cylib\PSoC35AnalogDevice.cyprj|b7a79878-2206-4891-885f-d031cc3ea8db
