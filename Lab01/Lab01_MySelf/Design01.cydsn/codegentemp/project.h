@@ -53,6 +53,8 @@
 #include "POT_aliases.h"
 #include "POT.h"
 #include "ADC.h"
+#include "Photores_aliases.h"
+#include "Photores.h"
 #include "LCD_LCDPort_aliases.h"
 #include "LCD_LCDPort.h"
 #include "ADC_AMux.h"

@@ -73,6 +73,9 @@
   <file name="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\codegentemp\ADC.h" value="HEADER;;;;;ADC" />
   <file name="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\codegentemp\ADC_PM.c" value="SOURCE_C;CortexM3;;;;ADC" />
   <file name="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\codegentemp\ADC_INT.c" value="SOURCE_C;CortexM3;;;;ADC" />
+  <file name="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\codegentemp\Photores_aliases.h" value="HEADER;;;;;Photores" />
+  <file name="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\codegentemp\Photores.c" value="SOURCE_C;CortexM3;;;;Photores" />
+  <file name="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\codegentemp\Photores.h" value="HEADER;;;;;Photores" />
   <file name="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\codegentemp\LCD_LCDPort_aliases.h" value="HEADER;;;;;LCD_LCDPort" />
   <file name="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\codegentemp\LCD_LCDPort.c" value="SOURCE_C;CortexM3;;;;LCD_LCDPort" />
   <file name="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\codegentemp\LCD_LCDPort.h" value="HEADER;;;;;LCD_LCDPort" />

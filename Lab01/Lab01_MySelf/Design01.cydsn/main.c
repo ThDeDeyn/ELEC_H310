@@ -65,11 +65,10 @@ int main(void)
     LED_off();
     ADC_StartConvert(); 
     
-    uint32_t potVal = 0;
-    uint32_t lightVal = 0; 
+    uint32_t potVal = 0; 
     for(;;)
     {
-        Pot_control(potVal); 
+        Light_control(potVal); 
     }
 }
 
@@ -129,6 +128,24 @@ int Pot_control(uint32_t potVal){
         
     LED_control(potVal); 
     
+    return 0; 
+}
+
+int Light_control(uint32_t potVal){
+
+   CyDelay(100);
+   if(ADC_IsEndConversion(ADC_WAIT_FOR_RESULT)){
+        potVal = ADC_GetResult32();
+    }
+    LCD_ClearDisplay();
+    LCD_Position(0,0);
+    potVal = (potVal*100/(0xFFFF)); //Get a value between 0 and 5000 mV
+    LCD_PrintNumber(potVal);
+    LCD_PrintString(" mV");
+    LCD_Position(1,7); 
+    LCD_PutChar('L');
+        
+    LED_control(5000 - potVal * 50 );
     return 0; 
 }
 /* [] END OF FILE */

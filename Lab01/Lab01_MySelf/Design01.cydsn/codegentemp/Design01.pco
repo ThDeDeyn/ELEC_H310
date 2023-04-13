@@ -1,5 +1,5 @@
 # Design01
-# 2023-04-08 10:53:11Z
+# 2023-04-10 19:05:04Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -31,6 +31,7 @@ set_io "COL1(0)" iocell 3 1
 set_io "COL2(0)" iocell 3 3
 set_io "COL3(0)" iocell 3 4
 set_io "POT(0)" iocell 0 7
+set_io "Photores(0)" iocell 15 1
 set_location "\ADC:DSM\" dsmodcell -1 -1 0
 set_location "\ADC:IRQ\" interrupt -1 -1 29
 set_location "\ADC:DEC\" decimatorcell -1 -1 0

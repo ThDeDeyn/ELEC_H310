@@ -1,0 +1,21 @@
+ELEC-H310 Lab02
+
+--- Clock ---
+
+Question 1: 366 Hz
+
+Question 2: A frequency of 23997 is equivalent to 1ms. A general expression would be f = timeFreq / 23997 [ms] 
+
+Question 3: sends a true value every 1ms 
+
+Question 4: first is coded, second -> use Cydelay ? 
+
+Question 5: 1 period will take 100 iterations of timeclock to be produced -> frequency is divided by  100
+
+Question 6: signal vary from -1 to 1, if I add 1 : from 0 to 2. Finally, multiply by 255/2
+
+Question 7: To improve quality ? Make the signal smoother ("lissage")
+
+Question 8: Interrupt is synched with the timer ? (Jsp) 
+
+Question 9: Some values are cleared when ReadStatus is used (Which one ? ) 

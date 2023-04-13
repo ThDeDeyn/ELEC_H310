@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
-  <block name="COL1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="COL2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ROW3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ROW1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="COL3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="COL1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ROW2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="ROW3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Photores" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="POT" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ADC" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="cy_analog_virtualmux_5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="cy_analog_noconnect_5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -828,8 +830,7 @@
       </field>
     </register>
   </block>
-  <block name="COL3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="POT" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="ROW1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="TOP" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="LED03" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="LEFT" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />

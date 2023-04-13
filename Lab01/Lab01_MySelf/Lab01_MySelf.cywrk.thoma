@@ -13,10 +13,9 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Lab01_MySelf\Design01">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>Lab01_MySelf</v>
-<v>Lab01_MySelf\Design01</v>
 <v>Lab01_MySelf\Design01\TopDesign</v>
 <v>Lab01_MySelf\Design01\Design01.cydwr\Pins</v>
 <v>Lab01_MySelf\Design01\Design01.cydwr\Analog</v>
@@ -39,39 +38,6 @@
 <VisibleNodeIds>
 <v>Lab01_MySelf</v>
 <v>Lab01_MySelf\Design01</v>
-<v>Lab01_MySelf\Design01\TopDesign</v>
-<v>Lab01_MySelf\Design01\Design01.cydwr</v>
-<v>Lab01_MySelf\Design01\Header Files</v>
-<v>Lab01_MySelf\Design01\Header Files\cyapicallbacks.h</v>
-<v>Lab01_MySelf\Design01\Header Files\keypad.h</v>
-<v>Lab01_MySelf\Design01\Source Files</v>
-<v>Lab01_MySelf\Design01\Source Files\keypad.c</v>
-<v>Lab01_MySelf\Design01\Source Files\main.c</v>
-<v>Lab01_MySelf\Design01\Generated_Source</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\ADC</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\ADC_AMux</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\ADC_Ext_CP_Clk</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\ADC_IRQ</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\ADC_theACLK</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\Col1</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\Col2</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\Col3</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\cy_boot</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\DOWN</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\LCD</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\LCD_LCDPort</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\LED01</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\LED02</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\LED03</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\LED04</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\LEFT</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\POT</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\RIGHT</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\ROW0</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\ROW1</v>
-<v>Lab01_MySelf\Design01\Generated_Source\PSoC5\ROW2</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -127,6 +93,7 @@
 <v>Lab01_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\LED04.lst</v>
 <v>Lab01_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\LEFT.lst</v>
 <v>Lab01_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Lab01_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\Photores.lst</v>
 <v>Lab01_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\POT.lst</v>
 <v>Lab01_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\RIGHT.lst</v>
 <v>Lab01_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW0.lst</v>
@@ -213,6 +180,11 @@
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
 </dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
@@ -227,7 +199,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1063, 525" SelectedTabbedMdiWindow="1ae7c482-9119-41a2-9ebf-bdd032b044ed"><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\TopDesign\TopDesign.cysch" Guid="1ed85b90-6a5f-43c4-95ca-d52feb8c635c" /><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\Design01.cydwr" Guid="0c2d6db8-7ea8-4519-9da0-d0a8c6ad5c23" /><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\main.c" Guid="1ae7c482-9119-41a2-9ebf-bdd032b044ed" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1055, 487" SelectedTabbedMdiWindow="1ae7c482-9119-41a2-9ebf-bdd032b044ed"><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\TopDesign\TopDesign.cysch" Guid="1ed85b90-6a5f-43c4-95ca-d52feb8c635c" /><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\Design01.cydwr" Guid="0c2d6db8-7ea8-4519-9da0-d0a8c6ad5c23" /><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab01\Lab01_MySelf\Design01.cydsn\main.c" Guid="1ae7c482-9119-41a2-9ebf-bdd032b044ed" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="e7c9f11a-a428-4c2c-beae-39d26d4f9b22" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

@@ -1,0 +1,2692 @@
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	__aeabi_fmul
+  20              		.global	__aeabi_fadd
+  21              		.global	__aeabi_f2uiz
+  22              		.section	.text.Sound,"ax",%progbits
+  23              		.align	2
+  24              		.global	Sound
+  25              		.thumb
+  26              		.thumb_func
+  27              		.type	Sound, %function
+  28              	Sound:
+  29              	.LFB64:
+  30              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include "keypad.h"
+  14:main.c        **** #include "math.h"
+  15:main.c        **** 
+  16:main.c        **** #define PI 3.14159
+  17:main.c        **** #define N 100
+  18:main.c        **** 
+  19:main.c        **** int Start_F(){
+  20:main.c        ****     
+  21:main.c        ****     LCD_Start();
+  22:main.c        ****     LCD_DisplayOn();
+  23:main.c        ****     LCD_ClearDisplay();
+  24:main.c        ****     //end for LCD
+  25:main.c        ****     
+  26:main.c        ****     ADC_Start();
+  27:main.c        ****     //Timer_start(); 
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 2
+
+
+  28:main.c        ****     return 0; 
+  29:main.c        **** }
+  30:main.c        **** 
+  31:main.c        **** 
+  32:main.c        **** int beacon(); 
+  33:main.c        **** int print_keypad(); 
+  34:main.c        **** int LED_off(); 
+  35:main.c        **** int LED_control(int); 
+  36:main.c        **** int Pot_control(uint32_t); 
+  37:main.c        **** int Light_control(uint32_t); 
+  38:main.c        **** 
+  39:main.c        **** int blink1kHz(); 
+  40:main.c        **** int blink1Hz(); 
+  41:main.c        **** 
+  42:main.c        **** int fill(); 
+  43:main.c        **** int synthesizer();
+  44:main.c        **** 
+  45:main.c        **** float signal[100];
+  46:main.c        **** uint16_t j = 0;
+  47:main.c        **** uint8_t value;
+  48:main.c        **** uint16_t cpt = 0;
+  49:main.c        **** 
+  50:main.c        **** CY_ISR (Sound){
+  31              		.loc 1 50 0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35 0000 10B5     		push	{r4, lr}
+  36              		.cfi_def_cfa_offset 8
+  37              		.cfi_offset 4, -8
+  38              		.cfi_offset 14, -4
+  51:main.c        ****     value = 128 + 128*signal[j];
+  39              		.loc 1 51 0
+  40 0002 0F4C     		ldr	r4, .L4
+  41 0004 2288     		ldrh	r2, [r4]
+  42 0006 4FF08641 		mov	r1, #1124073472
+  43 000a 0E4B     		ldr	r3, .L4+4
+  44 000c 53F82200 		ldr	r0, [r3, r2, lsl #2]	@ float
+  45 0010 FFF7FEFF 		bl	__aeabi_fmul
+  46              	.LVL0:
+  47 0014 4FF08641 		mov	r1, #1124073472
+  48 0018 FFF7FEFF 		bl	__aeabi_fadd
+  49              	.LVL1:
+  50 001c FFF7FEFF 		bl	__aeabi_f2uiz
+  51              	.LVL2:
+  52 0020 C0B2     		uxtb	r0, r0
+  53 0022 094B     		ldr	r3, .L4+8
+  54 0024 1870     		strb	r0, [r3]
+  52:main.c        ****     DAC_SetValue(value); 
+  55              		.loc 1 52 0
+  56 0026 FFF7FEFF 		bl	DAC_SetValue
+  57              	.LVL3:
+  53:main.c        ****     j++;
+  58              		.loc 1 53 0
+  59 002a 2388     		ldrh	r3, [r4]
+  60 002c 0133     		adds	r3, r3, #1
+  61 002e 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 3
+
+
+  62 0030 2380     		strh	r3, [r4]	@ movhi
+  54:main.c        ****     if(j == N){ j = 0;} 
+  63              		.loc 1 54 0
+  64 0032 642B     		cmp	r3, #100
+  65 0034 01D1     		bne	.L2
+  66              		.loc 1 54 0 is_stmt 0 discriminator 1
+  67 0036 0022     		movs	r2, #0
+  68 0038 2280     		strh	r2, [r4]	@ movhi
+  69              	.L2:
+  55:main.c        ****     TimerDAC_ReadStatusRegister(); //Do not forget to reset the register
+  70              		.loc 1 55 0 is_stmt 1
+  71 003a FFF7FEFF 		bl	TimerDAC_ReadStatusRegister
+  72              	.LVL4:
+  73 003e 10BD     		pop	{r4, pc}
+  74              	.L5:
+  75              		.align	2
+  76              	.L4:
+  77 0040 00000000 		.word	.LANCHOR0
+  78 0044 00000000 		.word	signal
+  79 0048 00000000 		.word	value
+  80              		.cfi_endproc
+  81              	.LFE64:
+  82              		.size	Sound, .-Sound
+  83              		.section	.text.LED,"ax",%progbits
+  84              		.align	2
+  85              		.global	LED
+  86              		.thumb
+  87              		.thumb_func
+  88              		.type	LED, %function
+  89              	LED:
+  90              	.LFB65:
+  56:main.c        **** }
+  57:main.c        **** 
+  58:main.c        **** CY_ISR(LED){
+  91              		.loc 1 58 0
+  92              		.cfi_startproc
+  93              		@ args = 0, pretend = 0, frame = 0
+  94              		@ frame_needed = 0, uses_anonymous_args = 0
+  95 0000 08B5     		push	{r3, lr}
+  96              		.cfi_def_cfa_offset 8
+  97              		.cfi_offset 3, -8
+  98              		.cfi_offset 14, -4
+  59:main.c        ****     if(cpt < 1000){cpt++;}
+  99              		.loc 1 59 0
+ 100 0002 0A4B     		ldr	r3, .L10
+ 101 0004 5B88     		ldrh	r3, [r3, #2]
+ 102 0006 B3F57A7F 		cmp	r3, #1000
+ 103 000a 03D2     		bcs	.L7
+ 104              		.loc 1 59 0 is_stmt 0 discriminator 1
+ 105 000c 0133     		adds	r3, r3, #1
+ 106 000e 074A     		ldr	r2, .L10
+ 107 0010 5380     		strh	r3, [r2, #2]	@ movhi
+ 108 0012 08E0     		b	.L8
+ 109              	.L7:
+  60:main.c        ****     else{ LED01_Write( ~ LED01_Read()); cpt = 0; }
+ 110              		.loc 1 60 0 is_stmt 1
+ 111 0014 FFF7FEFF 		bl	LED01_Read
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 4
+
+
+ 112              	.LVL5:
+ 113 0018 C043     		mvns	r0, r0
+ 114 001a C0B2     		uxtb	r0, r0
+ 115 001c FFF7FEFF 		bl	LED01_Write
+ 116              	.LVL6:
+ 117 0020 0022     		movs	r2, #0
+ 118 0022 024B     		ldr	r3, .L10
+ 119 0024 5A80     		strh	r2, [r3, #2]	@ movhi
+ 120              	.L8:
+  61:main.c        ****     Timer_ReadStatusRegister();
+ 121              		.loc 1 61 0
+ 122 0026 FFF7FEFF 		bl	Timer_ReadStatusRegister
+ 123              	.LVL7:
+ 124 002a 08BD     		pop	{r3, pc}
+ 125              	.L11:
+ 126              		.align	2
+ 127              	.L10:
+ 128 002c 00000000 		.word	.LANCHOR0
+ 129              		.cfi_endproc
+ 130              	.LFE65:
+ 131              		.size	LED, .-LED
+ 132              		.section	.text.Start_F,"ax",%progbits
+ 133              		.align	2
+ 134              		.global	Start_F
+ 135              		.thumb
+ 136              		.thumb_func
+ 137              		.type	Start_F, %function
+ 138              	Start_F:
+ 139              	.LFB63:
+  19:main.c        ****     
+ 140              		.loc 1 19 0
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144 0000 08B5     		push	{r3, lr}
+ 145              		.cfi_def_cfa_offset 8
+ 146              		.cfi_offset 3, -8
+ 147              		.cfi_offset 14, -4
+  21:main.c        ****     LCD_DisplayOn();
+ 148              		.loc 1 21 0
+ 149 0002 FFF7FEFF 		bl	LCD_Start
+ 150              	.LVL8:
+  22:main.c        ****     LCD_ClearDisplay();
+ 151              		.loc 1 22 0
+ 152 0006 0C20     		movs	r0, #12
+ 153 0008 FFF7FEFF 		bl	LCD_WriteControl
+ 154              	.LVL9:
+  23:main.c        ****     //end for LCD
+ 155              		.loc 1 23 0
+ 156 000c 0120     		movs	r0, #1
+ 157 000e FFF7FEFF 		bl	LCD_WriteControl
+ 158              	.LVL10:
+  26:main.c        ****     //Timer_start(); 
+ 159              		.loc 1 26 0
+ 160 0012 FFF7FEFF 		bl	ADC_Start
+ 161              	.LVL11:
+  29:main.c        **** 
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 5
+
+
+ 162              		.loc 1 29 0
+ 163 0016 0020     		movs	r0, #0
+ 164 0018 08BD     		pop	{r3, pc}
+ 165              		.cfi_endproc
+ 166              	.LFE63:
+ 167              		.size	Start_F, .-Start_F
+ 168 001a 00BF     		.section	.text.print_keypad,"ax",%progbits
+ 169              		.align	2
+ 170              		.global	print_keypad
+ 171              		.thumb
+ 172              		.thumb_func
+ 173              		.type	print_keypad, %function
+ 174              	print_keypad:
+ 175              	.LFB67:
+  62:main.c        **** 
+  63:main.c        **** }
+  64:main.c        **** 
+  65:main.c        **** 
+  66:main.c        **** int main(void)
+  67:main.c        **** {
+  68:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  69:main.c        **** 
+  70:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  71:main.c        ****     
+  72:main.c        ****     Start_F(); 
+  73:main.c        ****     
+  74:main.c        ****     LED_off();
+  75:main.c        ****     
+  76:main.c        ****     Timer_Start();
+  77:main.c        ****     TimerDAC_Start(); 
+  78:main.c        ****     DAC_Start();
+  79:main.c        ****     DAC_SetValue(0);
+  80:main.c        ****     
+  81:main.c        ****     isr_dac_StartEx(Sound);
+  82:main.c        ****     isr_led_StartEx(LED);
+  83:main.c        ****     
+  84:main.c        ****     fill();
+  85:main.c        ****     
+  86:main.c        ****     for(;;)
+  87:main.c        ****     {
+  88:main.c        ****         //synthesizer(); // no interrupt
+  89:main.c        ****         
+  90:main.c        ****     }
+  91:main.c        **** }
+  92:main.c        **** 
+  93:main.c        **** int print_keypad(){
+ 176              		.loc 1 93 0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 0
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180 0000 08B5     		push	{r3, lr}
+ 181              		.cfi_def_cfa_offset 8
+ 182              		.cfi_offset 3, -8
+ 183              		.cfi_offset 14, -4
+  94:main.c        ****     if(keypadScan() != 'z'){
+ 184              		.loc 1 94 0
+ 185 0002 FFF7FEFF 		bl	keypadScan
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 6
+
+
+ 186              	.LVL12:
+ 187 0006 7A28     		cmp	r0, #122
+ 188 0008 0AD0     		beq	.L15
+  95:main.c        ****         LCD_ClearDisplay(); 
+ 189              		.loc 1 95 0
+ 190 000a 0120     		movs	r0, #1
+ 191 000c FFF7FEFF 		bl	LCD_WriteControl
+ 192              	.LVL13:
+  96:main.c        ****         LCD_Position(0,1); 
+ 193              		.loc 1 96 0
+ 194 0010 0121     		movs	r1, #1
+ 195 0012 0020     		movs	r0, #0
+ 196 0014 FFF7FEFF 		bl	LCD_Position
+ 197              	.LVL14:
+  97:main.c        ****         LCD_PutChar( keypadScan());
+ 198              		.loc 1 97 0
+ 199 0018 FFF7FEFF 		bl	keypadScan
+ 200              	.LVL15:
+ 201 001c FFF7FEFF 		bl	LCD_PutChar
+ 202              	.LVL16:
+ 203              	.L15:
+  98:main.c        ****     }
+  99:main.c        ****     CyDelay(100);  
+ 204              		.loc 1 99 0
+ 205 0020 6420     		movs	r0, #100
+ 206 0022 FFF7FEFF 		bl	CyDelay
+ 207              	.LVL17:
+ 100:main.c        ****    
+ 101:main.c        ****     return 0; 
+ 102:main.c        **** }
+ 208              		.loc 1 102 0
+ 209 0026 0020     		movs	r0, #0
+ 210 0028 08BD     		pop	{r3, pc}
+ 211              		.cfi_endproc
+ 212              	.LFE67:
+ 213              		.size	print_keypad, .-print_keypad
+ 214 002a 00BF     		.section	.text.LED_off,"ax",%progbits
+ 215              		.align	2
+ 216              		.global	LED_off
+ 217              		.thumb
+ 218              		.thumb_func
+ 219              		.type	LED_off, %function
+ 220              	LED_off:
+ 221              	.LFB68:
+ 103:main.c        **** 
+ 104:main.c        **** int LED_off(){
+ 222              		.loc 1 104 0
+ 223              		.cfi_startproc
+ 224              		@ args = 0, pretend = 0, frame = 0
+ 225              		@ frame_needed = 0, uses_anonymous_args = 0
+ 226 0000 08B5     		push	{r3, lr}
+ 227              		.cfi_def_cfa_offset 8
+ 228              		.cfi_offset 3, -8
+ 229              		.cfi_offset 14, -4
+ 105:main.c        ****     LED01_Write(0);
+ 230              		.loc 1 105 0
+ 231 0002 0020     		movs	r0, #0
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 7
+
+
+ 232 0004 FFF7FEFF 		bl	LED01_Write
+ 233              	.LVL18:
+ 106:main.c        ****     LED02_Write(0);
+ 234              		.loc 1 106 0
+ 235 0008 0020     		movs	r0, #0
+ 236 000a FFF7FEFF 		bl	LED02_Write
+ 237              	.LVL19:
+ 107:main.c        ****     LED03_Write(0);
+ 238              		.loc 1 107 0
+ 239 000e 0020     		movs	r0, #0
+ 240 0010 FFF7FEFF 		bl	LED03_Write
+ 241              	.LVL20:
+ 108:main.c        ****     LED04_Write(0);
+ 242              		.loc 1 108 0
+ 243 0014 0020     		movs	r0, #0
+ 244 0016 FFF7FEFF 		bl	LED04_Write
+ 245              	.LVL21:
+ 109:main.c        ****     
+ 110:main.c        ****     return 0; 
+ 111:main.c        **** }
+ 246              		.loc 1 111 0
+ 247 001a 0020     		movs	r0, #0
+ 248 001c 08BD     		pop	{r3, pc}
+ 249              		.cfi_endproc
+ 250              	.LFE68:
+ 251              		.size	LED_off, .-LED_off
+ 252 001e 00BF     		.section	.text.LED_control,"ax",%progbits
+ 253              		.align	2
+ 254              		.global	LED_control
+ 255              		.thumb
+ 256              		.thumb_func
+ 257              		.type	LED_control, %function
+ 258              	LED_control:
+ 259              	.LFB69:
+ 112:main.c        **** 
+ 113:main.c        **** int LED_control(int potVal){
+ 260              		.loc 1 113 0
+ 261              		.cfi_startproc
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 0, uses_anonymous_args = 0
+ 264              	.LVL22:
+ 265 0000 08B5     		push	{r3, lr}
+ 266              		.cfi_def_cfa_offset 8
+ 267              		.cfi_offset 3, -8
+ 268              		.cfi_offset 14, -4
+ 114:main.c        ****     
+ 115:main.c        ****     if(potVal > 0 && potVal < 1000){
+ 269              		.loc 1 115 0
+ 270 0002 421E     		subs	r2, r0, #1
+ 271 0004 40F2E633 		movw	r3, #998
+ 272 0008 9A42     		cmp	r2, r3
+ 273 000a 0CD8     		bhi	.L20
+ 116:main.c        ****         LED01_Write(0); LED02_Write(0); LED03_Write(0); LED04_Write(0); 
+ 274              		.loc 1 116 0
+ 275 000c 0020     		movs	r0, #0
+ 276              	.LVL23:
+ 277 000e FFF7FEFF 		bl	LED01_Write
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 8
+
+
+ 278              	.LVL24:
+ 279 0012 0020     		movs	r0, #0
+ 280 0014 FFF7FEFF 		bl	LED02_Write
+ 281              	.LVL25:
+ 282 0018 0020     		movs	r0, #0
+ 283 001a FFF7FEFF 		bl	LED03_Write
+ 284              	.LVL26:
+ 285 001e 0020     		movs	r0, #0
+ 286 0020 FFF7FEFF 		bl	LED04_Write
+ 287              	.LVL27:
+ 288 0024 44E0     		b	.L21
+ 289              	.LVL28:
+ 290              	.L20:
+ 117:main.c        ****     }
+ 118:main.c        ****     else if(potVal >= 1000 && potVal < 2000){
+ 291              		.loc 1 118 0
+ 292 0026 A0F57A73 		sub	r3, r0, #1000
+ 293 002a B3F57A7F 		cmp	r3, #1000
+ 294 002e 0CD2     		bcs	.L22
+ 119:main.c        ****         LED01_Write(1); LED02_Write(0); LED03_Write(0); LED04_Write(0); 
+ 295              		.loc 1 119 0
+ 296 0030 0120     		movs	r0, #1
+ 297              	.LVL29:
+ 298 0032 FFF7FEFF 		bl	LED01_Write
+ 299              	.LVL30:
+ 300 0036 0020     		movs	r0, #0
+ 301 0038 FFF7FEFF 		bl	LED02_Write
+ 302              	.LVL31:
+ 303 003c 0020     		movs	r0, #0
+ 304 003e FFF7FEFF 		bl	LED03_Write
+ 305              	.LVL32:
+ 306 0042 0020     		movs	r0, #0
+ 307 0044 FFF7FEFF 		bl	LED04_Write
+ 308              	.LVL33:
+ 309 0048 32E0     		b	.L21
+ 310              	.LVL34:
+ 311              	.L22:
+ 120:main.c        ****     }
+ 121:main.c        ****     else if(potVal >= 2000 && potVal < 3000){
+ 312              		.loc 1 121 0
+ 313 004a A0F5FA63 		sub	r3, r0, #2000
+ 314 004e B3F57A7F 		cmp	r3, #1000
+ 315 0052 0CD2     		bcs	.L23
+ 122:main.c        ****         LED01_Write(1); LED02_Write(1); LED03_Write(0); LED04_Write(0); 
+ 316              		.loc 1 122 0
+ 317 0054 0120     		movs	r0, #1
+ 318              	.LVL35:
+ 319 0056 FFF7FEFF 		bl	LED01_Write
+ 320              	.LVL36:
+ 321 005a 0120     		movs	r0, #1
+ 322 005c FFF7FEFF 		bl	LED02_Write
+ 323              	.LVL37:
+ 324 0060 0020     		movs	r0, #0
+ 325 0062 FFF7FEFF 		bl	LED03_Write
+ 326              	.LVL38:
+ 327 0066 0020     		movs	r0, #0
+ 328 0068 FFF7FEFF 		bl	LED04_Write
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 9
+
+
+ 329              	.LVL39:
+ 330 006c 20E0     		b	.L21
+ 331              	.LVL40:
+ 332              	.L23:
+ 123:main.c        ****     }
+ 124:main.c        ****     else if(potVal >= 3000 && potVal < 4000){
+ 333              		.loc 1 124 0
+ 334 006e A0F6B833 		subw	r3, r0, #3000
+ 335 0072 B3F57A7F 		cmp	r3, #1000
+ 336 0076 0CD2     		bcs	.L24
+ 125:main.c        ****         LED01_Write(1); LED02_Write(1); LED03_Write(1); LED04_Write(0); 
+ 337              		.loc 1 125 0
+ 338 0078 0120     		movs	r0, #1
+ 339              	.LVL41:
+ 340 007a FFF7FEFF 		bl	LED01_Write
+ 341              	.LVL42:
+ 342 007e 0120     		movs	r0, #1
+ 343 0080 FFF7FEFF 		bl	LED02_Write
+ 344              	.LVL43:
+ 345 0084 0120     		movs	r0, #1
+ 346 0086 FFF7FEFF 		bl	LED03_Write
+ 347              	.LVL44:
+ 348 008a 0020     		movs	r0, #0
+ 349 008c FFF7FEFF 		bl	LED04_Write
+ 350              	.LVL45:
+ 351 0090 0EE0     		b	.L21
+ 352              	.LVL46:
+ 353              	.L24:
+ 126:main.c        ****     }
+ 127:main.c        ****     else if(potVal >= 4000){
+ 354              		.loc 1 127 0
+ 355 0092 B0F57A6F 		cmp	r0, #4000
+ 356 0096 0BDB     		blt	.L21
+ 128:main.c        ****         LED01_Write(1); LED02_Write(1); LED03_Write(1); LED04_Write(1); 
+ 357              		.loc 1 128 0
+ 358 0098 0120     		movs	r0, #1
+ 359              	.LVL47:
+ 360 009a FFF7FEFF 		bl	LED01_Write
+ 361              	.LVL48:
+ 362 009e 0120     		movs	r0, #1
+ 363 00a0 FFF7FEFF 		bl	LED02_Write
+ 364              	.LVL49:
+ 365 00a4 0120     		movs	r0, #1
+ 366 00a6 FFF7FEFF 		bl	LED03_Write
+ 367              	.LVL50:
+ 368 00aa 0120     		movs	r0, #1
+ 369 00ac FFF7FEFF 		bl	LED04_Write
+ 370              	.LVL51:
+ 371              	.L21:
+ 129:main.c        ****     }    
+ 130:main.c        ****     
+ 131:main.c        ****     
+ 132:main.c        ****     return 0; 
+ 133:main.c        **** }
+ 372              		.loc 1 133 0
+ 373 00b0 0020     		movs	r0, #0
+ 374 00b2 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 10
+
+
+ 375              		.cfi_endproc
+ 376              	.LFE69:
+ 377              		.size	LED_control, .-LED_control
+ 378              		.section	.text.blink1kHz,"ax",%progbits
+ 379              		.align	2
+ 380              		.global	blink1kHz
+ 381              		.thumb
+ 382              		.thumb_func
+ 383              		.type	blink1kHz, %function
+ 384              	blink1kHz:
+ 385              	.LFB70:
+ 134:main.c        **** 
+ 135:main.c        **** 
+ 136:main.c        **** int blink1kHz(){
+ 386              		.loc 1 136 0
+ 387              		.cfi_startproc
+ 388              		@ args = 0, pretend = 0, frame = 0
+ 389              		@ frame_needed = 0, uses_anonymous_args = 0
+ 390 0000 08B5     		push	{r3, lr}
+ 391              		.cfi_def_cfa_offset 8
+ 392              		.cfi_offset 3, -8
+ 393              		.cfi_offset 14, -4
+ 137:main.c        ****     if(0x80 & Timer_ReadStatusRegister()){
+ 394              		.loc 1 137 0
+ 395 0002 FFF7FEFF 		bl	Timer_ReadStatusRegister
+ 396              	.LVL52:
+ 397 0006 10F0800F 		tst	r0, #128
+ 398 000a 05D0     		beq	.L27
+ 138:main.c        ****         LED01_Write( ~ LED01_Read());
+ 399              		.loc 1 138 0
+ 400 000c FFF7FEFF 		bl	LED01_Read
+ 401              	.LVL53:
+ 402 0010 C043     		mvns	r0, r0
+ 403 0012 C0B2     		uxtb	r0, r0
+ 404 0014 FFF7FEFF 		bl	LED01_Write
+ 405              	.LVL54:
+ 406              	.L27:
+ 139:main.c        ****     }
+ 140:main.c        **** 
+ 141:main.c        **** return 0;}
+ 407              		.loc 1 141 0
+ 408 0018 0020     		movs	r0, #0
+ 409 001a 08BD     		pop	{r3, pc}
+ 410              		.cfi_endproc
+ 411              	.LFE70:
+ 412              		.size	blink1kHz, .-blink1kHz
+ 413              		.section	.text.blink1Hz,"ax",%progbits
+ 414              		.align	2
+ 415              		.global	blink1Hz
+ 416              		.thumb
+ 417              		.thumb_func
+ 418              		.type	blink1Hz, %function
+ 419              	blink1Hz:
+ 420              	.LFB71:
+ 142:main.c        **** 
+ 143:main.c        **** int blink1Hz(int cpt){
+ 421              		.loc 1 143 0
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 11
+
+
+ 422              		.cfi_startproc
+ 423              		@ args = 0, pretend = 0, frame = 0
+ 424              		@ frame_needed = 0, uses_anonymous_args = 0
+ 425              	.LVL55:
+ 426 0000 10B5     		push	{r4, lr}
+ 427              		.cfi_def_cfa_offset 8
+ 428              		.cfi_offset 4, -8
+ 429              		.cfi_offset 14, -4
+ 430 0002 0446     		mov	r4, r0
+ 144:main.c        ****     if(0x80 & Timer_ReadStatusRegister()){
+ 431              		.loc 1 144 0
+ 432 0004 FFF7FEFF 		bl	Timer_ReadStatusRegister
+ 433              	.LVL56:
+ 434 0008 10F0800F 		tst	r0, #128
+ 435 000c 08D0     		beq	.L30
+ 145:main.c        ****         if(cpt < 1000)
+ 436              		.loc 1 145 0
+ 437 000e B4F57A7F 		cmp	r4, #1000
+ 438 0012 05DA     		bge	.L30
+ 146:main.c        ****         LED01_Write( ~ LED01_Read());
+ 439              		.loc 1 146 0
+ 440 0014 FFF7FEFF 		bl	LED01_Read
+ 441              	.LVL57:
+ 442 0018 C043     		mvns	r0, r0
+ 443 001a C0B2     		uxtb	r0, r0
+ 444 001c FFF7FEFF 		bl	LED01_Write
+ 445              	.LVL58:
+ 446              	.L30:
+ 147:main.c        ****     }
+ 148:main.c        **** 
+ 149:main.c        **** return 0;}
+ 447              		.loc 1 149 0
+ 448 0020 0020     		movs	r0, #0
+ 449 0022 10BD     		pop	{r4, pc}
+ 450              		.cfi_endproc
+ 451              	.LFE71:
+ 452              		.size	blink1Hz, .-blink1Hz
+ 453              		.global	__aeabi_i2d
+ 454              		.global	__aeabi_dmul
+ 455              		.global	__aeabi_ddiv
+ 456              		.global	__aeabi_d2f
+ 457              		.section	.text.fill,"ax",%progbits
+ 458              		.align	2
+ 459              		.global	fill
+ 460              		.thumb
+ 461              		.thumb_func
+ 462              		.type	fill, %function
+ 463              	fill:
+ 464              	.LFB72:
+ 150:main.c        **** 
+ 151:main.c        **** int fill(){
+ 465              		.loc 1 151 0
+ 466              		.cfi_startproc
+ 467              		@ args = 0, pretend = 0, frame = 0
+ 468              		@ frame_needed = 0, uses_anonymous_args = 0
+ 469 0000 10B5     		push	{r4, lr}
+ 470              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 12
+
+
+ 471              		.cfi_offset 4, -8
+ 472              		.cfi_offset 14, -4
+ 473              	.LVL59:
+ 474              	.LBB2:
+ 152:main.c        ****     for(int i = 0; i < N;i++){
+ 475              		.loc 1 152 0
+ 476 0002 0024     		movs	r4, #0
+ 477 0004 13E0     		b	.L33
+ 478              	.LVL60:
+ 479              	.L34:
+ 153:main.c        ****         signal[i] = sin(2*PI*i/N);
+ 480              		.loc 1 153 0 discriminator 3
+ 481 0006 2046     		mov	r0, r4
+ 482 0008 FFF7FEFF 		bl	__aeabi_i2d
+ 483              	.LVL61:
+ 484 000c 0AA3     		adr	r3, .L36
+ 485 000e D3E90023 		ldrd	r2, [r3]
+ 486 0012 FFF7FEFF 		bl	__aeabi_dmul
+ 487              	.LVL62:
+ 488 0016 0022     		movs	r2, #0
+ 489 0018 094B     		ldr	r3, .L36+8
+ 490 001a FFF7FEFF 		bl	__aeabi_ddiv
+ 491              	.LVL63:
+ 492 001e FFF7FEFF 		bl	sin
+ 493              	.LVL64:
+ 494 0022 FFF7FEFF 		bl	__aeabi_d2f
+ 495              	.LVL65:
+ 496 0026 074B     		ldr	r3, .L36+12
+ 497 0028 43F82400 		str	r0, [r3, r4, lsl #2]	@ float
+ 152:main.c        ****     for(int i = 0; i < N;i++){
+ 498              		.loc 1 152 0 discriminator 3
+ 499 002c 0134     		adds	r4, r4, #1
+ 500              	.LVL66:
+ 501              	.L33:
+ 152:main.c        ****     for(int i = 0; i < N;i++){
+ 502              		.loc 1 152 0 is_stmt 0 discriminator 1
+ 503 002e 632C     		cmp	r4, #99
+ 504 0030 E9DD     		ble	.L34
+ 505              	.LBE2:
+ 154:main.c        ****     }
+ 155:main.c        **** return 0; 
+ 156:main.c        **** }
+ 506              		.loc 1 156 0 is_stmt 1
+ 507 0032 0020     		movs	r0, #0
+ 508 0034 10BD     		pop	{r4, pc}
+ 509              	.LVL67:
+ 510              	.L37:
+ 511 0036 00BF     		.align	3
+ 512              	.L36:
+ 513 0038 6E861BF0 		.word	-266631570
+ 514 003c F9211940 		.word	1075388921
+ 515 0040 00005940 		.word	1079574528
+ 516 0044 00000000 		.word	signal
+ 517              		.cfi_endproc
+ 518              	.LFE72:
+ 519              		.size	fill, .-fill
+ 520              		.section	.text.main,"ax",%progbits
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 13
+
+
+ 521              		.align	2
+ 522              		.global	main
+ 523              		.thumb
+ 524              		.thumb_func
+ 525              		.type	main, %function
+ 526              	main:
+ 527              	.LFB66:
+  67:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 528              		.loc 1 67 0
+ 529              		.cfi_startproc
+ 530              		@ Volatile: function does not return.
+ 531              		@ args = 0, pretend = 0, frame = 0
+ 532              		@ frame_needed = 0, uses_anonymous_args = 0
+ 533 0000 08B5     		push	{r3, lr}
+ 534              		.cfi_def_cfa_offset 8
+ 535              		.cfi_offset 3, -8
+ 536              		.cfi_offset 14, -4
+  68:main.c        **** 
+ 537              		.loc 1 68 0
+ 538              		.syntax unified
+ 539              	@ 68 "main.c" 1
+ 540 0002 62B6     		CPSIE   i
+ 541              	@ 0 "" 2
+  72:main.c        ****     
+ 542              		.loc 1 72 0
+ 543              		.thumb
+ 544              		.syntax unified
+ 545 0004 FFF7FEFF 		bl	Start_F
+ 546              	.LVL68:
+  74:main.c        ****     
+ 547              		.loc 1 74 0
+ 548 0008 FFF7FEFF 		bl	LED_off
+ 549              	.LVL69:
+  76:main.c        ****     TimerDAC_Start(); 
+ 550              		.loc 1 76 0
+ 551 000c FFF7FEFF 		bl	Timer_Start
+ 552              	.LVL70:
+  77:main.c        ****     DAC_Start();
+ 553              		.loc 1 77 0
+ 554 0010 FFF7FEFF 		bl	TimerDAC_Start
+ 555              	.LVL71:
+  78:main.c        ****     DAC_SetValue(0);
+ 556              		.loc 1 78 0
+ 557 0014 FFF7FEFF 		bl	DAC_Start
+ 558              	.LVL72:
+  79:main.c        ****     
+ 559              		.loc 1 79 0
+ 560 0018 0020     		movs	r0, #0
+ 561 001a FFF7FEFF 		bl	DAC_SetValue
+ 562              	.LVL73:
+  81:main.c        ****     isr_led_StartEx(LED);
+ 563              		.loc 1 81 0
+ 564 001e 0448     		ldr	r0, .L41
+ 565 0020 FFF7FEFF 		bl	isr_dac_StartEx
+ 566              	.LVL74:
+  82:main.c        ****     
+ 567              		.loc 1 82 0
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 14
+
+
+ 568 0024 0348     		ldr	r0, .L41+4
+ 569 0026 FFF7FEFF 		bl	isr_led_StartEx
+ 570              	.LVL75:
+  84:main.c        ****     
+ 571              		.loc 1 84 0
+ 572 002a FFF7FEFF 		bl	fill
+ 573              	.LVL76:
+ 574              	.L39:
+ 575 002e FEE7     		b	.L39
+ 576              	.L42:
+ 577              		.align	2
+ 578              	.L41:
+ 579 0030 00000000 		.word	Sound
+ 580 0034 00000000 		.word	LED
+ 581              		.cfi_endproc
+ 582              	.LFE66:
+ 583              		.size	main, .-main
+ 584              		.section	.text.synthesizer,"ax",%progbits
+ 585              		.align	2
+ 586              		.global	synthesizer
+ 587              		.thumb
+ 588              		.thumb_func
+ 589              		.type	synthesizer, %function
+ 590              	synthesizer:
+ 591              	.LFB73:
+ 157:main.c        **** 
+ 158:main.c        **** int synthesizer(){
+ 592              		.loc 1 158 0
+ 593              		.cfi_startproc
+ 594              		@ args = 0, pretend = 0, frame = 0
+ 595              		@ frame_needed = 0, uses_anonymous_args = 0
+ 596 0000 10B5     		push	{r4, lr}
+ 597              		.cfi_def_cfa_offset 8
+ 598              		.cfi_offset 4, -8
+ 599              		.cfi_offset 14, -4
+ 159:main.c        ****     if(0x80 & Timer_ReadStatusRegister()){
+ 600              		.loc 1 159 0
+ 601 0002 FFF7FEFF 		bl	Timer_ReadStatusRegister
+ 602              	.LVL77:
+ 603 0006 10F0800F 		tst	r0, #128
+ 604 000a 11D0     		beq	.L44
+ 160:main.c        ****             if(cpt < 1000){cpt++;}
+ 605              		.loc 1 160 0
+ 606 000c 1A4B     		ldr	r3, .L48
+ 607 000e 5B88     		ldrh	r3, [r3, #2]
+ 608 0010 B3F57A7F 		cmp	r3, #1000
+ 609 0014 03D2     		bcs	.L45
+ 610              		.loc 1 160 0 is_stmt 0 discriminator 1
+ 611 0016 0133     		adds	r3, r3, #1
+ 612 0018 174A     		ldr	r2, .L48
+ 613 001a 5380     		strh	r3, [r2, #2]	@ movhi
+ 614 001c 08E0     		b	.L44
+ 615              	.L45:
+ 161:main.c        ****             else{ LED01_Write( ~ LED01_Read()); cpt = 0; }
+ 616              		.loc 1 161 0 is_stmt 1
+ 617 001e FFF7FEFF 		bl	LED01_Read
+ 618              	.LVL78:
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 15
+
+
+ 619 0022 C043     		mvns	r0, r0
+ 620 0024 C0B2     		uxtb	r0, r0
+ 621 0026 FFF7FEFF 		bl	LED01_Write
+ 622              	.LVL79:
+ 623 002a 0022     		movs	r2, #0
+ 624 002c 124B     		ldr	r3, .L48
+ 625 002e 5A80     		strh	r2, [r3, #2]	@ movhi
+ 626              	.L44:
+ 162:main.c        ****         }
+ 163:main.c        ****     if(0x80 & TimerDAC_ReadStatusRegister()){
+ 627              		.loc 1 163 0
+ 628 0030 FFF7FEFF 		bl	TimerDAC_ReadStatusRegister
+ 629              	.LVL80:
+ 630 0034 10F0800F 		tst	r0, #128
+ 631 0038 1BD0     		beq	.L46
+ 164:main.c        ****             value = 128 + 128*signal[j];
+ 632              		.loc 1 164 0
+ 633 003a 0F4C     		ldr	r4, .L48
+ 634 003c 2288     		ldrh	r2, [r4]
+ 635 003e 4FF08641 		mov	r1, #1124073472
+ 636 0042 0E4B     		ldr	r3, .L48+4
+ 637 0044 53F82200 		ldr	r0, [r3, r2, lsl #2]	@ float
+ 638 0048 FFF7FEFF 		bl	__aeabi_fmul
+ 639              	.LVL81:
+ 640 004c 4FF08641 		mov	r1, #1124073472
+ 641 0050 FFF7FEFF 		bl	__aeabi_fadd
+ 642              	.LVL82:
+ 643 0054 FFF7FEFF 		bl	__aeabi_f2uiz
+ 644              	.LVL83:
+ 645 0058 C0B2     		uxtb	r0, r0
+ 646 005a 094B     		ldr	r3, .L48+8
+ 647 005c 1870     		strb	r0, [r3]
+ 165:main.c        ****             DAC_SetValue(value); 
+ 648              		.loc 1 165 0
+ 649 005e FFF7FEFF 		bl	DAC_SetValue
+ 650              	.LVL84:
+ 166:main.c        ****             j++;
+ 651              		.loc 1 166 0
+ 652 0062 2388     		ldrh	r3, [r4]
+ 653 0064 0133     		adds	r3, r3, #1
+ 654 0066 9BB2     		uxth	r3, r3
+ 655 0068 2380     		strh	r3, [r4]	@ movhi
+ 167:main.c        ****             if(j == N){ j = 0;}
+ 656              		.loc 1 167 0
+ 657 006a 642B     		cmp	r3, #100
+ 658 006c 01D1     		bne	.L46
+ 659              		.loc 1 167 0 is_stmt 0 discriminator 1
+ 660 006e 0022     		movs	r2, #0
+ 661 0070 2280     		strh	r2, [r4]	@ movhi
+ 662              	.L46:
+ 168:main.c        ****         }
+ 169:main.c        **** 
+ 170:main.c        **** return 0;
+ 171:main.c        **** }
+ 663              		.loc 1 171 0 is_stmt 1
+ 664 0072 0020     		movs	r0, #0
+ 665 0074 10BD     		pop	{r4, pc}
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 16
+
+
+ 666              	.L49:
+ 667 0076 00BF     		.align	2
+ 668              	.L48:
+ 669 0078 00000000 		.word	.LANCHOR0
+ 670 007c 00000000 		.word	signal
+ 671 0080 00000000 		.word	value
+ 672              		.cfi_endproc
+ 673              	.LFE73:
+ 674              		.size	synthesizer, .-synthesizer
+ 675              		.global	cpt
+ 676              		.comm	value,1,1
+ 677              		.global	j
+ 678              		.comm	signal,400,4
+ 679              		.bss
+ 680              		.align	1
+ 681              		.set	.LANCHOR0,. + 0
+ 682              		.type	j, %object
+ 683              		.size	j, 2
+ 684              	j:
+ 685 0000 0000     		.space	2
+ 686              		.type	cpt, %object
+ 687              		.size	cpt, 2
+ 688              	cpt:
+ 689 0002 0000     		.space	2
+ 690              		.text
+ 691              	.Letext0:
+ 692              		.file 2 "d:\\psoc\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\includ
+ 693              		.file 3 "d:\\psoc\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\includ
+ 694              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+ 695              		.file 5 "Generated_Source\\PSoC5/DAC.h"
+ 696              		.file 6 "Generated_Source\\PSoC5/TimerDAC.h"
+ 697              		.file 7 "Generated_Source\\PSoC5/LED01.h"
+ 698              		.file 8 "Generated_Source\\PSoC5/Timer.h"
+ 699              		.file 9 "Generated_Source\\PSoC5/LCD.h"
+ 700              		.file 10 "Generated_Source\\PSoC5/ADC.h"
+ 701              		.file 11 "keypad.h"
+ 702              		.file 12 "Generated_Source\\PSoC5/CyLib.h"
+ 703              		.file 13 "Generated_Source\\PSoC5/LED02.h"
+ 704              		.file 14 "Generated_Source\\PSoC5/LED03.h"
+ 705              		.file 15 "Generated_Source\\PSoC5/LED04.h"
+ 706              		.file 16 "Generated_Source\\PSoC5/isr_dac.h"
+ 707              		.file 17 "Generated_Source\\PSoC5/isr_led.h"
+ 708              		.file 18 "d:\\psoc\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\inclu
+ 709              		.section	.debug_info,"",%progbits
+ 710              	.Ldebug_info0:
+ 711 0000 C0060000 		.4byte	0x6c0
+ 712 0004 0400     		.2byte	0x4
+ 713 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 714 000a 04       		.byte	0x4
+ 715 000b 01       		.uleb128 0x1
+ 716 000c AF000000 		.4byte	.LASF53
+ 717 0010 0C       		.byte	0xc
+ 718 0011 C4020000 		.4byte	.LASF54
+ 719 0015 DA010000 		.4byte	.LASF55
+ 720 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 721 001d 00000000 		.4byte	0
+ 722 0021 00000000 		.4byte	.Ldebug_line0
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 17
+
+
+ 723 0025 02       		.uleb128 0x2
+ 724 0026 01       		.byte	0x1
+ 725 0027 06       		.byte	0x6
+ 726 0028 95000000 		.4byte	.LASF0
+ 727 002c 03       		.uleb128 0x3
+ 728 002d 19000000 		.4byte	.LASF3
+ 729 0031 02       		.byte	0x2
+ 730 0032 1D       		.byte	0x1d
+ 731 0033 37000000 		.4byte	0x37
+ 732 0037 02       		.uleb128 0x2
+ 733 0038 01       		.byte	0x1
+ 734 0039 08       		.byte	0x8
+ 735 003a A1000000 		.4byte	.LASF1
+ 736 003e 02       		.uleb128 0x2
+ 737 003f 02       		.byte	0x2
+ 738 0040 05       		.byte	0x5
+ 739 0041 F8020000 		.4byte	.LASF2
+ 740 0045 03       		.uleb128 0x3
+ 741 0046 02030000 		.4byte	.LASF4
+ 742 004a 02       		.byte	0x2
+ 743 004b 2B       		.byte	0x2b
+ 744 004c 50000000 		.4byte	0x50
+ 745 0050 02       		.uleb128 0x2
+ 746 0051 02       		.byte	0x2
+ 747 0052 07       		.byte	0x7
+ 748 0053 54010000 		.4byte	.LASF5
+ 749 0057 03       		.uleb128 0x3
+ 750 0058 3D000000 		.4byte	.LASF6
+ 751 005c 02       		.byte	0x2
+ 752 005d 3F       		.byte	0x3f
+ 753 005e 62000000 		.4byte	0x62
+ 754 0062 02       		.uleb128 0x2
+ 755 0063 04       		.byte	0x4
+ 756 0064 05       		.byte	0x5
+ 757 0065 1E030000 		.4byte	.LASF7
+ 758 0069 02       		.uleb128 0x2
+ 759 006a 04       		.byte	0x4
+ 760 006b 07       		.byte	0x7
+ 761 006c 42010000 		.4byte	.LASF8
+ 762 0070 02       		.uleb128 0x2
+ 763 0071 08       		.byte	0x8
+ 764 0072 05       		.byte	0x5
+ 765 0073 B6020000 		.4byte	.LASF9
+ 766 0077 02       		.uleb128 0x2
+ 767 0078 08       		.byte	0x8
+ 768 0079 07       		.byte	0x7
+ 769 007a 4F020000 		.4byte	.LASF10
+ 770 007e 04       		.uleb128 0x4
+ 771 007f 04       		.byte	0x4
+ 772 0080 05       		.byte	0x5
+ 773 0081 696E7400 		.ascii	"int\000"
+ 774 0085 02       		.uleb128 0x2
+ 775 0086 04       		.byte	0x4
+ 776 0087 07       		.byte	0x7
+ 777 0088 CD010000 		.4byte	.LASF11
+ 778 008c 03       		.uleb128 0x3
+ 779 008d 66020000 		.4byte	.LASF12
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 18
+
+
+ 780 0091 03       		.byte	0x3
+ 781 0092 18       		.byte	0x18
+ 782 0093 2C000000 		.4byte	0x2c
+ 783 0097 03       		.uleb128 0x3
+ 784 0098 0D030000 		.4byte	.LASF13
+ 785 009c 03       		.byte	0x3
+ 786 009d 24       		.byte	0x24
+ 787 009e 45000000 		.4byte	0x45
+ 788 00a2 03       		.uleb128 0x3
+ 789 00a3 99020000 		.4byte	.LASF14
+ 790 00a7 03       		.byte	0x3
+ 791 00a8 2C       		.byte	0x2c
+ 792 00a9 57000000 		.4byte	0x57
+ 793 00ad 02       		.uleb128 0x2
+ 794 00ae 04       		.byte	0x4
+ 795 00af 04       		.byte	0x4
+ 796 00b0 85000000 		.4byte	.LASF15
+ 797 00b4 02       		.uleb128 0x2
+ 798 00b5 08       		.byte	0x8
+ 799 00b6 04       		.byte	0x4
+ 800 00b7 A5010000 		.4byte	.LASF16
+ 801 00bb 02       		.uleb128 0x2
+ 802 00bc 01       		.byte	0x1
+ 803 00bd 08       		.byte	0x8
+ 804 00be CB020000 		.4byte	.LASF17
+ 805 00c2 02       		.uleb128 0x2
+ 806 00c3 08       		.byte	0x8
+ 807 00c4 04       		.byte	0x4
+ 808 00c5 33030000 		.4byte	.LASF18
+ 809 00c9 02       		.uleb128 0x2
+ 810 00ca 04       		.byte	0x4
+ 811 00cb 07       		.byte	0x7
+ 812 00cc A1020000 		.4byte	.LASF19
+ 813 00d0 05       		.uleb128 0x5
+ 814 00d1 23000000 		.4byte	.LASF20
+ 815 00d5 01       		.byte	0x1
+ 816 00d6 32       		.byte	0x32
+ 817 00d7 00000000 		.4byte	.LFB64
+ 818 00db 4C000000 		.4byte	.LFE64-.LFB64
+ 819 00df 01       		.uleb128 0x1
+ 820 00e0 9C       		.byte	0x9c
+ 821 00e1 F8000000 		.4byte	0xf8
+ 822 00e5 06       		.uleb128 0x6
+ 823 00e6 2A000000 		.4byte	.LVL3
+ 824 00ea DC050000 		.4byte	0x5dc
+ 825 00ee 06       		.uleb128 0x6
+ 826 00ef 3E000000 		.4byte	.LVL4
+ 827 00f3 E7050000 		.4byte	0x5e7
+ 828 00f7 00       		.byte	0
+ 829 00f8 07       		.uleb128 0x7
+ 830 00f9 4C454400 		.ascii	"LED\000"
+ 831 00fd 01       		.byte	0x1
+ 832 00fe 3A       		.byte	0x3a
+ 833 00ff 00000000 		.4byte	.LFB65
+ 834 0103 30000000 		.4byte	.LFE65-.LFB65
+ 835 0107 01       		.uleb128 0x1
+ 836 0108 9C       		.byte	0x9c
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 19
+
+
+ 837 0109 29010000 		.4byte	0x129
+ 838 010d 06       		.uleb128 0x6
+ 839 010e 18000000 		.4byte	.LVL5
+ 840 0112 F2050000 		.4byte	0x5f2
+ 841 0116 06       		.uleb128 0x6
+ 842 0117 20000000 		.4byte	.LVL6
+ 843 011b FD050000 		.4byte	0x5fd
+ 844 011f 06       		.uleb128 0x6
+ 845 0120 2A000000 		.4byte	.LVL7
+ 846 0124 08060000 		.4byte	0x608
+ 847 0128 00       		.byte	0
+ 848 0129 08       		.uleb128 0x8
+ 849 012a 16030000 		.4byte	.LASF21
+ 850 012e 01       		.byte	0x1
+ 851 012f 13       		.byte	0x13
+ 852 0130 7E000000 		.4byte	0x7e
+ 853 0134 00000000 		.4byte	.LFB63
+ 854 0138 1A000000 		.4byte	.LFE63-.LFB63
+ 855 013c 01       		.uleb128 0x1
+ 856 013d 9C       		.byte	0x9c
+ 857 013e 7B010000 		.4byte	0x17b
+ 858 0142 06       		.uleb128 0x6
+ 859 0143 06000000 		.4byte	.LVL8
+ 860 0147 13060000 		.4byte	0x613
+ 861 014b 09       		.uleb128 0x9
+ 862 014c 0C000000 		.4byte	.LVL9
+ 863 0150 1E060000 		.4byte	0x61e
+ 864 0154 5E010000 		.4byte	0x15e
+ 865 0158 0A       		.uleb128 0xa
+ 866 0159 01       		.uleb128 0x1
+ 867 015a 50       		.byte	0x50
+ 868 015b 01       		.uleb128 0x1
+ 869 015c 3C       		.byte	0x3c
+ 870 015d 00       		.byte	0
+ 871 015e 09       		.uleb128 0x9
+ 872 015f 12000000 		.4byte	.LVL10
+ 873 0163 1E060000 		.4byte	0x61e
+ 874 0167 71010000 		.4byte	0x171
+ 875 016b 0A       		.uleb128 0xa
+ 876 016c 01       		.uleb128 0x1
+ 877 016d 50       		.byte	0x50
+ 878 016e 01       		.uleb128 0x1
+ 879 016f 31       		.byte	0x31
+ 880 0170 00       		.byte	0
+ 881 0171 06       		.uleb128 0x6
+ 882 0172 16000000 		.4byte	.LVL11
+ 883 0176 29060000 		.4byte	0x629
+ 884 017a 00       		.byte	0
+ 885 017b 08       		.uleb128 0x8
+ 886 017c 47000000 		.4byte	.LASF22
+ 887 0180 01       		.byte	0x1
+ 888 0181 5D       		.byte	0x5d
+ 889 0182 7E000000 		.4byte	0x7e
+ 890 0186 00000000 		.4byte	.LFB67
+ 891 018a 2A000000 		.4byte	.LFE67-.LFB67
+ 892 018e 01       		.uleb128 0x1
+ 893 018f 9C       		.byte	0x9c
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 20
+
+
+ 894 0190 EB010000 		.4byte	0x1eb
+ 895 0194 06       		.uleb128 0x6
+ 896 0195 06000000 		.4byte	.LVL12
+ 897 0199 34060000 		.4byte	0x634
+ 898 019d 09       		.uleb128 0x9
+ 899 019e 10000000 		.4byte	.LVL13
+ 900 01a2 1E060000 		.4byte	0x61e
+ 901 01a6 B0010000 		.4byte	0x1b0
+ 902 01aa 0A       		.uleb128 0xa
+ 903 01ab 01       		.uleb128 0x1
+ 904 01ac 50       		.byte	0x50
+ 905 01ad 01       		.uleb128 0x1
+ 906 01ae 31       		.byte	0x31
+ 907 01af 00       		.byte	0
+ 908 01b0 09       		.uleb128 0x9
+ 909 01b1 18000000 		.4byte	.LVL14
+ 910 01b5 3F060000 		.4byte	0x63f
+ 911 01b9 C8010000 		.4byte	0x1c8
+ 912 01bd 0A       		.uleb128 0xa
+ 913 01be 01       		.uleb128 0x1
+ 914 01bf 50       		.byte	0x50
+ 915 01c0 01       		.uleb128 0x1
+ 916 01c1 30       		.byte	0x30
+ 917 01c2 0A       		.uleb128 0xa
+ 918 01c3 01       		.uleb128 0x1
+ 919 01c4 51       		.byte	0x51
+ 920 01c5 01       		.uleb128 0x1
+ 921 01c6 31       		.byte	0x31
+ 922 01c7 00       		.byte	0
+ 923 01c8 06       		.uleb128 0x6
+ 924 01c9 1C000000 		.4byte	.LVL15
+ 925 01cd 34060000 		.4byte	0x634
+ 926 01d1 06       		.uleb128 0x6
+ 927 01d2 20000000 		.4byte	.LVL16
+ 928 01d6 4A060000 		.4byte	0x64a
+ 929 01da 0B       		.uleb128 0xb
+ 930 01db 26000000 		.4byte	.LVL17
+ 931 01df 55060000 		.4byte	0x655
+ 932 01e3 0A       		.uleb128 0xa
+ 933 01e4 01       		.uleb128 0x1
+ 934 01e5 50       		.byte	0x50
+ 935 01e6 02       		.uleb128 0x2
+ 936 01e7 08       		.byte	0x8
+ 937 01e8 64       		.byte	0x64
+ 938 01e9 00       		.byte	0
+ 939 01ea 00       		.byte	0
+ 940 01eb 08       		.uleb128 0x8
+ 941 01ec 91020000 		.4byte	.LASF23
+ 942 01f0 01       		.byte	0x1
+ 943 01f1 68       		.byte	0x68
+ 944 01f2 7E000000 		.4byte	0x7e
+ 945 01f6 00000000 		.4byte	.LFB68
+ 946 01fa 1E000000 		.4byte	.LFE68-.LFB68
+ 947 01fe 01       		.uleb128 0x1
+ 948 01ff 9C       		.byte	0x9c
+ 949 0200 4D020000 		.4byte	0x24d
+ 950 0204 09       		.uleb128 0x9
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 21
+
+
+ 951 0205 08000000 		.4byte	.LVL18
+ 952 0209 FD050000 		.4byte	0x5fd
+ 953 020d 17020000 		.4byte	0x217
+ 954 0211 0A       		.uleb128 0xa
+ 955 0212 01       		.uleb128 0x1
+ 956 0213 50       		.byte	0x50
+ 957 0214 01       		.uleb128 0x1
+ 958 0215 30       		.byte	0x30
+ 959 0216 00       		.byte	0
+ 960 0217 09       		.uleb128 0x9
+ 961 0218 0E000000 		.4byte	.LVL19
+ 962 021c 60060000 		.4byte	0x660
+ 963 0220 2A020000 		.4byte	0x22a
+ 964 0224 0A       		.uleb128 0xa
+ 965 0225 01       		.uleb128 0x1
+ 966 0226 50       		.byte	0x50
+ 967 0227 01       		.uleb128 0x1
+ 968 0228 30       		.byte	0x30
+ 969 0229 00       		.byte	0
+ 970 022a 09       		.uleb128 0x9
+ 971 022b 14000000 		.4byte	.LVL20
+ 972 022f 6B060000 		.4byte	0x66b
+ 973 0233 3D020000 		.4byte	0x23d
+ 974 0237 0A       		.uleb128 0xa
+ 975 0238 01       		.uleb128 0x1
+ 976 0239 50       		.byte	0x50
+ 977 023a 01       		.uleb128 0x1
+ 978 023b 30       		.byte	0x30
+ 979 023c 00       		.byte	0
+ 980 023d 0B       		.uleb128 0xb
+ 981 023e 1A000000 		.4byte	.LVL21
+ 982 0242 76060000 		.4byte	0x676
+ 983 0246 0A       		.uleb128 0xa
+ 984 0247 01       		.uleb128 0x1
+ 985 0248 50       		.byte	0x50
+ 986 0249 01       		.uleb128 0x1
+ 987 024a 30       		.byte	0x30
+ 988 024b 00       		.byte	0
+ 989 024c 00       		.byte	0
+ 990 024d 0C       		.uleb128 0xc
+ 991 024e 27030000 		.4byte	.LASF25
+ 992 0252 01       		.byte	0x1
+ 993 0253 71       		.byte	0x71
+ 994 0254 7E000000 		.4byte	0x7e
+ 995 0258 00000000 		.4byte	.LFB69
+ 996 025c B4000000 		.4byte	.LFE69-.LFB69
+ 997 0260 01       		.uleb128 0x1
+ 998 0261 9C       		.byte	0x9c
+ 999 0262 EE030000 		.4byte	0x3ee
+ 1000 0266 0D       		.uleb128 0xd
+ 1001 0267 29000000 		.4byte	.LASF27
+ 1002 026b 01       		.byte	0x1
+ 1003 026c 71       		.byte	0x71
+ 1004 026d 7E000000 		.4byte	0x7e
+ 1005 0271 00000000 		.4byte	.LLST0
+ 1006 0275 09       		.uleb128 0x9
+ 1007 0276 12000000 		.4byte	.LVL24
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 22
+
+
+ 1008 027a FD050000 		.4byte	0x5fd
+ 1009 027e 88020000 		.4byte	0x288
+ 1010 0282 0A       		.uleb128 0xa
+ 1011 0283 01       		.uleb128 0x1
+ 1012 0284 50       		.byte	0x50
+ 1013 0285 01       		.uleb128 0x1
+ 1014 0286 30       		.byte	0x30
+ 1015 0287 00       		.byte	0
+ 1016 0288 09       		.uleb128 0x9
+ 1017 0289 18000000 		.4byte	.LVL25
+ 1018 028d 60060000 		.4byte	0x660
+ 1019 0291 9B020000 		.4byte	0x29b
+ 1020 0295 0A       		.uleb128 0xa
+ 1021 0296 01       		.uleb128 0x1
+ 1022 0297 50       		.byte	0x50
+ 1023 0298 01       		.uleb128 0x1
+ 1024 0299 30       		.byte	0x30
+ 1025 029a 00       		.byte	0
+ 1026 029b 09       		.uleb128 0x9
+ 1027 029c 1E000000 		.4byte	.LVL26
+ 1028 02a0 6B060000 		.4byte	0x66b
+ 1029 02a4 AE020000 		.4byte	0x2ae
+ 1030 02a8 0A       		.uleb128 0xa
+ 1031 02a9 01       		.uleb128 0x1
+ 1032 02aa 50       		.byte	0x50
+ 1033 02ab 01       		.uleb128 0x1
+ 1034 02ac 30       		.byte	0x30
+ 1035 02ad 00       		.byte	0
+ 1036 02ae 09       		.uleb128 0x9
+ 1037 02af 24000000 		.4byte	.LVL27
+ 1038 02b3 76060000 		.4byte	0x676
+ 1039 02b7 C1020000 		.4byte	0x2c1
+ 1040 02bb 0A       		.uleb128 0xa
+ 1041 02bc 01       		.uleb128 0x1
+ 1042 02bd 50       		.byte	0x50
+ 1043 02be 01       		.uleb128 0x1
+ 1044 02bf 30       		.byte	0x30
+ 1045 02c0 00       		.byte	0
+ 1046 02c1 09       		.uleb128 0x9
+ 1047 02c2 36000000 		.4byte	.LVL30
+ 1048 02c6 FD050000 		.4byte	0x5fd
+ 1049 02ca D4020000 		.4byte	0x2d4
+ 1050 02ce 0A       		.uleb128 0xa
+ 1051 02cf 01       		.uleb128 0x1
+ 1052 02d0 50       		.byte	0x50
+ 1053 02d1 01       		.uleb128 0x1
+ 1054 02d2 31       		.byte	0x31
+ 1055 02d3 00       		.byte	0
+ 1056 02d4 09       		.uleb128 0x9
+ 1057 02d5 3C000000 		.4byte	.LVL31
+ 1058 02d9 60060000 		.4byte	0x660
+ 1059 02dd E7020000 		.4byte	0x2e7
+ 1060 02e1 0A       		.uleb128 0xa
+ 1061 02e2 01       		.uleb128 0x1
+ 1062 02e3 50       		.byte	0x50
+ 1063 02e4 01       		.uleb128 0x1
+ 1064 02e5 30       		.byte	0x30
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 23
+
+
+ 1065 02e6 00       		.byte	0
+ 1066 02e7 09       		.uleb128 0x9
+ 1067 02e8 42000000 		.4byte	.LVL32
+ 1068 02ec 6B060000 		.4byte	0x66b
+ 1069 02f0 FA020000 		.4byte	0x2fa
+ 1070 02f4 0A       		.uleb128 0xa
+ 1071 02f5 01       		.uleb128 0x1
+ 1072 02f6 50       		.byte	0x50
+ 1073 02f7 01       		.uleb128 0x1
+ 1074 02f8 30       		.byte	0x30
+ 1075 02f9 00       		.byte	0
+ 1076 02fa 09       		.uleb128 0x9
+ 1077 02fb 48000000 		.4byte	.LVL33
+ 1078 02ff 76060000 		.4byte	0x676
+ 1079 0303 0D030000 		.4byte	0x30d
+ 1080 0307 0A       		.uleb128 0xa
+ 1081 0308 01       		.uleb128 0x1
+ 1082 0309 50       		.byte	0x50
+ 1083 030a 01       		.uleb128 0x1
+ 1084 030b 30       		.byte	0x30
+ 1085 030c 00       		.byte	0
+ 1086 030d 09       		.uleb128 0x9
+ 1087 030e 5A000000 		.4byte	.LVL36
+ 1088 0312 FD050000 		.4byte	0x5fd
+ 1089 0316 20030000 		.4byte	0x320
+ 1090 031a 0A       		.uleb128 0xa
+ 1091 031b 01       		.uleb128 0x1
+ 1092 031c 50       		.byte	0x50
+ 1093 031d 01       		.uleb128 0x1
+ 1094 031e 31       		.byte	0x31
+ 1095 031f 00       		.byte	0
+ 1096 0320 09       		.uleb128 0x9
+ 1097 0321 60000000 		.4byte	.LVL37
+ 1098 0325 60060000 		.4byte	0x660
+ 1099 0329 33030000 		.4byte	0x333
+ 1100 032d 0A       		.uleb128 0xa
+ 1101 032e 01       		.uleb128 0x1
+ 1102 032f 50       		.byte	0x50
+ 1103 0330 01       		.uleb128 0x1
+ 1104 0331 31       		.byte	0x31
+ 1105 0332 00       		.byte	0
+ 1106 0333 09       		.uleb128 0x9
+ 1107 0334 66000000 		.4byte	.LVL38
+ 1108 0338 6B060000 		.4byte	0x66b
+ 1109 033c 46030000 		.4byte	0x346
+ 1110 0340 0A       		.uleb128 0xa
+ 1111 0341 01       		.uleb128 0x1
+ 1112 0342 50       		.byte	0x50
+ 1113 0343 01       		.uleb128 0x1
+ 1114 0344 30       		.byte	0x30
+ 1115 0345 00       		.byte	0
+ 1116 0346 09       		.uleb128 0x9
+ 1117 0347 6C000000 		.4byte	.LVL39
+ 1118 034b 76060000 		.4byte	0x676
+ 1119 034f 59030000 		.4byte	0x359
+ 1120 0353 0A       		.uleb128 0xa
+ 1121 0354 01       		.uleb128 0x1
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 24
+
+
+ 1122 0355 50       		.byte	0x50
+ 1123 0356 01       		.uleb128 0x1
+ 1124 0357 30       		.byte	0x30
+ 1125 0358 00       		.byte	0
+ 1126 0359 09       		.uleb128 0x9
+ 1127 035a 7E000000 		.4byte	.LVL42
+ 1128 035e FD050000 		.4byte	0x5fd
+ 1129 0362 6C030000 		.4byte	0x36c
+ 1130 0366 0A       		.uleb128 0xa
+ 1131 0367 01       		.uleb128 0x1
+ 1132 0368 50       		.byte	0x50
+ 1133 0369 01       		.uleb128 0x1
+ 1134 036a 31       		.byte	0x31
+ 1135 036b 00       		.byte	0
+ 1136 036c 09       		.uleb128 0x9
+ 1137 036d 84000000 		.4byte	.LVL43
+ 1138 0371 60060000 		.4byte	0x660
+ 1139 0375 7F030000 		.4byte	0x37f
+ 1140 0379 0A       		.uleb128 0xa
+ 1141 037a 01       		.uleb128 0x1
+ 1142 037b 50       		.byte	0x50
+ 1143 037c 01       		.uleb128 0x1
+ 1144 037d 31       		.byte	0x31
+ 1145 037e 00       		.byte	0
+ 1146 037f 09       		.uleb128 0x9
+ 1147 0380 8A000000 		.4byte	.LVL44
+ 1148 0384 6B060000 		.4byte	0x66b
+ 1149 0388 92030000 		.4byte	0x392
+ 1150 038c 0A       		.uleb128 0xa
+ 1151 038d 01       		.uleb128 0x1
+ 1152 038e 50       		.byte	0x50
+ 1153 038f 01       		.uleb128 0x1
+ 1154 0390 31       		.byte	0x31
+ 1155 0391 00       		.byte	0
+ 1156 0392 09       		.uleb128 0x9
+ 1157 0393 90000000 		.4byte	.LVL45
+ 1158 0397 76060000 		.4byte	0x676
+ 1159 039b A5030000 		.4byte	0x3a5
+ 1160 039f 0A       		.uleb128 0xa
+ 1161 03a0 01       		.uleb128 0x1
+ 1162 03a1 50       		.byte	0x50
+ 1163 03a2 01       		.uleb128 0x1
+ 1164 03a3 30       		.byte	0x30
+ 1165 03a4 00       		.byte	0
+ 1166 03a5 09       		.uleb128 0x9
+ 1167 03a6 9E000000 		.4byte	.LVL48
+ 1168 03aa FD050000 		.4byte	0x5fd
+ 1169 03ae B8030000 		.4byte	0x3b8
+ 1170 03b2 0A       		.uleb128 0xa
+ 1171 03b3 01       		.uleb128 0x1
+ 1172 03b4 50       		.byte	0x50
+ 1173 03b5 01       		.uleb128 0x1
+ 1174 03b6 31       		.byte	0x31
+ 1175 03b7 00       		.byte	0
+ 1176 03b8 09       		.uleb128 0x9
+ 1177 03b9 A4000000 		.4byte	.LVL49
+ 1178 03bd 60060000 		.4byte	0x660
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 25
+
+
+ 1179 03c1 CB030000 		.4byte	0x3cb
+ 1180 03c5 0A       		.uleb128 0xa
+ 1181 03c6 01       		.uleb128 0x1
+ 1182 03c7 50       		.byte	0x50
+ 1183 03c8 01       		.uleb128 0x1
+ 1184 03c9 31       		.byte	0x31
+ 1185 03ca 00       		.byte	0
+ 1186 03cb 09       		.uleb128 0x9
+ 1187 03cc AA000000 		.4byte	.LVL50
+ 1188 03d0 6B060000 		.4byte	0x66b
+ 1189 03d4 DE030000 		.4byte	0x3de
+ 1190 03d8 0A       		.uleb128 0xa
+ 1191 03d9 01       		.uleb128 0x1
+ 1192 03da 50       		.byte	0x50
+ 1193 03db 01       		.uleb128 0x1
+ 1194 03dc 31       		.byte	0x31
+ 1195 03dd 00       		.byte	0
+ 1196 03de 0B       		.uleb128 0xb
+ 1197 03df B0000000 		.4byte	.LVL51
+ 1198 03e3 76060000 		.4byte	0x676
+ 1199 03e7 0A       		.uleb128 0xa
+ 1200 03e8 01       		.uleb128 0x1
+ 1201 03e9 50       		.byte	0x50
+ 1202 03ea 01       		.uleb128 0x1
+ 1203 03eb 31       		.byte	0x31
+ 1204 03ec 00       		.byte	0
+ 1205 03ed 00       		.byte	0
+ 1206 03ee 08       		.uleb128 0x8
+ 1207 03ef 4B030000 		.4byte	.LASF24
+ 1208 03f3 01       		.byte	0x1
+ 1209 03f4 88       		.byte	0x88
+ 1210 03f5 7E000000 		.4byte	0x7e
+ 1211 03f9 00000000 		.4byte	.LFB70
+ 1212 03fd 1C000000 		.4byte	.LFE70-.LFB70
+ 1213 0401 01       		.uleb128 0x1
+ 1214 0402 9C       		.byte	0x9c
+ 1215 0403 23040000 		.4byte	0x423
+ 1216 0407 06       		.uleb128 0x6
+ 1217 0408 06000000 		.4byte	.LVL52
+ 1218 040c 08060000 		.4byte	0x608
+ 1219 0410 06       		.uleb128 0x6
+ 1220 0411 10000000 		.4byte	.LVL53
+ 1221 0415 F2050000 		.4byte	0x5f2
+ 1222 0419 06       		.uleb128 0x6
+ 1223 041a 18000000 		.4byte	.LVL54
+ 1224 041e FD050000 		.4byte	0x5fd
+ 1225 0422 00       		.byte	0
+ 1226 0423 0C       		.uleb128 0xc
+ 1227 0424 70000000 		.4byte	.LASF26
+ 1228 0428 01       		.byte	0x1
+ 1229 0429 8F       		.byte	0x8f
+ 1230 042a 7E000000 		.4byte	0x7e
+ 1231 042e 00000000 		.4byte	.LFB71
+ 1232 0432 24000000 		.4byte	.LFE71-.LFB71
+ 1233 0436 01       		.uleb128 0x1
+ 1234 0437 9C       		.byte	0x9c
+ 1235 0438 67040000 		.4byte	0x467
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 26
+
+
+ 1236 043c 0E       		.uleb128 0xe
+ 1237 043d 63707400 		.ascii	"cpt\000"
+ 1238 0441 01       		.byte	0x1
+ 1239 0442 8F       		.byte	0x8f
+ 1240 0443 7E000000 		.4byte	0x7e
+ 1241 0447 CA000000 		.4byte	.LLST1
+ 1242 044b 06       		.uleb128 0x6
+ 1243 044c 08000000 		.4byte	.LVL56
+ 1244 0450 08060000 		.4byte	0x608
+ 1245 0454 06       		.uleb128 0x6
+ 1246 0455 18000000 		.4byte	.LVL57
+ 1247 0459 F2050000 		.4byte	0x5f2
+ 1248 045d 06       		.uleb128 0x6
+ 1249 045e 20000000 		.4byte	.LVL58
+ 1250 0462 FD050000 		.4byte	0x5fd
+ 1251 0466 00       		.byte	0
+ 1252 0467 0F       		.uleb128 0xf
+ 1253 0468 3D010000 		.4byte	.LASF28
+ 1254 046c 01       		.byte	0x1
+ 1255 046d 97       		.byte	0x97
+ 1256 046e 7E000000 		.4byte	0x7e
+ 1257 0472 00000000 		.4byte	.LFB72
+ 1258 0476 48000000 		.4byte	.LFE72-.LFB72
+ 1259 047a 01       		.uleb128 0x1
+ 1260 047b 9C       		.byte	0x9c
+ 1261 047c A1040000 		.4byte	0x4a1
+ 1262 0480 10       		.uleb128 0x10
+ 1263 0481 02000000 		.4byte	.LBB2
+ 1264 0485 30000000 		.4byte	.LBE2-.LBB2
+ 1265 0489 11       		.uleb128 0x11
+ 1266 048a 6900     		.ascii	"i\000"
+ 1267 048c 01       		.byte	0x1
+ 1268 048d 98       		.byte	0x98
+ 1269 048e 7E000000 		.4byte	0x7e
+ 1270 0492 E8000000 		.4byte	.LLST2
+ 1271 0496 06       		.uleb128 0x6
+ 1272 0497 22000000 		.4byte	.LVL64
+ 1273 049b 81060000 		.4byte	0x681
+ 1274 049f 00       		.byte	0
+ 1275 04a0 00       		.byte	0
+ 1276 04a1 12       		.uleb128 0x12
+ 1277 04a2 AC010000 		.4byte	.LASF56
+ 1278 04a6 01       		.byte	0x1
+ 1279 04a7 42       		.byte	0x42
+ 1280 04a8 7E000000 		.4byte	0x7e
+ 1281 04ac 00000000 		.4byte	.LFB66
+ 1282 04b0 38000000 		.4byte	.LFE66-.LFB66
+ 1283 04b4 01       		.uleb128 0x1
+ 1284 04b5 9C       		.byte	0x9c
+ 1285 04b6 32050000 		.4byte	0x532
+ 1286 04ba 06       		.uleb128 0x6
+ 1287 04bb 08000000 		.4byte	.LVL68
+ 1288 04bf 29010000 		.4byte	0x129
+ 1289 04c3 06       		.uleb128 0x6
+ 1290 04c4 0C000000 		.4byte	.LVL69
+ 1291 04c8 EB010000 		.4byte	0x1eb
+ 1292 04cc 06       		.uleb128 0x6
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 27
+
+
+ 1293 04cd 10000000 		.4byte	.LVL70
+ 1294 04d1 8C060000 		.4byte	0x68c
+ 1295 04d5 06       		.uleb128 0x6
+ 1296 04d6 14000000 		.4byte	.LVL71
+ 1297 04da 97060000 		.4byte	0x697
+ 1298 04de 06       		.uleb128 0x6
+ 1299 04df 18000000 		.4byte	.LVL72
+ 1300 04e3 A2060000 		.4byte	0x6a2
+ 1301 04e7 09       		.uleb128 0x9
+ 1302 04e8 1E000000 		.4byte	.LVL73
+ 1303 04ec DC050000 		.4byte	0x5dc
+ 1304 04f0 FA040000 		.4byte	0x4fa
+ 1305 04f4 0A       		.uleb128 0xa
+ 1306 04f5 01       		.uleb128 0x1
+ 1307 04f6 50       		.byte	0x50
+ 1308 04f7 01       		.uleb128 0x1
+ 1309 04f8 30       		.byte	0x30
+ 1310 04f9 00       		.byte	0
+ 1311 04fa 09       		.uleb128 0x9
+ 1312 04fb 24000000 		.4byte	.LVL74
+ 1313 04ff AD060000 		.4byte	0x6ad
+ 1314 0503 11050000 		.4byte	0x511
+ 1315 0507 0A       		.uleb128 0xa
+ 1316 0508 01       		.uleb128 0x1
+ 1317 0509 50       		.byte	0x50
+ 1318 050a 05       		.uleb128 0x5
+ 1319 050b 03       		.byte	0x3
+ 1320 050c 00000000 		.4byte	Sound
+ 1321 0510 00       		.byte	0
+ 1322 0511 09       		.uleb128 0x9
+ 1323 0512 2A000000 		.4byte	.LVL75
+ 1324 0516 B8060000 		.4byte	0x6b8
+ 1325 051a 28050000 		.4byte	0x528
+ 1326 051e 0A       		.uleb128 0xa
+ 1327 051f 01       		.uleb128 0x1
+ 1328 0520 50       		.byte	0x50
+ 1329 0521 05       		.uleb128 0x5
+ 1330 0522 03       		.byte	0x3
+ 1331 0523 00000000 		.4byte	LED
+ 1332 0527 00       		.byte	0
+ 1333 0528 06       		.uleb128 0x6
+ 1334 0529 2E000000 		.4byte	.LVL76
+ 1335 052d 67040000 		.4byte	0x467
+ 1336 0531 00       		.byte	0
+ 1337 0532 0F       		.uleb128 0xf
+ 1338 0533 AA020000 		.4byte	.LASF29
+ 1339 0537 01       		.byte	0x1
+ 1340 0538 9E       		.byte	0x9e
+ 1341 0539 7E000000 		.4byte	0x7e
+ 1342 053d 00000000 		.4byte	.LFB73
+ 1343 0541 84000000 		.4byte	.LFE73-.LFB73
+ 1344 0545 01       		.uleb128 0x1
+ 1345 0546 9C       		.byte	0x9c
+ 1346 0547 79050000 		.4byte	0x579
+ 1347 054b 06       		.uleb128 0x6
+ 1348 054c 06000000 		.4byte	.LVL77
+ 1349 0550 08060000 		.4byte	0x608
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 28
+
+
+ 1350 0554 06       		.uleb128 0x6
+ 1351 0555 22000000 		.4byte	.LVL78
+ 1352 0559 F2050000 		.4byte	0x5f2
+ 1353 055d 06       		.uleb128 0x6
+ 1354 055e 2A000000 		.4byte	.LVL79
+ 1355 0562 FD050000 		.4byte	0x5fd
+ 1356 0566 06       		.uleb128 0x6
+ 1357 0567 34000000 		.4byte	.LVL80
+ 1358 056b E7050000 		.4byte	0x5e7
+ 1359 056f 06       		.uleb128 0x6
+ 1360 0570 62000000 		.4byte	.LVL84
+ 1361 0574 DC050000 		.4byte	0x5dc
+ 1362 0578 00       		.byte	0
+ 1363 0579 13       		.uleb128 0x13
+ 1364 057a 8E010000 		.4byte	.LASF30
+ 1365 057e 04       		.byte	0x4
+ 1366 057f 1207     		.2byte	0x712
+ 1367 0581 85050000 		.4byte	0x585
+ 1368 0585 14       		.uleb128 0x14
+ 1369 0586 A2000000 		.4byte	0xa2
+ 1370 058a 15       		.uleb128 0x15
+ 1371 058b AD000000 		.4byte	0xad
+ 1372 058f 9A050000 		.4byte	0x59a
+ 1373 0593 16       		.uleb128 0x16
+ 1374 0594 C9000000 		.4byte	0xc9
+ 1375 0598 63       		.byte	0x63
+ 1376 0599 00       		.byte	0
+ 1377 059a 17       		.uleb128 0x17
+ 1378 059b 36000000 		.4byte	.LASF31
+ 1379 059f 01       		.byte	0x1
+ 1380 05a0 2D       		.byte	0x2d
+ 1381 05a1 8A050000 		.4byte	0x58a
+ 1382 05a5 05       		.uleb128 0x5
+ 1383 05a6 03       		.byte	0x3
+ 1384 05a7 00000000 		.4byte	signal
+ 1385 05ab 18       		.uleb128 0x18
+ 1386 05ac 6A00     		.ascii	"j\000"
+ 1387 05ae 01       		.byte	0x1
+ 1388 05af 2E       		.byte	0x2e
+ 1389 05b0 97000000 		.4byte	0x97
+ 1390 05b4 05       		.uleb128 0x5
+ 1391 05b5 03       		.byte	0x3
+ 1392 05b6 00000000 		.4byte	j
+ 1393 05ba 17       		.uleb128 0x17
+ 1394 05bb 30000000 		.4byte	.LASF32
+ 1395 05bf 01       		.byte	0x1
+ 1396 05c0 2F       		.byte	0x2f
+ 1397 05c1 8C000000 		.4byte	0x8c
+ 1398 05c5 05       		.uleb128 0x5
+ 1399 05c6 03       		.byte	0x3
+ 1400 05c7 00000000 		.4byte	value
+ 1401 05cb 18       		.uleb128 0x18
+ 1402 05cc 63707400 		.ascii	"cpt\000"
+ 1403 05d0 01       		.byte	0x1
+ 1404 05d1 30       		.byte	0x30
+ 1405 05d2 97000000 		.4byte	0x97
+ 1406 05d6 05       		.uleb128 0x5
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 29
+
+
+ 1407 05d7 03       		.byte	0x3
+ 1408 05d8 00000000 		.4byte	cpt
+ 1409 05dc 19       		.uleb128 0x19
+ 1410 05dd 54000000 		.4byte	.LASF33
+ 1411 05e1 54000000 		.4byte	.LASF33
+ 1412 05e5 05       		.byte	0x5
+ 1413 05e6 37       		.byte	0x37
+ 1414 05e7 19       		.uleb128 0x19
+ 1415 05e8 72010000 		.4byte	.LASF34
+ 1416 05ec 72010000 		.4byte	.LASF34
+ 1417 05f0 06       		.byte	0x6
+ 1418 05f1 5E       		.byte	0x5e
+ 1419 05f2 19       		.uleb128 0x19
+ 1420 05f3 67010000 		.4byte	.LASF35
+ 1421 05f7 67010000 		.4byte	.LASF35
+ 1422 05fb 07       		.byte	0x7
+ 1423 05fc 29       		.byte	0x29
+ 1424 05fd 19       		.uleb128 0x19
+ 1425 05fe EC020000 		.4byte	.LASF36
+ 1426 0602 EC020000 		.4byte	.LASF36
+ 1427 0606 07       		.byte	0x7
+ 1428 0607 26       		.byte	0x26
+ 1429 0608 19       		.uleb128 0x19
+ 1430 0609 00000000 		.4byte	.LASF37
+ 1431 060d 00000000 		.4byte	.LASF37
+ 1432 0611 08       		.byte	0x8
+ 1433 0612 5E       		.byte	0x5e
+ 1434 0613 19       		.uleb128 0x19
+ 1435 0614 8B000000 		.4byte	.LASF38
+ 1436 0618 8B000000 		.4byte	.LASF38
+ 1437 061c 09       		.byte	0x9
+ 1438 061d 38       		.byte	0x38
+ 1439 061e 19       		.uleb128 0x19
+ 1440 061f DB020000 		.4byte	.LASF39
+ 1441 0623 DB020000 		.4byte	.LASF39
+ 1442 0627 09       		.byte	0x9
+ 1443 0628 3A       		.byte	0x3a
+ 1444 0629 19       		.uleb128 0x19
+ 1445 062a 87020000 		.4byte	.LASF40
+ 1446 062e 87020000 		.4byte	.LASF40
+ 1447 0632 0A       		.byte	0xa
+ 1448 0633 3A       		.byte	0x3a
+ 1449 0634 19       		.uleb128 0x19
+ 1450 0635 D0020000 		.4byte	.LASF41
+ 1451 0639 D0020000 		.4byte	.LASF41
+ 1452 063d 0B       		.byte	0xb
+ 1453 063e 0F       		.byte	0xf
+ 1454 063f 19       		.uleb128 0x19
+ 1455 0640 6E020000 		.4byte	.LASF42
+ 1456 0644 6E020000 		.4byte	.LASF42
+ 1457 0648 09       		.byte	0x9
+ 1458 0649 3D       		.byte	0x3d
+ 1459 064a 19       		.uleb128 0x19
+ 1460 064b 7B020000 		.4byte	.LASF43
+ 1461 064f 7B020000 		.4byte	.LASF43
+ 1462 0653 09       		.byte	0x9
+ 1463 0654 3E       		.byte	0x3e
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 30
+
+
+ 1464 0655 19       		.uleb128 0x19
+ 1465 0656 65030000 		.4byte	.LASF44
+ 1466 065a 65030000 		.4byte	.LASF44
+ 1467 065e 0C       		.byte	0xc
+ 1468 065f 76       		.byte	0x76
+ 1469 0660 19       		.uleb128 0x19
+ 1470 0661 3F030000 		.4byte	.LASF45
+ 1471 0665 3F030000 		.4byte	.LASF45
+ 1472 0669 0D       		.byte	0xd
+ 1473 066a 26       		.byte	0x26
+ 1474 066b 19       		.uleb128 0x19
+ 1475 066c 79000000 		.4byte	.LASF46
+ 1476 0670 79000000 		.4byte	.LASF46
+ 1477 0674 0E       		.byte	0xe
+ 1478 0675 26       		.byte	0x26
+ 1479 0676 19       		.uleb128 0x19
+ 1480 0677 6D030000 		.4byte	.LASF47
+ 1481 067b 6D030000 		.4byte	.LASF47
+ 1482 067f 0F       		.byte	0xf
+ 1483 0680 26       		.byte	0x26
+ 1484 0681 1A       		.uleb128 0x1a
+ 1485 0682 73696E00 		.ascii	"sin\000"
+ 1486 0686 73696E00 		.ascii	"sin\000"
+ 1487 068a 12       		.byte	0x12
+ 1488 068b 6F       		.byte	0x6f
+ 1489 068c 19       		.uleb128 0x19
+ 1490 068d B1010000 		.4byte	.LASF48
+ 1491 0691 B1010000 		.4byte	.LASF48
+ 1492 0695 08       		.byte	0x8
+ 1493 0696 5A       		.byte	0x5a
+ 1494 0697 19       		.uleb128 0x19
+ 1495 0698 61000000 		.4byte	.LASF49
+ 1496 069c 61000000 		.4byte	.LASF49
+ 1497 06a0 06       		.byte	0x6
+ 1498 06a1 5A       		.byte	0x5a
+ 1499 06a2 19       		.uleb128 0x19
+ 1500 06a3 9B010000 		.4byte	.LASF50
+ 1501 06a7 9B010000 		.4byte	.LASF50
+ 1502 06ab 05       		.byte	0x5
+ 1503 06ac 33       		.byte	0x33
+ 1504 06ad 19       		.uleb128 0x19
+ 1505 06ae BD010000 		.4byte	.LASF51
+ 1506 06b2 BD010000 		.4byte	.LASF51
+ 1507 06b6 10       		.byte	0x10
+ 1508 06b7 18       		.byte	0x18
+ 1509 06b8 19       		.uleb128 0x19
+ 1510 06b9 55030000 		.4byte	.LASF52
+ 1511 06bd 55030000 		.4byte	.LASF52
+ 1512 06c1 11       		.byte	0x11
+ 1513 06c2 18       		.byte	0x18
+ 1514 06c3 00       		.byte	0
+ 1515              		.section	.debug_abbrev,"",%progbits
+ 1516              	.Ldebug_abbrev0:
+ 1517 0000 01       		.uleb128 0x1
+ 1518 0001 11       		.uleb128 0x11
+ 1519 0002 01       		.byte	0x1
+ 1520 0003 25       		.uleb128 0x25
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 31
+
+
+ 1521 0004 0E       		.uleb128 0xe
+ 1522 0005 13       		.uleb128 0x13
+ 1523 0006 0B       		.uleb128 0xb
+ 1524 0007 03       		.uleb128 0x3
+ 1525 0008 0E       		.uleb128 0xe
+ 1526 0009 1B       		.uleb128 0x1b
+ 1527 000a 0E       		.uleb128 0xe
+ 1528 000b 55       		.uleb128 0x55
+ 1529 000c 17       		.uleb128 0x17
+ 1530 000d 11       		.uleb128 0x11
+ 1531 000e 01       		.uleb128 0x1
+ 1532 000f 10       		.uleb128 0x10
+ 1533 0010 17       		.uleb128 0x17
+ 1534 0011 00       		.byte	0
+ 1535 0012 00       		.byte	0
+ 1536 0013 02       		.uleb128 0x2
+ 1537 0014 24       		.uleb128 0x24
+ 1538 0015 00       		.byte	0
+ 1539 0016 0B       		.uleb128 0xb
+ 1540 0017 0B       		.uleb128 0xb
+ 1541 0018 3E       		.uleb128 0x3e
+ 1542 0019 0B       		.uleb128 0xb
+ 1543 001a 03       		.uleb128 0x3
+ 1544 001b 0E       		.uleb128 0xe
+ 1545 001c 00       		.byte	0
+ 1546 001d 00       		.byte	0
+ 1547 001e 03       		.uleb128 0x3
+ 1548 001f 16       		.uleb128 0x16
+ 1549 0020 00       		.byte	0
+ 1550 0021 03       		.uleb128 0x3
+ 1551 0022 0E       		.uleb128 0xe
+ 1552 0023 3A       		.uleb128 0x3a
+ 1553 0024 0B       		.uleb128 0xb
+ 1554 0025 3B       		.uleb128 0x3b
+ 1555 0026 0B       		.uleb128 0xb
+ 1556 0027 49       		.uleb128 0x49
+ 1557 0028 13       		.uleb128 0x13
+ 1558 0029 00       		.byte	0
+ 1559 002a 00       		.byte	0
+ 1560 002b 04       		.uleb128 0x4
+ 1561 002c 24       		.uleb128 0x24
+ 1562 002d 00       		.byte	0
+ 1563 002e 0B       		.uleb128 0xb
+ 1564 002f 0B       		.uleb128 0xb
+ 1565 0030 3E       		.uleb128 0x3e
+ 1566 0031 0B       		.uleb128 0xb
+ 1567 0032 03       		.uleb128 0x3
+ 1568 0033 08       		.uleb128 0x8
+ 1569 0034 00       		.byte	0
+ 1570 0035 00       		.byte	0
+ 1571 0036 05       		.uleb128 0x5
+ 1572 0037 2E       		.uleb128 0x2e
+ 1573 0038 01       		.byte	0x1
+ 1574 0039 3F       		.uleb128 0x3f
+ 1575 003a 19       		.uleb128 0x19
+ 1576 003b 03       		.uleb128 0x3
+ 1577 003c 0E       		.uleb128 0xe
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 32
+
+
+ 1578 003d 3A       		.uleb128 0x3a
+ 1579 003e 0B       		.uleb128 0xb
+ 1580 003f 3B       		.uleb128 0x3b
+ 1581 0040 0B       		.uleb128 0xb
+ 1582 0041 27       		.uleb128 0x27
+ 1583 0042 19       		.uleb128 0x19
+ 1584 0043 11       		.uleb128 0x11
+ 1585 0044 01       		.uleb128 0x1
+ 1586 0045 12       		.uleb128 0x12
+ 1587 0046 06       		.uleb128 0x6
+ 1588 0047 40       		.uleb128 0x40
+ 1589 0048 18       		.uleb128 0x18
+ 1590 0049 9642     		.uleb128 0x2116
+ 1591 004b 19       		.uleb128 0x19
+ 1592 004c 01       		.uleb128 0x1
+ 1593 004d 13       		.uleb128 0x13
+ 1594 004e 00       		.byte	0
+ 1595 004f 00       		.byte	0
+ 1596 0050 06       		.uleb128 0x6
+ 1597 0051 898201   		.uleb128 0x4109
+ 1598 0054 00       		.byte	0
+ 1599 0055 11       		.uleb128 0x11
+ 1600 0056 01       		.uleb128 0x1
+ 1601 0057 31       		.uleb128 0x31
+ 1602 0058 13       		.uleb128 0x13
+ 1603 0059 00       		.byte	0
+ 1604 005a 00       		.byte	0
+ 1605 005b 07       		.uleb128 0x7
+ 1606 005c 2E       		.uleb128 0x2e
+ 1607 005d 01       		.byte	0x1
+ 1608 005e 3F       		.uleb128 0x3f
+ 1609 005f 19       		.uleb128 0x19
+ 1610 0060 03       		.uleb128 0x3
+ 1611 0061 08       		.uleb128 0x8
+ 1612 0062 3A       		.uleb128 0x3a
+ 1613 0063 0B       		.uleb128 0xb
+ 1614 0064 3B       		.uleb128 0x3b
+ 1615 0065 0B       		.uleb128 0xb
+ 1616 0066 27       		.uleb128 0x27
+ 1617 0067 19       		.uleb128 0x19
+ 1618 0068 11       		.uleb128 0x11
+ 1619 0069 01       		.uleb128 0x1
+ 1620 006a 12       		.uleb128 0x12
+ 1621 006b 06       		.uleb128 0x6
+ 1622 006c 40       		.uleb128 0x40
+ 1623 006d 18       		.uleb128 0x18
+ 1624 006e 9742     		.uleb128 0x2117
+ 1625 0070 19       		.uleb128 0x19
+ 1626 0071 01       		.uleb128 0x1
+ 1627 0072 13       		.uleb128 0x13
+ 1628 0073 00       		.byte	0
+ 1629 0074 00       		.byte	0
+ 1630 0075 08       		.uleb128 0x8
+ 1631 0076 2E       		.uleb128 0x2e
+ 1632 0077 01       		.byte	0x1
+ 1633 0078 3F       		.uleb128 0x3f
+ 1634 0079 19       		.uleb128 0x19
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 33
+
+
+ 1635 007a 03       		.uleb128 0x3
+ 1636 007b 0E       		.uleb128 0xe
+ 1637 007c 3A       		.uleb128 0x3a
+ 1638 007d 0B       		.uleb128 0xb
+ 1639 007e 3B       		.uleb128 0x3b
+ 1640 007f 0B       		.uleb128 0xb
+ 1641 0080 49       		.uleb128 0x49
+ 1642 0081 13       		.uleb128 0x13
+ 1643 0082 11       		.uleb128 0x11
+ 1644 0083 01       		.uleb128 0x1
+ 1645 0084 12       		.uleb128 0x12
+ 1646 0085 06       		.uleb128 0x6
+ 1647 0086 40       		.uleb128 0x40
+ 1648 0087 18       		.uleb128 0x18
+ 1649 0088 9742     		.uleb128 0x2117
+ 1650 008a 19       		.uleb128 0x19
+ 1651 008b 01       		.uleb128 0x1
+ 1652 008c 13       		.uleb128 0x13
+ 1653 008d 00       		.byte	0
+ 1654 008e 00       		.byte	0
+ 1655 008f 09       		.uleb128 0x9
+ 1656 0090 898201   		.uleb128 0x4109
+ 1657 0093 01       		.byte	0x1
+ 1658 0094 11       		.uleb128 0x11
+ 1659 0095 01       		.uleb128 0x1
+ 1660 0096 31       		.uleb128 0x31
+ 1661 0097 13       		.uleb128 0x13
+ 1662 0098 01       		.uleb128 0x1
+ 1663 0099 13       		.uleb128 0x13
+ 1664 009a 00       		.byte	0
+ 1665 009b 00       		.byte	0
+ 1666 009c 0A       		.uleb128 0xa
+ 1667 009d 8A8201   		.uleb128 0x410a
+ 1668 00a0 00       		.byte	0
+ 1669 00a1 02       		.uleb128 0x2
+ 1670 00a2 18       		.uleb128 0x18
+ 1671 00a3 9142     		.uleb128 0x2111
+ 1672 00a5 18       		.uleb128 0x18
+ 1673 00a6 00       		.byte	0
+ 1674 00a7 00       		.byte	0
+ 1675 00a8 0B       		.uleb128 0xb
+ 1676 00a9 898201   		.uleb128 0x4109
+ 1677 00ac 01       		.byte	0x1
+ 1678 00ad 11       		.uleb128 0x11
+ 1679 00ae 01       		.uleb128 0x1
+ 1680 00af 31       		.uleb128 0x31
+ 1681 00b0 13       		.uleb128 0x13
+ 1682 00b1 00       		.byte	0
+ 1683 00b2 00       		.byte	0
+ 1684 00b3 0C       		.uleb128 0xc
+ 1685 00b4 2E       		.uleb128 0x2e
+ 1686 00b5 01       		.byte	0x1
+ 1687 00b6 3F       		.uleb128 0x3f
+ 1688 00b7 19       		.uleb128 0x19
+ 1689 00b8 03       		.uleb128 0x3
+ 1690 00b9 0E       		.uleb128 0xe
+ 1691 00ba 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 34
+
+
+ 1692 00bb 0B       		.uleb128 0xb
+ 1693 00bc 3B       		.uleb128 0x3b
+ 1694 00bd 0B       		.uleb128 0xb
+ 1695 00be 27       		.uleb128 0x27
+ 1696 00bf 19       		.uleb128 0x19
+ 1697 00c0 49       		.uleb128 0x49
+ 1698 00c1 13       		.uleb128 0x13
+ 1699 00c2 11       		.uleb128 0x11
+ 1700 00c3 01       		.uleb128 0x1
+ 1701 00c4 12       		.uleb128 0x12
+ 1702 00c5 06       		.uleb128 0x6
+ 1703 00c6 40       		.uleb128 0x40
+ 1704 00c7 18       		.uleb128 0x18
+ 1705 00c8 9742     		.uleb128 0x2117
+ 1706 00ca 19       		.uleb128 0x19
+ 1707 00cb 01       		.uleb128 0x1
+ 1708 00cc 13       		.uleb128 0x13
+ 1709 00cd 00       		.byte	0
+ 1710 00ce 00       		.byte	0
+ 1711 00cf 0D       		.uleb128 0xd
+ 1712 00d0 05       		.uleb128 0x5
+ 1713 00d1 00       		.byte	0
+ 1714 00d2 03       		.uleb128 0x3
+ 1715 00d3 0E       		.uleb128 0xe
+ 1716 00d4 3A       		.uleb128 0x3a
+ 1717 00d5 0B       		.uleb128 0xb
+ 1718 00d6 3B       		.uleb128 0x3b
+ 1719 00d7 0B       		.uleb128 0xb
+ 1720 00d8 49       		.uleb128 0x49
+ 1721 00d9 13       		.uleb128 0x13
+ 1722 00da 02       		.uleb128 0x2
+ 1723 00db 17       		.uleb128 0x17
+ 1724 00dc 00       		.byte	0
+ 1725 00dd 00       		.byte	0
+ 1726 00de 0E       		.uleb128 0xe
+ 1727 00df 05       		.uleb128 0x5
+ 1728 00e0 00       		.byte	0
+ 1729 00e1 03       		.uleb128 0x3
+ 1730 00e2 08       		.uleb128 0x8
+ 1731 00e3 3A       		.uleb128 0x3a
+ 1732 00e4 0B       		.uleb128 0xb
+ 1733 00e5 3B       		.uleb128 0x3b
+ 1734 00e6 0B       		.uleb128 0xb
+ 1735 00e7 49       		.uleb128 0x49
+ 1736 00e8 13       		.uleb128 0x13
+ 1737 00e9 02       		.uleb128 0x2
+ 1738 00ea 17       		.uleb128 0x17
+ 1739 00eb 00       		.byte	0
+ 1740 00ec 00       		.byte	0
+ 1741 00ed 0F       		.uleb128 0xf
+ 1742 00ee 2E       		.uleb128 0x2e
+ 1743 00ef 01       		.byte	0x1
+ 1744 00f0 3F       		.uleb128 0x3f
+ 1745 00f1 19       		.uleb128 0x19
+ 1746 00f2 03       		.uleb128 0x3
+ 1747 00f3 0E       		.uleb128 0xe
+ 1748 00f4 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 35
+
+
+ 1749 00f5 0B       		.uleb128 0xb
+ 1750 00f6 3B       		.uleb128 0x3b
+ 1751 00f7 0B       		.uleb128 0xb
+ 1752 00f8 49       		.uleb128 0x49
+ 1753 00f9 13       		.uleb128 0x13
+ 1754 00fa 11       		.uleb128 0x11
+ 1755 00fb 01       		.uleb128 0x1
+ 1756 00fc 12       		.uleb128 0x12
+ 1757 00fd 06       		.uleb128 0x6
+ 1758 00fe 40       		.uleb128 0x40
+ 1759 00ff 18       		.uleb128 0x18
+ 1760 0100 9642     		.uleb128 0x2116
+ 1761 0102 19       		.uleb128 0x19
+ 1762 0103 01       		.uleb128 0x1
+ 1763 0104 13       		.uleb128 0x13
+ 1764 0105 00       		.byte	0
+ 1765 0106 00       		.byte	0
+ 1766 0107 10       		.uleb128 0x10
+ 1767 0108 0B       		.uleb128 0xb
+ 1768 0109 01       		.byte	0x1
+ 1769 010a 11       		.uleb128 0x11
+ 1770 010b 01       		.uleb128 0x1
+ 1771 010c 12       		.uleb128 0x12
+ 1772 010d 06       		.uleb128 0x6
+ 1773 010e 00       		.byte	0
+ 1774 010f 00       		.byte	0
+ 1775 0110 11       		.uleb128 0x11
+ 1776 0111 34       		.uleb128 0x34
+ 1777 0112 00       		.byte	0
+ 1778 0113 03       		.uleb128 0x3
+ 1779 0114 08       		.uleb128 0x8
+ 1780 0115 3A       		.uleb128 0x3a
+ 1781 0116 0B       		.uleb128 0xb
+ 1782 0117 3B       		.uleb128 0x3b
+ 1783 0118 0B       		.uleb128 0xb
+ 1784 0119 49       		.uleb128 0x49
+ 1785 011a 13       		.uleb128 0x13
+ 1786 011b 02       		.uleb128 0x2
+ 1787 011c 17       		.uleb128 0x17
+ 1788 011d 00       		.byte	0
+ 1789 011e 00       		.byte	0
+ 1790 011f 12       		.uleb128 0x12
+ 1791 0120 2E       		.uleb128 0x2e
+ 1792 0121 01       		.byte	0x1
+ 1793 0122 3F       		.uleb128 0x3f
+ 1794 0123 19       		.uleb128 0x19
+ 1795 0124 03       		.uleb128 0x3
+ 1796 0125 0E       		.uleb128 0xe
+ 1797 0126 3A       		.uleb128 0x3a
+ 1798 0127 0B       		.uleb128 0xb
+ 1799 0128 3B       		.uleb128 0x3b
+ 1800 0129 0B       		.uleb128 0xb
+ 1801 012a 27       		.uleb128 0x27
+ 1802 012b 19       		.uleb128 0x19
+ 1803 012c 49       		.uleb128 0x49
+ 1804 012d 13       		.uleb128 0x13
+ 1805 012e 8701     		.uleb128 0x87
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 36
+
+
+ 1806 0130 19       		.uleb128 0x19
+ 1807 0131 11       		.uleb128 0x11
+ 1808 0132 01       		.uleb128 0x1
+ 1809 0133 12       		.uleb128 0x12
+ 1810 0134 06       		.uleb128 0x6
+ 1811 0135 40       		.uleb128 0x40
+ 1812 0136 18       		.uleb128 0x18
+ 1813 0137 9742     		.uleb128 0x2117
+ 1814 0139 19       		.uleb128 0x19
+ 1815 013a 01       		.uleb128 0x1
+ 1816 013b 13       		.uleb128 0x13
+ 1817 013c 00       		.byte	0
+ 1818 013d 00       		.byte	0
+ 1819 013e 13       		.uleb128 0x13
+ 1820 013f 34       		.uleb128 0x34
+ 1821 0140 00       		.byte	0
+ 1822 0141 03       		.uleb128 0x3
+ 1823 0142 0E       		.uleb128 0xe
+ 1824 0143 3A       		.uleb128 0x3a
+ 1825 0144 0B       		.uleb128 0xb
+ 1826 0145 3B       		.uleb128 0x3b
+ 1827 0146 05       		.uleb128 0x5
+ 1828 0147 49       		.uleb128 0x49
+ 1829 0148 13       		.uleb128 0x13
+ 1830 0149 3F       		.uleb128 0x3f
+ 1831 014a 19       		.uleb128 0x19
+ 1832 014b 3C       		.uleb128 0x3c
+ 1833 014c 19       		.uleb128 0x19
+ 1834 014d 00       		.byte	0
+ 1835 014e 00       		.byte	0
+ 1836 014f 14       		.uleb128 0x14
+ 1837 0150 35       		.uleb128 0x35
+ 1838 0151 00       		.byte	0
+ 1839 0152 49       		.uleb128 0x49
+ 1840 0153 13       		.uleb128 0x13
+ 1841 0154 00       		.byte	0
+ 1842 0155 00       		.byte	0
+ 1843 0156 15       		.uleb128 0x15
+ 1844 0157 01       		.uleb128 0x1
+ 1845 0158 01       		.byte	0x1
+ 1846 0159 49       		.uleb128 0x49
+ 1847 015a 13       		.uleb128 0x13
+ 1848 015b 01       		.uleb128 0x1
+ 1849 015c 13       		.uleb128 0x13
+ 1850 015d 00       		.byte	0
+ 1851 015e 00       		.byte	0
+ 1852 015f 16       		.uleb128 0x16
+ 1853 0160 21       		.uleb128 0x21
+ 1854 0161 00       		.byte	0
+ 1855 0162 49       		.uleb128 0x49
+ 1856 0163 13       		.uleb128 0x13
+ 1857 0164 2F       		.uleb128 0x2f
+ 1858 0165 0B       		.uleb128 0xb
+ 1859 0166 00       		.byte	0
+ 1860 0167 00       		.byte	0
+ 1861 0168 17       		.uleb128 0x17
+ 1862 0169 34       		.uleb128 0x34
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 37
+
+
+ 1863 016a 00       		.byte	0
+ 1864 016b 03       		.uleb128 0x3
+ 1865 016c 0E       		.uleb128 0xe
+ 1866 016d 3A       		.uleb128 0x3a
+ 1867 016e 0B       		.uleb128 0xb
+ 1868 016f 3B       		.uleb128 0x3b
+ 1869 0170 0B       		.uleb128 0xb
+ 1870 0171 49       		.uleb128 0x49
+ 1871 0172 13       		.uleb128 0x13
+ 1872 0173 3F       		.uleb128 0x3f
+ 1873 0174 19       		.uleb128 0x19
+ 1874 0175 02       		.uleb128 0x2
+ 1875 0176 18       		.uleb128 0x18
+ 1876 0177 00       		.byte	0
+ 1877 0178 00       		.byte	0
+ 1878 0179 18       		.uleb128 0x18
+ 1879 017a 34       		.uleb128 0x34
+ 1880 017b 00       		.byte	0
+ 1881 017c 03       		.uleb128 0x3
+ 1882 017d 08       		.uleb128 0x8
+ 1883 017e 3A       		.uleb128 0x3a
+ 1884 017f 0B       		.uleb128 0xb
+ 1885 0180 3B       		.uleb128 0x3b
+ 1886 0181 0B       		.uleb128 0xb
+ 1887 0182 49       		.uleb128 0x49
+ 1888 0183 13       		.uleb128 0x13
+ 1889 0184 3F       		.uleb128 0x3f
+ 1890 0185 19       		.uleb128 0x19
+ 1891 0186 02       		.uleb128 0x2
+ 1892 0187 18       		.uleb128 0x18
+ 1893 0188 00       		.byte	0
+ 1894 0189 00       		.byte	0
+ 1895 018a 19       		.uleb128 0x19
+ 1896 018b 2E       		.uleb128 0x2e
+ 1897 018c 00       		.byte	0
+ 1898 018d 3F       		.uleb128 0x3f
+ 1899 018e 19       		.uleb128 0x19
+ 1900 018f 3C       		.uleb128 0x3c
+ 1901 0190 19       		.uleb128 0x19
+ 1902 0191 6E       		.uleb128 0x6e
+ 1903 0192 0E       		.uleb128 0xe
+ 1904 0193 03       		.uleb128 0x3
+ 1905 0194 0E       		.uleb128 0xe
+ 1906 0195 3A       		.uleb128 0x3a
+ 1907 0196 0B       		.uleb128 0xb
+ 1908 0197 3B       		.uleb128 0x3b
+ 1909 0198 0B       		.uleb128 0xb
+ 1910 0199 00       		.byte	0
+ 1911 019a 00       		.byte	0
+ 1912 019b 1A       		.uleb128 0x1a
+ 1913 019c 2E       		.uleb128 0x2e
+ 1914 019d 00       		.byte	0
+ 1915 019e 3F       		.uleb128 0x3f
+ 1916 019f 19       		.uleb128 0x19
+ 1917 01a0 3C       		.uleb128 0x3c
+ 1918 01a1 19       		.uleb128 0x19
+ 1919 01a2 6E       		.uleb128 0x6e
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 38
+
+
+ 1920 01a3 08       		.uleb128 0x8
+ 1921 01a4 03       		.uleb128 0x3
+ 1922 01a5 08       		.uleb128 0x8
+ 1923 01a6 3A       		.uleb128 0x3a
+ 1924 01a7 0B       		.uleb128 0xb
+ 1925 01a8 3B       		.uleb128 0x3b
+ 1926 01a9 0B       		.uleb128 0xb
+ 1927 01aa 00       		.byte	0
+ 1928 01ab 00       		.byte	0
+ 1929 01ac 00       		.byte	0
+ 1930              		.section	.debug_loc,"",%progbits
+ 1931              	.Ldebug_loc0:
+ 1932              	.LLST0:
+ 1933 0000 00000000 		.4byte	.LVL22
+ 1934 0004 0E000000 		.4byte	.LVL23
+ 1935 0008 0100     		.2byte	0x1
+ 1936 000a 50       		.byte	0x50
+ 1937 000b 0E000000 		.4byte	.LVL23
+ 1938 000f 11000000 		.4byte	.LVL24-1
+ 1939 0013 0300     		.2byte	0x3
+ 1940 0015 72       		.byte	0x72
+ 1941 0016 01       		.sleb128 1
+ 1942 0017 9F       		.byte	0x9f
+ 1943 0018 11000000 		.4byte	.LVL24-1
+ 1944 001c 26000000 		.4byte	.LVL28
+ 1945 0020 0400     		.2byte	0x4
+ 1946 0022 F3       		.byte	0xf3
+ 1947 0023 01       		.uleb128 0x1
+ 1948 0024 50       		.byte	0x50
+ 1949 0025 9F       		.byte	0x9f
+ 1950 0026 26000000 		.4byte	.LVL28
+ 1951 002a 32000000 		.4byte	.LVL29
+ 1952 002e 0100     		.2byte	0x1
+ 1953 0030 50       		.byte	0x50
+ 1954 0031 32000000 		.4byte	.LVL29
+ 1955 0035 35000000 		.4byte	.LVL30-1
+ 1956 0039 0400     		.2byte	0x4
+ 1957 003b 73       		.byte	0x73
+ 1958 003c E807     		.sleb128 1000
+ 1959 003e 9F       		.byte	0x9f
+ 1960 003f 35000000 		.4byte	.LVL30-1
+ 1961 0043 4A000000 		.4byte	.LVL34
+ 1962 0047 0400     		.2byte	0x4
+ 1963 0049 F3       		.byte	0xf3
+ 1964 004a 01       		.uleb128 0x1
+ 1965 004b 50       		.byte	0x50
+ 1966 004c 9F       		.byte	0x9f
+ 1967 004d 4A000000 		.4byte	.LVL34
+ 1968 0051 56000000 		.4byte	.LVL35
+ 1969 0055 0100     		.2byte	0x1
+ 1970 0057 50       		.byte	0x50
+ 1971 0058 56000000 		.4byte	.LVL35
+ 1972 005c 59000000 		.4byte	.LVL36-1
+ 1973 0060 0400     		.2byte	0x4
+ 1974 0062 73       		.byte	0x73
+ 1975 0063 D00F     		.sleb128 2000
+ 1976 0065 9F       		.byte	0x9f
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 39
+
+
+ 1977 0066 59000000 		.4byte	.LVL36-1
+ 1978 006a 6E000000 		.4byte	.LVL40
+ 1979 006e 0400     		.2byte	0x4
+ 1980 0070 F3       		.byte	0xf3
+ 1981 0071 01       		.uleb128 0x1
+ 1982 0072 50       		.byte	0x50
+ 1983 0073 9F       		.byte	0x9f
+ 1984 0074 6E000000 		.4byte	.LVL40
+ 1985 0078 7A000000 		.4byte	.LVL41
+ 1986 007c 0100     		.2byte	0x1
+ 1987 007e 50       		.byte	0x50
+ 1988 007f 7A000000 		.4byte	.LVL41
+ 1989 0083 7D000000 		.4byte	.LVL42-1
+ 1990 0087 0400     		.2byte	0x4
+ 1991 0089 73       		.byte	0x73
+ 1992 008a B817     		.sleb128 3000
+ 1993 008c 9F       		.byte	0x9f
+ 1994 008d 7D000000 		.4byte	.LVL42-1
+ 1995 0091 92000000 		.4byte	.LVL46
+ 1996 0095 0400     		.2byte	0x4
+ 1997 0097 F3       		.byte	0xf3
+ 1998 0098 01       		.uleb128 0x1
+ 1999 0099 50       		.byte	0x50
+ 2000 009a 9F       		.byte	0x9f
+ 2001 009b 92000000 		.4byte	.LVL46
+ 2002 009f 9A000000 		.4byte	.LVL47
+ 2003 00a3 0100     		.2byte	0x1
+ 2004 00a5 50       		.byte	0x50
+ 2005 00a6 9A000000 		.4byte	.LVL47
+ 2006 00aa 9D000000 		.4byte	.LVL48-1
+ 2007 00ae 0400     		.2byte	0x4
+ 2008 00b0 73       		.byte	0x73
+ 2009 00b1 B817     		.sleb128 3000
+ 2010 00b3 9F       		.byte	0x9f
+ 2011 00b4 9D000000 		.4byte	.LVL48-1
+ 2012 00b8 B4000000 		.4byte	.LFE69
+ 2013 00bc 0400     		.2byte	0x4
+ 2014 00be F3       		.byte	0xf3
+ 2015 00bf 01       		.uleb128 0x1
+ 2016 00c0 50       		.byte	0x50
+ 2017 00c1 9F       		.byte	0x9f
+ 2018 00c2 00000000 		.4byte	0
+ 2019 00c6 00000000 		.4byte	0
+ 2020              	.LLST1:
+ 2021 00ca 00000000 		.4byte	.LVL55
+ 2022 00ce 07000000 		.4byte	.LVL56-1
+ 2023 00d2 0100     		.2byte	0x1
+ 2024 00d4 50       		.byte	0x50
+ 2025 00d5 07000000 		.4byte	.LVL56-1
+ 2026 00d9 24000000 		.4byte	.LFE71
+ 2027 00dd 0100     		.2byte	0x1
+ 2028 00df 54       		.byte	0x54
+ 2029 00e0 00000000 		.4byte	0
+ 2030 00e4 00000000 		.4byte	0
+ 2031              	.LLST2:
+ 2032 00e8 02000000 		.4byte	.LVL59
+ 2033 00ec 06000000 		.4byte	.LVL60
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 40
+
+
+ 2034 00f0 0200     		.2byte	0x2
+ 2035 00f2 30       		.byte	0x30
+ 2036 00f3 9F       		.byte	0x9f
+ 2037 00f4 06000000 		.4byte	.LVL60
+ 2038 00f8 36000000 		.4byte	.LVL67
+ 2039 00fc 0100     		.2byte	0x1
+ 2040 00fe 54       		.byte	0x54
+ 2041 00ff 00000000 		.4byte	0
+ 2042 0103 00000000 		.4byte	0
+ 2043              		.section	.debug_aranges,"",%progbits
+ 2044 0000 6C000000 		.4byte	0x6c
+ 2045 0004 0200     		.2byte	0x2
+ 2046 0006 00000000 		.4byte	.Ldebug_info0
+ 2047 000a 04       		.byte	0x4
+ 2048 000b 00       		.byte	0
+ 2049 000c 0000     		.2byte	0
+ 2050 000e 0000     		.2byte	0
+ 2051 0010 00000000 		.4byte	.LFB64
+ 2052 0014 4C000000 		.4byte	.LFE64-.LFB64
+ 2053 0018 00000000 		.4byte	.LFB65
+ 2054 001c 30000000 		.4byte	.LFE65-.LFB65
+ 2055 0020 00000000 		.4byte	.LFB63
+ 2056 0024 1A000000 		.4byte	.LFE63-.LFB63
+ 2057 0028 00000000 		.4byte	.LFB67
+ 2058 002c 2A000000 		.4byte	.LFE67-.LFB67
+ 2059 0030 00000000 		.4byte	.LFB68
+ 2060 0034 1E000000 		.4byte	.LFE68-.LFB68
+ 2061 0038 00000000 		.4byte	.LFB69
+ 2062 003c B4000000 		.4byte	.LFE69-.LFB69
+ 2063 0040 00000000 		.4byte	.LFB70
+ 2064 0044 1C000000 		.4byte	.LFE70-.LFB70
+ 2065 0048 00000000 		.4byte	.LFB71
+ 2066 004c 24000000 		.4byte	.LFE71-.LFB71
+ 2067 0050 00000000 		.4byte	.LFB72
+ 2068 0054 48000000 		.4byte	.LFE72-.LFB72
+ 2069 0058 00000000 		.4byte	.LFB66
+ 2070 005c 38000000 		.4byte	.LFE66-.LFB66
+ 2071 0060 00000000 		.4byte	.LFB73
+ 2072 0064 84000000 		.4byte	.LFE73-.LFB73
+ 2073 0068 00000000 		.4byte	0
+ 2074 006c 00000000 		.4byte	0
+ 2075              		.section	.debug_ranges,"",%progbits
+ 2076              	.Ldebug_ranges0:
+ 2077 0000 00000000 		.4byte	.LFB64
+ 2078 0004 4C000000 		.4byte	.LFE64
+ 2079 0008 00000000 		.4byte	.LFB65
+ 2080 000c 30000000 		.4byte	.LFE65
+ 2081 0010 00000000 		.4byte	.LFB63
+ 2082 0014 1A000000 		.4byte	.LFE63
+ 2083 0018 00000000 		.4byte	.LFB67
+ 2084 001c 2A000000 		.4byte	.LFE67
+ 2085 0020 00000000 		.4byte	.LFB68
+ 2086 0024 1E000000 		.4byte	.LFE68
+ 2087 0028 00000000 		.4byte	.LFB69
+ 2088 002c B4000000 		.4byte	.LFE69
+ 2089 0030 00000000 		.4byte	.LFB70
+ 2090 0034 1C000000 		.4byte	.LFE70
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 41
+
+
+ 2091 0038 00000000 		.4byte	.LFB71
+ 2092 003c 24000000 		.4byte	.LFE71
+ 2093 0040 00000000 		.4byte	.LFB72
+ 2094 0044 48000000 		.4byte	.LFE72
+ 2095 0048 00000000 		.4byte	.LFB66
+ 2096 004c 38000000 		.4byte	.LFE66
+ 2097 0050 00000000 		.4byte	.LFB73
+ 2098 0054 84000000 		.4byte	.LFE73
+ 2099 0058 00000000 		.4byte	0
+ 2100 005c 00000000 		.4byte	0
+ 2101              		.section	.debug_line,"",%progbits
+ 2102              	.Ldebug_line0:
+ 2103 0000 1F030000 		.section	.debug_str,"MS",%progbits,1
+ 2103      0200FD01 
+ 2103      00000201 
+ 2103      FB0E0D00 
+ 2103      01010101 
+ 2104              	.LASF37:
+ 2105 0000 54696D65 		.ascii	"Timer_ReadStatusRegister\000"
+ 2105      725F5265 
+ 2105      61645374 
+ 2105      61747573 
+ 2105      52656769 
+ 2106              	.LASF3:
+ 2107 0019 5F5F7569 		.ascii	"__uint8_t\000"
+ 2107      6E74385F 
+ 2107      7400
+ 2108              	.LASF20:
+ 2109 0023 536F756E 		.ascii	"Sound\000"
+ 2109      6400
+ 2110              	.LASF27:
+ 2111 0029 706F7456 		.ascii	"potVal\000"
+ 2111      616C00
+ 2112              	.LASF32:
+ 2113 0030 76616C75 		.ascii	"value\000"
+ 2113      6500
+ 2114              	.LASF31:
+ 2115 0036 7369676E 		.ascii	"signal\000"
+ 2115      616C00
+ 2116              	.LASF6:
+ 2117 003d 5F5F696E 		.ascii	"__int32_t\000"
+ 2117      7433325F 
+ 2117      7400
+ 2118              	.LASF22:
+ 2119 0047 7072696E 		.ascii	"print_keypad\000"
+ 2119      745F6B65 
+ 2119      79706164 
+ 2119      00
+ 2120              	.LASF33:
+ 2121 0054 4441435F 		.ascii	"DAC_SetValue\000"
+ 2121      53657456 
+ 2121      616C7565 
+ 2121      00
+ 2122              	.LASF49:
+ 2123 0061 54696D65 		.ascii	"TimerDAC_Start\000"
+ 2123      72444143 
+ 2123      5F537461 
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 42
+
+
+ 2123      727400
+ 2124              	.LASF26:
+ 2125 0070 626C696E 		.ascii	"blink1Hz\000"
+ 2125      6B31487A 
+ 2125      00
+ 2126              	.LASF46:
+ 2127 0079 4C454430 		.ascii	"LED03_Write\000"
+ 2127      335F5772 
+ 2127      69746500 
+ 2128              	.LASF15:
+ 2129 0085 666C6F61 		.ascii	"float\000"
+ 2129      7400
+ 2130              	.LASF38:
+ 2131 008b 4C43445F 		.ascii	"LCD_Start\000"
+ 2131      53746172 
+ 2131      7400
+ 2132              	.LASF0:
+ 2133 0095 7369676E 		.ascii	"signed char\000"
+ 2133      65642063 
+ 2133      68617200 
+ 2134              	.LASF1:
+ 2135 00a1 756E7369 		.ascii	"unsigned char\000"
+ 2135      676E6564 
+ 2135      20636861 
+ 2135      7200
+ 2136              	.LASF53:
+ 2137 00af 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2137      43313120 
+ 2137      352E342E 
+ 2137      31203230 
+ 2137      31363036 
+ 2138 00e2 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2138      20726576 
+ 2138      6973696F 
+ 2138      6E203233 
+ 2138      37373135 
+ 2139 0115 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2139      66756E63 
+ 2139      74696F6E 
+ 2139      2D736563 
+ 2139      74696F6E 
+ 2140              	.LASF28:
+ 2141 013d 66696C6C 		.ascii	"fill\000"
+ 2141      00
+ 2142              	.LASF8:
+ 2143 0142 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2143      20756E73 
+ 2143      69676E65 
+ 2143      6420696E 
+ 2143      7400
+ 2144              	.LASF5:
+ 2145 0154 73686F72 		.ascii	"short unsigned int\000"
+ 2145      7420756E 
+ 2145      7369676E 
+ 2145      65642069 
+ 2145      6E7400
+ 2146              	.LASF35:
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 43
+
+
+ 2147 0167 4C454430 		.ascii	"LED01_Read\000"
+ 2147      315F5265 
+ 2147      616400
+ 2148              	.LASF34:
+ 2149 0172 54696D65 		.ascii	"TimerDAC_ReadStatusRegister\000"
+ 2149      72444143 
+ 2149      5F526561 
+ 2149      64537461 
+ 2149      74757352 
+ 2150              	.LASF30:
+ 2151 018e 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2151      52784275 
+ 2151      66666572 
+ 2151      00
+ 2152              	.LASF50:
+ 2153 019b 4441435F 		.ascii	"DAC_Start\000"
+ 2153      53746172 
+ 2153      7400
+ 2154              	.LASF16:
+ 2155 01a5 646F7562 		.ascii	"double\000"
+ 2155      6C6500
+ 2156              	.LASF56:
+ 2157 01ac 6D61696E 		.ascii	"main\000"
+ 2157      00
+ 2158              	.LASF48:
+ 2159 01b1 54696D65 		.ascii	"Timer_Start\000"
+ 2159      725F5374 
+ 2159      61727400 
+ 2160              	.LASF51:
+ 2161 01bd 6973725F 		.ascii	"isr_dac_StartEx\000"
+ 2161      6461635F 
+ 2161      53746172 
+ 2161      74457800 
+ 2162              	.LASF11:
+ 2163 01cd 756E7369 		.ascii	"unsigned int\000"
+ 2163      676E6564 
+ 2163      20696E74 
+ 2163      00
+ 2164              	.LASF55:
+ 2165 01da 443A5C50 		.ascii	"D:\\Polytech\\MA1 2022-2023 ULB\\Q2\\ELEC-H310 -- D"
+ 2165      6F6C7974 
+ 2165      6563685C 
+ 2165      4D413120 
+ 2165      32303232 
+ 2166 0209 69676974 		.ascii	"igital Electronics\\Coding\\INFO_H310\\Lab02\\Lab02"
+ 2166      616C2045 
+ 2166      6C656374 
+ 2166      726F6E69 
+ 2166      63735C43 
+ 2167 0238 5F4D7953 		.ascii	"_MySelf\\Design01.cydsn\000"
+ 2167      656C665C 
+ 2167      44657369 
+ 2167      676E3031 
+ 2167      2E637964 
+ 2168              	.LASF10:
+ 2169 024f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2169      206C6F6E 
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 44
+
+
+ 2169      6720756E 
+ 2169      7369676E 
+ 2169      65642069 
+ 2170              	.LASF12:
+ 2171 0266 75696E74 		.ascii	"uint8_t\000"
+ 2171      385F7400 
+ 2172              	.LASF42:
+ 2173 026e 4C43445F 		.ascii	"LCD_Position\000"
+ 2173      506F7369 
+ 2173      74696F6E 
+ 2173      00
+ 2174              	.LASF43:
+ 2175 027b 4C43445F 		.ascii	"LCD_PutChar\000"
+ 2175      50757443 
+ 2175      68617200 
+ 2176              	.LASF40:
+ 2177 0287 4144435F 		.ascii	"ADC_Start\000"
+ 2177      53746172 
+ 2177      7400
+ 2178              	.LASF23:
+ 2179 0291 4C45445F 		.ascii	"LED_off\000"
+ 2179      6F666600 
+ 2180              	.LASF14:
+ 2181 0299 696E7433 		.ascii	"int32_t\000"
+ 2181      325F7400 
+ 2182              	.LASF19:
+ 2183 02a1 73697A65 		.ascii	"sizetype\000"
+ 2183      74797065 
+ 2183      00
+ 2184              	.LASF29:
+ 2185 02aa 73796E74 		.ascii	"synthesizer\000"
+ 2185      68657369 
+ 2185      7A657200 
+ 2186              	.LASF9:
+ 2187 02b6 6C6F6E67 		.ascii	"long long int\000"
+ 2187      206C6F6E 
+ 2187      6720696E 
+ 2187      7400
+ 2188              	.LASF54:
+ 2189 02c4 6D61696E 		.ascii	"main.c\000"
+ 2189      2E6300
+ 2190              	.LASF17:
+ 2191 02cb 63686172 		.ascii	"char\000"
+ 2191      00
+ 2192              	.LASF41:
+ 2193 02d0 6B657970 		.ascii	"keypadScan\000"
+ 2193      61645363 
+ 2193      616E00
+ 2194              	.LASF39:
+ 2195 02db 4C43445F 		.ascii	"LCD_WriteControl\000"
+ 2195      57726974 
+ 2195      65436F6E 
+ 2195      74726F6C 
+ 2195      00
+ 2196              	.LASF36:
+ 2197 02ec 4C454430 		.ascii	"LED01_Write\000"
+ 2197      315F5772 
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\ccAOuQVk.s 			page 45
+
+
+ 2197      69746500 
+ 2198              	.LASF2:
+ 2199 02f8 73686F72 		.ascii	"short int\000"
+ 2199      7420696E 
+ 2199      7400
+ 2200              	.LASF4:
+ 2201 0302 5F5F7569 		.ascii	"__uint16_t\000"
+ 2201      6E743136 
+ 2201      5F7400
+ 2202              	.LASF13:
+ 2203 030d 75696E74 		.ascii	"uint16_t\000"
+ 2203      31365F74 
+ 2203      00
+ 2204              	.LASF21:
+ 2205 0316 53746172 		.ascii	"Start_F\000"
+ 2205      745F4600 
+ 2206              	.LASF7:
+ 2207 031e 6C6F6E67 		.ascii	"long int\000"
+ 2207      20696E74 
+ 2207      00
+ 2208              	.LASF25:
+ 2209 0327 4C45445F 		.ascii	"LED_control\000"
+ 2209      636F6E74 
+ 2209      726F6C00 
+ 2210              	.LASF18:
+ 2211 0333 6C6F6E67 		.ascii	"long double\000"
+ 2211      20646F75 
+ 2211      626C6500 
+ 2212              	.LASF45:
+ 2213 033f 4C454430 		.ascii	"LED02_Write\000"
+ 2213      325F5772 
+ 2213      69746500 
+ 2214              	.LASF24:
+ 2215 034b 626C696E 		.ascii	"blink1kHz\000"
+ 2215      6B316B48 
+ 2215      7A00
+ 2216              	.LASF52:
+ 2217 0355 6973725F 		.ascii	"isr_led_StartEx\000"
+ 2217      6C65645F 
+ 2217      53746172 
+ 2217      74457800 
+ 2218              	.LASF44:
+ 2219 0365 43794465 		.ascii	"CyDelay\000"
+ 2219      6C617900 
+ 2220              	.LASF47:
+ 2221 036d 4C454430 		.ascii	"LED04_Write\000"
+ 2221      345F5772 
+ 2221      69746500 
+ 2222              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

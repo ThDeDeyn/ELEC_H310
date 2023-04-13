@@ -268,6 +268,7 @@
       <Data key="ba0fb9dc-a9c1-48a2-897d-19dd675b6cb5" value="TOP" />
       <Data key="c75b2027-5583-4da5-86f5-b37e1285aeb7" value="LED02" />
       <Data key="c3909c13-75fa-4260-b14c-dfd682c18327" value="COL3" />
+      <Data key="cb32282b-e449-40c5-80ac-24ea8430ca4f" value="Photores" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="LED01" />
     </Group>
   </Group>
@@ -3451,6 +3452,11 @@
     <Group key="c3909c13-75fa-4260-b14c-dfd682c18327">
       <Group key="0">
         <Data key="Port Format" value="3,4" />
+      </Group>
+    </Group>
+    <Group key="cb32282b-e449-40c5-80ac-24ea8430ca4f">
+      <Group key="0">
+        <Data key="Port Format" value="15,1" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">
