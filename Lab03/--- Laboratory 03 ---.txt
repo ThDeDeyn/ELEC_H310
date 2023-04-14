@@ -1,0 +1,25 @@
+ELEC-H310 Lab02
+
+--- Clock ---
+
+Question 1: Time duration(1-2ms) -> CMP, PWM Period (20ms) -> Period, 
+
+Question 2: PWM is orange, Alim (Vcc) is red, GND is brown
+
+Question 3: No reference (command) given ? 
+
+Question 4: ... 
+
+Question 5: memory -> buffer for transport
+
+Question 6:
+
+Question 7: First, checking for errors, then receiving,
+
+Question 8: Interruption is triggered when a data is received 
+ 
+Question 9: 
+
+Question 10:
+
+Question 11: 

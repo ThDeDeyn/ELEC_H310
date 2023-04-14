@@ -1,0 +1,1916 @@
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 1336
+  28              	cy_meta_configecc:
+  29 0000 02       		.byte	2
+  30 0001 4F       		.byte	79
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 04       		.byte	4
+  34 0005 52       		.byte	82
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 03       		.byte	3
+  38 0009 64       		.byte	100
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 65       		.byte	101
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 01       		.byte	1
+  46 0011 03       		.byte	3
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 04       		.byte	4
+  50 0015 08       		.byte	8
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 07       		.byte	7
+  54 0019 09       		.byte	9
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 05       		.byte	5
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 2
+
+
+  58 001d 0A       		.byte	10
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 38       		.byte	56
+  62 0021 0B       		.byte	11
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 54       		.byte	84
+  66 0025 0C       		.byte	12
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 45       		.byte	69
+  70 0029 0D       		.byte	13
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 53       		.byte	83
+  74 002d 0E       		.byte	14
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 30       		.byte	48
+  78 0031 0F       		.byte	15
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 01       		.byte	1
+  82 0035 15       		.byte	21
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 42       		.byte	66
+  86 0039 16       		.byte	22
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 20       		.byte	32
+  90 003d 17       		.byte	23
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 02       		.byte	2
+  94 0041 19       		.byte	25
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 01       		.byte	1
+  98 0045 1B       		.byte	27
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 02       		.byte	2
+ 102 0049 40       		.byte	64
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 03       		.byte	3
+ 106 004d 41       		.byte	65
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 02       		.byte	2
+ 110 0051 43       		.byte	67
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 02       		.byte	2
+ 114 0055 44       		.byte	68
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 04       		.byte	4
+ 118 0059 45       		.byte	69
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 06       		.byte	6
+ 122 005d 46       		.byte	70
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 04       		.byte	4
+ 126 0061 47       		.byte	71
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 08       		.byte	8
+ 130 0065 48       		.byte	72
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 01       		.byte	1
+ 134 0069 49       		.byte	73
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 06       		.byte	6
+ 138 006d 4C       		.byte	76
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 02       		.byte	2
+ 142 0071 4D       		.byte	77
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 05       		.byte	5
+ 146 0075 50       		.byte	80
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 01       		.byte	1
+ 150 0079 51       		.byte	81
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 01       		.byte	1
+ 154 007d 80       		.byte	-128
+ 155 007e 0A       		.byte	10
+ 156 007f 1B       		.byte	27
+ 157 0080 09       		.byte	9
+ 158 0081 04       		.byte	4
+ 159 0082 14       		.byte	20
+ 160 0083 80       		.byte	-128
+ 161 0084 78       		.byte	120
+ 162 0085 08       		.byte	8
+ 163 0086 79       		.byte	121
+ 164 0087 08       		.byte	8
+ 165 0088 8B       		.byte	-117
+ 166 0089 72       		.byte	114
+ 167 008a 8C       		.byte	-116
+ 168 008b 38       		.byte	56
+ 169 008c 8E       		.byte	-114
+ 170 008d 0F       		.byte	15
+ 171 008e 87       		.byte	-121
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 4
+
+
+ 172 008f 0D       		.byte	13
+ 173 0090 E6       		.byte	-26
+ 174 0091 02       		.byte	2
+ 175 0092 B8       		.byte	-72
+ 176 0093 82       		.byte	-126
+ 177 0094 BE       		.byte	-66
+ 178 0095 41       		.byte	65
+ 179 0096 D8       		.byte	-40
+ 180 0097 04       		.byte	4
+ 181 0098 DF       		.byte	-33
+ 182 0099 01       		.byte	1
+ 183 009a 18       		.byte	24
+ 184 009b 01       		.byte	1
+ 185 009c 1A       		.byte	26
+ 186 009d 80       		.byte	-128
+ 187 009e B0       		.byte	-80
+ 188 009f 13       		.byte	19
+ 189 00a0 B3       		.byte	-77
+ 190 00a1 08       		.byte	8
+ 191 00a2 B4       		.byte	-76
+ 192 00a3 10       		.byte	16
+ 193 00a4 B5       		.byte	-75
+ 194 00a5 10       		.byte	16
+ 195 00a6 B6       		.byte	-74
+ 196 00a7 81       		.byte	-127
+ 197 00a8 2D       		.byte	45
+ 198 00a9 01       		.byte	1
+ 199 00aa 37       		.byte	55
+ 200 00ab 01       		.byte	1
+ 201 00ac 3F       		.byte	63
+ 202 00ad 40       		.byte	64
+ 203 00ae 59       		.byte	89
+ 204 00af 04       		.byte	4
+ 205 00b0 5F       		.byte	95
+ 206 00b1 01       		.byte	1
+ 207 00b2 04       		.byte	4
+ 208 00b3 02       		.byte	2
+ 209 00b4 05       		.byte	5
+ 210 00b5 10       		.byte	16
+ 211 00b6 06       		.byte	6
+ 212 00b7 02       		.byte	2
+ 213 00b8 07       		.byte	7
+ 214 00b9 10       		.byte	16
+ 215 00ba 0C       		.byte	12
+ 216 00bb 02       		.byte	2
+ 217 00bc 0D       		.byte	13
+ 218 00bd 48       		.byte	72
+ 219 00be 0E       		.byte	14
+ 220 00bf 05       		.byte	5
+ 221 00c0 16       		.byte	22
+ 222 00c1 40       		.byte	64
+ 223 00c2 17       		.byte	23
+ 224 00c3 24       		.byte	36
+ 225 00c4 1C       		.byte	28
+ 226 00c5 20       		.byte	32
+ 227 00c6 1D       		.byte	29
+ 228 00c7 80       		.byte	-128
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 5
+
+
+ 229 00c8 1E       		.byte	30
+ 230 00c9 48       		.byte	72
+ 231 00ca 20       		.byte	32
+ 232 00cb 02       		.byte	2
+ 233 00cc 25       		.byte	37
+ 234 00cd 12       		.byte	18
+ 235 00ce 27       		.byte	39
+ 236 00cf 50       		.byte	80
+ 237 00d0 29       		.byte	41
+ 238 00d1 80       		.byte	-128
+ 239 00d2 2D       		.byte	45
+ 240 00d3 40       		.byte	64
+ 241 00d4 2E       		.byte	46
+ 242 00d5 05       		.byte	5
+ 243 00d6 37       		.byte	55
+ 244 00d7 58       		.byte	88
+ 245 00d8 3E       		.byte	62
+ 246 00d9 2A       		.byte	42
+ 247 00da 3F       		.byte	63
+ 248 00db 80       		.byte	-128
+ 249 00dc 45       		.byte	69
+ 250 00dd 82       		.byte	-126
+ 251 00de 47       		.byte	71
+ 252 00df 18       		.byte	24
+ 253 00e0 4C       		.byte	76
+ 254 00e1 01       		.byte	1
+ 255 00e2 4D       		.byte	77
+ 256 00e3 42       		.byte	66
+ 257 00e4 57       		.byte	87
+ 258 00e5 40       		.byte	64
+ 259 00e6 5E       		.byte	94
+ 260 00e7 08       		.byte	8
+ 261 00e8 6C       		.byte	108
+ 262 00e9 14       		.byte	20
+ 263 00ea 6D       		.byte	109
+ 264 00eb 80       		.byte	-128
+ 265 00ec 74       		.byte	116
+ 266 00ed 20       		.byte	32
+ 267 00ee 76       		.byte	118
+ 268 00ef 2A       		.byte	42
+ 269 00f0 77       		.byte	119
+ 270 00f1 24       		.byte	36
+ 271 00f2 90       		.byte	-112
+ 272 00f3 02       		.byte	2
+ 273 00f4 91       		.byte	-111
+ 274 00f5 80       		.byte	-128
+ 275 00f6 92       		.byte	-110
+ 276 00f7 04       		.byte	4
+ 277 00f8 94       		.byte	-108
+ 278 00f9 08       		.byte	8
+ 279 00fa 96       		.byte	-106
+ 280 00fb 40       		.byte	64
+ 281 00fc 99       		.byte	-103
+ 282 00fd 90       		.byte	-112
+ 283 00fe 9A       		.byte	-102
+ 284 00ff 40       		.byte	64
+ 285 0100 9D       		.byte	-99
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 6
+
+
+ 286 0101 02       		.byte	2
+ 287 0102 9E       		.byte	-98
+ 288 0103 83       		.byte	-125
+ 289 0104 9F       		.byte	-97
+ 290 0105 38       		.byte	56
+ 291 0106 A1       		.byte	-95
+ 292 0107 08       		.byte	8
+ 293 0108 A4       		.byte	-92
+ 294 0109 30       		.byte	48
+ 295 010a A5       		.byte	-91
+ 296 010b 40       		.byte	64
+ 297 010c B0       		.byte	-80
+ 298 010d 01       		.byte	1
+ 299 010e B2       		.byte	-78
+ 300 010f 40       		.byte	64
+ 301 0110 C0       		.byte	-64
+ 302 0111 F0       		.byte	-16
+ 303 0112 C2       		.byte	-62
+ 304 0113 F0       		.byte	-16
+ 305 0114 C4       		.byte	-60
+ 306 0115 70       		.byte	112
+ 307 0116 CA       		.byte	-54
+ 308 0117 D8       		.byte	-40
+ 309 0118 CC       		.byte	-52
+ 310 0119 70       		.byte	112
+ 311 011a CE       		.byte	-50
+ 312 011b F0       		.byte	-16
+ 313 011c D0       		.byte	-48
+ 314 011d F0       		.byte	-16
+ 315 011e D2       		.byte	-46
+ 316 011f 10       		.byte	16
+ 317 0120 D6       		.byte	-42
+ 318 0121 40       		.byte	64
+ 319 0122 02       		.byte	2
+ 320 0123 20       		.byte	32
+ 321 0124 03       		.byte	3
+ 322 0125 04       		.byte	4
+ 323 0126 04       		.byte	4
+ 324 0127 1C       		.byte	28
+ 325 0128 07       		.byte	7
+ 326 0129 04       		.byte	4
+ 327 012a 08       		.byte	8
+ 328 012b 07       		.byte	7
+ 329 012c 09       		.byte	9
+ 330 012d 02       		.byte	2
+ 331 012e 0A       		.byte	10
+ 332 012f 18       		.byte	24
+ 333 0130 0B       		.byte	11
+ 334 0131 01       		.byte	1
+ 335 0132 0C       		.byte	12
+ 336 0133 1C       		.byte	28
+ 337 0134 0D       		.byte	13
+ 338 0135 08       		.byte	8
+ 339 0136 10       		.byte	16
+ 340 0137 03       		.byte	3
+ 341 0138 11       		.byte	17
+ 342 0139 01       		.byte	1
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 7
+
+
+ 343 013a 13       		.byte	19
+ 344 013b 02       		.byte	2
+ 345 013c 14       		.byte	20
+ 346 013d 03       		.byte	3
+ 347 013e 15       		.byte	21
+ 348 013f 04       		.byte	4
+ 349 0140 19       		.byte	25
+ 350 0141 04       		.byte	4
+ 351 0142 1A       		.byte	26
+ 352 0143 03       		.byte	3
+ 353 0144 1D       		.byte	29
+ 354 0145 0B       		.byte	11
+ 355 0146 1E       		.byte	30
+ 356 0147 03       		.byte	3
+ 357 0148 22       		.byte	34
+ 358 0149 03       		.byte	3
+ 359 014a 26       		.byte	38
+ 360 014b 20       		.byte	32
+ 361 014c 28       		.byte	40
+ 362 014d 12       		.byte	18
+ 363 014e 29       		.byte	41
+ 364 014f 0B       		.byte	11
+ 365 0150 2A       		.byte	42
+ 366 0151 04       		.byte	4
+ 367 0152 2C       		.byte	44
+ 368 0153 09       		.byte	9
+ 369 0154 2E       		.byte	46
+ 370 0155 04       		.byte	4
+ 371 0156 32       		.byte	50
+ 372 0157 20       		.byte	32
+ 373 0158 33       		.byte	51
+ 374 0159 03       		.byte	3
+ 375 015a 34       		.byte	52
+ 376 015b 1C       		.byte	28
+ 377 015c 35       		.byte	53
+ 378 015d 04       		.byte	4
+ 379 015e 36       		.byte	54
+ 380 015f 03       		.byte	3
+ 381 0160 37       		.byte	55
+ 382 0161 08       		.byte	8
+ 383 0162 39       		.byte	57
+ 384 0163 20       		.byte	32
+ 385 0164 3E       		.byte	62
+ 386 0165 04       		.byte	4
+ 387 0166 54       		.byte	84
+ 388 0167 18       		.byte	24
+ 389 0168 56       		.byte	86
+ 390 0169 04       		.byte	4
+ 391 016a 58       		.byte	88
+ 392 016b 04       		.byte	4
+ 393 016c 59       		.byte	89
+ 394 016d 04       		.byte	4
+ 395 016e 5B       		.byte	91
+ 396 016f 04       		.byte	4
+ 397 0170 5C       		.byte	92
+ 398 0171 22       		.byte	34
+ 399 0172 5D       		.byte	93
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 8
+
+
+ 400 0173 20       		.byte	32
+ 401 0174 5F       		.byte	95
+ 402 0175 01       		.byte	1
+ 403 0176 84       		.byte	-124
+ 404 0177 10       		.byte	16
+ 405 0178 85       		.byte	-123
+ 406 0179 07       		.byte	7
+ 407 017a 86       		.byte	-122
+ 408 017b 0C       		.byte	12
+ 409 017c 89       		.byte	-119
+ 410 017d 02       		.byte	2
+ 411 017e 8B       		.byte	-117
+ 412 017f 04       		.byte	4
+ 413 0180 8C       		.byte	-116
+ 414 0181 0C       		.byte	12
+ 415 0182 8D       		.byte	-115
+ 416 0183 07       		.byte	7
+ 417 0184 8E       		.byte	-114
+ 418 0185 11       		.byte	17
+ 419 0186 90       		.byte	-112
+ 420 0187 09       		.byte	9
+ 421 0188 92       		.byte	-110
+ 422 0189 10       		.byte	16
+ 423 018a 94       		.byte	-108
+ 424 018b 10       		.byte	16
+ 425 018c 95       		.byte	-107
+ 426 018d 08       		.byte	8
+ 427 018e 97       		.byte	-105
+ 428 018f 01       		.byte	1
+ 429 0190 9E       		.byte	-98
+ 430 0191 03       		.byte	3
+ 431 0192 A4       		.byte	-92
+ 432 0193 1C       		.byte	28
+ 433 0194 A6       		.byte	-90
+ 434 0195 02       		.byte	2
+ 435 0196 A8       		.byte	-88
+ 436 0197 14       		.byte	20
+ 437 0198 B1       		.byte	-79
+ 438 0199 0C       		.byte	12
+ 439 019a B3       		.byte	-77
+ 440 019b 03       		.byte	3
+ 441 019c B6       		.byte	-74
+ 442 019d 1F       		.byte	31
+ 443 019e B9       		.byte	-71
+ 444 019f 0A       		.byte	10
+ 445 01a0 BF       		.byte	-65
+ 446 01a1 04       		.byte	4
+ 447 01a2 C0       		.byte	-64
+ 448 01a3 03       		.byte	3
+ 449 01a4 C6       		.byte	-58
+ 450 01a5 40       		.byte	64
+ 451 01a6 C9       		.byte	-55
+ 452 01a7 FF       		.byte	-1
+ 453 01a8 CA       		.byte	-54
+ 454 01a9 07       		.byte	7
+ 455 01aa CB       		.byte	-53
+ 456 01ab FF       		.byte	-1
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 9
+
+
+ 457 01ac CC       		.byte	-52
+ 458 01ad 40       		.byte	64
+ 459 01ae CD       		.byte	-51
+ 460 01af 20       		.byte	32
+ 461 01b0 CE       		.byte	-50
+ 462 01b1 F0       		.byte	-16
+ 463 01b2 CF       		.byte	-49
+ 464 01b3 05       		.byte	5
+ 465 01b4 D0       		.byte	-48
+ 466 01b5 08       		.byte	8
+ 467 01b6 D8       		.byte	-40
+ 468 01b7 04       		.byte	4
+ 469 01b8 D9       		.byte	-39
+ 470 01b9 04       		.byte	4
+ 471 01ba DA       		.byte	-38
+ 472 01bb 04       		.byte	4
+ 473 01bc DC       		.byte	-36
+ 474 01bd 22       		.byte	34
+ 475 01be DD       		.byte	-35
+ 476 01bf 02       		.byte	2
+ 477 01c0 DF       		.byte	-33
+ 478 01c1 01       		.byte	1
+ 479 01c2 E0       		.byte	-32
+ 480 01c3 40       		.byte	64
+ 481 01c4 E1       		.byte	-31
+ 482 01c5 A8       		.byte	-88
+ 483 01c6 E2       		.byte	-30
+ 484 01c7 40       		.byte	64
+ 485 01c8 E3       		.byte	-29
+ 486 01c9 20       		.byte	32
+ 487 01ca 00       		.byte	0
+ 488 01cb 44       		.byte	68
+ 489 01cc 04       		.byte	4
+ 490 01cd 08       		.byte	8
+ 491 01ce 05       		.byte	5
+ 492 01cf 52       		.byte	82
+ 493 01d0 06       		.byte	6
+ 494 01d1 21       		.byte	33
+ 495 01d2 09       		.byte	9
+ 496 01d3 02       		.byte	2
+ 497 01d4 0A       		.byte	10
+ 498 01d5 01       		.byte	1
+ 499 01d6 0B       		.byte	11
+ 500 01d7 20       		.byte	32
+ 501 01d8 0C       		.byte	12
+ 502 01d9 04       		.byte	4
+ 503 01da 0D       		.byte	13
+ 504 01db 40       		.byte	64
+ 505 01dc 0E       		.byte	14
+ 506 01dd 84       		.byte	-124
+ 507 01de 0F       		.byte	15
+ 508 01df 02       		.byte	2
+ 509 01e0 12       		.byte	18
+ 510 01e1 08       		.byte	8
+ 511 01e2 13       		.byte	19
+ 512 01e3 04       		.byte	4
+ 513 01e4 14       		.byte	20
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 10
+
+
+ 514 01e5 01       		.byte	1
+ 515 01e6 15       		.byte	21
+ 516 01e7 10       		.byte	16
+ 517 01e8 17       		.byte	23
+ 518 01e9 05       		.byte	5
+ 519 01ea 19       		.byte	25
+ 520 01eb 80       		.byte	-128
+ 521 01ec 1A       		.byte	26
+ 522 01ed 01       		.byte	1
+ 523 01ee 1D       		.byte	29
+ 524 01ef 10       		.byte	16
+ 525 01f0 1E       		.byte	30
+ 526 01f1 02       		.byte	2
+ 527 01f2 1F       		.byte	31
+ 528 01f3 04       		.byte	4
+ 529 01f4 21       		.byte	33
+ 530 01f5 07       		.byte	7
+ 531 01f6 24       		.byte	36
+ 532 01f7 12       		.byte	18
+ 533 01f8 25       		.byte	37
+ 534 01f9 08       		.byte	8
+ 535 01fa 27       		.byte	39
+ 536 01fb 05       		.byte	5
+ 537 01fc 2E       		.byte	46
+ 538 01fd 20       		.byte	32
+ 539 01fe 30       		.byte	48
+ 540 01ff 08       		.byte	8
+ 541 0200 34       		.byte	52
+ 542 0201 05       		.byte	5
+ 543 0202 35       		.byte	53
+ 544 0203 60       		.byte	96
+ 545 0204 37       		.byte	55
+ 546 0205 18       		.byte	24
+ 547 0206 38       		.byte	56
+ 548 0207 44       		.byte	68
+ 549 0208 39       		.byte	57
+ 550 0209 20       		.byte	32
+ 551 020a 3C       		.byte	60
+ 552 020b 10       		.byte	16
+ 553 020c 3D       		.byte	61
+ 554 020d 90       		.byte	-112
+ 555 020e 3E       		.byte	62
+ 556 020f 04       		.byte	4
+ 557 0210 3F       		.byte	63
+ 558 0211 02       		.byte	2
+ 559 0212 41       		.byte	65
+ 560 0213 04       		.byte	4
+ 561 0214 50       		.byte	80
+ 562 0215 08       		.byte	8
+ 563 0216 52       		.byte	82
+ 564 0217 10       		.byte	16
+ 565 0218 53       		.byte	83
+ 566 0219 10       		.byte	16
+ 567 021a 5E       		.byte	94
+ 568 021b 02       		.byte	2
+ 569 021c 66       		.byte	102
+ 570 021d 80       		.byte	-128
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 11
+
+
+ 571 021e 67       		.byte	103
+ 572 021f 48       		.byte	72
+ 573 0220 87       		.byte	-121
+ 574 0221 40       		.byte	64
+ 575 0222 89       		.byte	-119
+ 576 0223 20       		.byte	32
+ 577 0224 8A       		.byte	-118
+ 578 0225 40       		.byte	64
+ 579 0226 90       		.byte	-112
+ 580 0227 44       		.byte	68
+ 581 0228 91       		.byte	-111
+ 582 0229 A0       		.byte	-96
+ 583 022a 92       		.byte	-110
+ 584 022b 04       		.byte	4
+ 585 022c 93       		.byte	-109
+ 586 022d 04       		.byte	4
+ 587 022e 95       		.byte	-107
+ 588 022f 02       		.byte	2
+ 589 0230 96       		.byte	-106
+ 590 0231 40       		.byte	64
+ 591 0232 9D       		.byte	-99
+ 592 0233 20       		.byte	32
+ 593 0234 9E       		.byte	-98
+ 594 0235 52       		.byte	82
+ 595 0236 9F       		.byte	-97
+ 596 0237 21       		.byte	33
+ 597 0238 A2       		.byte	-94
+ 598 0239 08       		.byte	8
+ 599 023a A4       		.byte	-92
+ 600 023b 38       		.byte	56
+ 601 023c A8       		.byte	-88
+ 602 023d 80       		.byte	-128
+ 603 023e AB       		.byte	-85
+ 604 023f 10       		.byte	16
+ 605 0240 B3       		.byte	-77
+ 606 0241 12       		.byte	18
+ 607 0242 C0       		.byte	-64
+ 608 0243 F5       		.byte	-11
+ 609 0244 C2       		.byte	-62
+ 610 0245 FD       		.byte	-3
+ 611 0246 C4       		.byte	-60
+ 612 0247 F6       		.byte	-10
+ 613 0248 CA       		.byte	-54
+ 614 0249 20       		.byte	32
+ 615 024a CC       		.byte	-52
+ 616 024b F2       		.byte	-14
+ 617 024c CE       		.byte	-50
+ 618 024d FE       		.byte	-2
+ 619 024e D0       		.byte	-48
+ 620 024f 02       		.byte	2
+ 621 0250 D6       		.byte	-42
+ 622 0251 80       		.byte	-128
+ 623 0252 D8       		.byte	-40
+ 624 0253 B0       		.byte	-80
+ 625 0254 03       		.byte	3
+ 626 0255 0C       		.byte	12
+ 627 0256 04       		.byte	4
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 12
+
+
+ 628 0257 0E       		.byte	14
+ 629 0258 05       		.byte	5
+ 630 0259 01       		.byte	1
+ 631 025a 06       		.byte	6
+ 632 025b 70       		.byte	112
+ 633 025c 07       		.byte	7
+ 634 025d 06       		.byte	6
+ 635 025e 09       		.byte	9
+ 636 025f 0C       		.byte	12
+ 637 0260 0B       		.byte	11
+ 638 0261 03       		.byte	3
+ 639 0262 0C       		.byte	12
+ 640 0263 0E       		.byte	14
+ 641 0264 0D       		.byte	13
+ 642 0265 01       		.byte	1
+ 643 0266 0E       		.byte	14
+ 644 0267 D0       		.byte	-48
+ 645 0268 0F       		.byte	15
+ 646 0269 0E       		.byte	14
+ 647 026a 14       		.byte	20
+ 648 026b 01       		.byte	1
+ 649 026c 17       		.byte	23
+ 650 026d 03       		.byte	3
+ 651 026e 18       		.byte	24
+ 652 026f A8       		.byte	-88
+ 653 0270 1A       		.byte	26
+ 654 0271 52       		.byte	82
+ 655 0272 1E       		.byte	30
+ 656 0273 A0       		.byte	-96
+ 657 0274 20       		.byte	32
+ 658 0275 0C       		.byte	12
+ 659 0276 22       		.byte	34
+ 660 0277 12       		.byte	18
+ 661 0278 26       		.byte	38
+ 662 0279 80       		.byte	-128
+ 663 027a 2A       		.byte	42
+ 664 027b 56       		.byte	86
+ 665 027c 2B       		.byte	43
+ 666 027d 08       		.byte	8
+ 667 027e 30       		.byte	48
+ 668 027f E0       		.byte	-32
+ 669 0280 32       		.byte	50
+ 670 0281 01       		.byte	1
+ 671 0282 34       		.byte	52
+ 672 0283 3C       		.byte	60
+ 673 0284 35       		.byte	53
+ 674 0285 0F       		.byte	15
+ 675 0286 36       		.byte	54
+ 676 0287 02       		.byte	2
+ 677 0288 3A       		.byte	58
+ 678 0289 22       		.byte	34
+ 679 028a 3B       		.byte	59
+ 680 028b 20       		.byte	32
+ 681 028c 3E       		.byte	62
+ 682 028d 44       		.byte	68
+ 683 028e 40       		.byte	64
+ 684 028f 26       		.byte	38
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 13
+
+
+ 685 0290 41       		.byte	65
+ 686 0291 05       		.byte	5
+ 687 0292 46       		.byte	70
+ 688 0293 EC       		.byte	-20
+ 689 0294 47       		.byte	71
+ 690 0295 0B       		.byte	11
+ 691 0296 48       		.byte	72
+ 692 0297 1C       		.byte	28
+ 693 0298 49       		.byte	73
+ 694 0299 FF       		.byte	-1
+ 695 029a 4A       		.byte	74
+ 696 029b FF       		.byte	-1
+ 697 029c 4B       		.byte	75
+ 698 029d FF       		.byte	-1
+ 699 029e 4E       		.byte	78
+ 700 029f F0       		.byte	-16
+ 701 02a0 4F       		.byte	79
+ 702 02a1 44       		.byte	68
+ 703 02a2 50       		.byte	80
+ 704 02a3 0C       		.byte	12
+ 705 02a4 54       		.byte	84
+ 706 02a5 01       		.byte	1
+ 707 02a6 58       		.byte	88
+ 708 02a7 04       		.byte	4
+ 709 02a8 59       		.byte	89
+ 710 02a9 04       		.byte	4
+ 711 02aa 5A       		.byte	90
+ 712 02ab 04       		.byte	4
+ 713 02ac 5B       		.byte	91
+ 714 02ad 04       		.byte	4
+ 715 02ae 5C       		.byte	92
+ 716 02af 22       		.byte	34
+ 717 02b0 5D       		.byte	93
+ 718 02b1 22       		.byte	34
+ 719 02b2 5F       		.byte	95
+ 720 02b3 01       		.byte	1
+ 721 02b4 66       		.byte	102
+ 722 02b5 C0       		.byte	-64
+ 723 02b6 6A       		.byte	106
+ 724 02b7 40       		.byte	64
+ 725 02b8 6B       		.byte	107
+ 726 02b9 02       		.byte	2
+ 727 02ba 80       		.byte	-128
+ 728 02bb 04       		.byte	4
+ 729 02bc 81       		.byte	-127
+ 730 02bd 04       		.byte	4
+ 731 02be 84       		.byte	-124
+ 732 02bf 18       		.byte	24
+ 733 02c0 85       		.byte	-123
+ 734 02c1 06       		.byte	6
+ 735 02c2 87       		.byte	-121
+ 736 02c3 01       		.byte	1
+ 737 02c4 88       		.byte	-120
+ 738 02c5 08       		.byte	8
+ 739 02c6 89       		.byte	-119
+ 740 02c7 01       		.byte	1
+ 741 02c8 8B       		.byte	-117
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 14
+
+
+ 742 02c9 06       		.byte	6
+ 743 02ca 92       		.byte	-110
+ 744 02cb 04       		.byte	4
+ 745 02cc 93       		.byte	-109
+ 746 02cd 01       		.byte	1
+ 747 02ce 94       		.byte	-108
+ 748 02cf 07       		.byte	7
+ 749 02d0 96       		.byte	-106
+ 750 02d1 18       		.byte	24
+ 751 02d2 98       		.byte	-104
+ 752 02d3 1C       		.byte	28
+ 753 02d4 99       		.byte	-103
+ 754 02d5 06       		.byte	6
+ 755 02d6 9A       		.byte	-102
+ 756 02d7 02       		.byte	2
+ 757 02d8 9C       		.byte	-100
+ 758 02d9 1C       		.byte	28
+ 759 02da 9E       		.byte	-98
+ 760 02db 01       		.byte	1
+ 761 02dc A1       		.byte	-95
+ 762 02dd 06       		.byte	6
+ 763 02de A2       		.byte	-94
+ 764 02df 03       		.byte	3
+ 765 02e0 A3       		.byte	-93
+ 766 02e1 01       		.byte	1
+ 767 02e2 A5       		.byte	-91
+ 768 02e3 02       		.byte	2
+ 769 02e4 A8       		.byte	-88
+ 770 02e5 1F       		.byte	31
+ 771 02e6 A9       		.byte	-87
+ 772 02e7 07       		.byte	7
+ 773 02e8 AC       		.byte	-84
+ 774 02e9 10       		.byte	16
+ 775 02ea B1       		.byte	-79
+ 776 02eb 07       		.byte	7
+ 777 02ec B4       		.byte	-76
+ 778 02ed 1F       		.byte	31
+ 779 02ee BA       		.byte	-70
+ 780 02ef 20       		.byte	32
+ 781 02f0 BB       		.byte	-69
+ 782 02f1 02       		.byte	2
+ 783 02f2 D8       		.byte	-40
+ 784 02f3 04       		.byte	4
+ 785 02f4 D9       		.byte	-39
+ 786 02f5 04       		.byte	4
+ 787 02f6 DC       		.byte	-36
+ 788 02f7 22       		.byte	34
+ 789 02f8 DF       		.byte	-33
+ 790 02f9 01       		.byte	1
+ 791 02fa 00       		.byte	0
+ 792 02fb 44       		.byte	68
+ 793 02fc 02       		.byte	2
+ 794 02fd 02       		.byte	2
+ 795 02fe 06       		.byte	6
+ 796 02ff 48       		.byte	72
+ 797 0300 07       		.byte	7
+ 798 0301 20       		.byte	32
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 15
+
+
+ 799 0302 0B       		.byte	11
+ 800 0303 25       		.byte	37
+ 801 0304 0D       		.byte	13
+ 802 0305 40       		.byte	64
+ 803 0306 0E       		.byte	14
+ 804 0307 47       		.byte	71
+ 805 0308 0F       		.byte	15
+ 806 0309 20       		.byte	32
+ 807 030a 10       		.byte	16
+ 808 030b 88       		.byte	-120
+ 809 030c 12       		.byte	18
+ 810 030d 10       		.byte	16
+ 811 030e 15       		.byte	21
+ 812 030f 10       		.byte	16
+ 813 0310 16       		.byte	22
+ 814 0311 02       		.byte	2
+ 815 0312 17       		.byte	23
+ 816 0313 01       		.byte	1
+ 817 0314 18       		.byte	24
+ 818 0315 44       		.byte	68
+ 819 0316 19       		.byte	25
+ 820 0317 84       		.byte	-124
+ 821 0318 1E       		.byte	30
+ 822 0319 04       		.byte	4
+ 823 031a 21       		.byte	33
+ 824 031b 10       		.byte	16
+ 825 031c 23       		.byte	35
+ 826 031d 04       		.byte	4
+ 827 031e 26       		.byte	38
+ 828 031f 01       		.byte	1
+ 829 0320 2A       		.byte	42
+ 830 0321 10       		.byte	16
+ 831 0322 2C       		.byte	44
+ 832 0323 20       		.byte	32
+ 833 0324 2D       		.byte	45
+ 834 0325 30       		.byte	48
+ 835 0326 2E       		.byte	46
+ 836 0327 09       		.byte	9
+ 837 0328 30       		.byte	48
+ 838 0329 08       		.byte	8
+ 839 032a 37       		.byte	55
+ 840 032b 21       		.byte	33
+ 841 032c 38       		.byte	56
+ 842 032d 44       		.byte	68
+ 843 032e 39       		.byte	57
+ 844 032f 22       		.byte	34
+ 845 0330 3B       		.byte	59
+ 846 0331 01       		.byte	1
+ 847 0332 3C       		.byte	60
+ 848 0333 20       		.byte	32
+ 849 0334 3E       		.byte	62
+ 850 0335 06       		.byte	6
+ 851 0336 3F       		.byte	63
+ 852 0337 20       		.byte	32
+ 853 0338 40       		.byte	64
+ 854 0339 04       		.byte	4
+ 855 033a 48       		.byte	72
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 16
+
+
+ 856 033b 08       		.byte	8
+ 857 033c 4A       		.byte	74
+ 858 033d 02       		.byte	2
+ 859 033e 50       		.byte	80
+ 860 033f 80       		.byte	-128
+ 861 0340 52       		.byte	82
+ 862 0341 08       		.byte	8
+ 863 0342 53       		.byte	83
+ 864 0343 10       		.byte	16
+ 865 0344 59       		.byte	89
+ 866 0345 84       		.byte	-124
+ 867 0346 5B       		.byte	91
+ 868 0347 12       		.byte	18
+ 869 0348 C0       		.byte	-64
+ 870 0349 75       		.byte	117
+ 871 034a C2       		.byte	-62
+ 872 034b F7       		.byte	-9
+ 873 034c C4       		.byte	-60
+ 874 034d DE       		.byte	-34
+ 875 034e CA       		.byte	-54
+ 876 034f E4       		.byte	-28
+ 877 0350 CC       		.byte	-52
+ 878 0351 A2       		.byte	-94
+ 879 0352 CE       		.byte	-50
+ 880 0353 EF       		.byte	-17
+ 881 0354 D0       		.byte	-48
+ 882 0355 04       		.byte	4
+ 883 0356 D2       		.byte	-46
+ 884 0357 0C       		.byte	12
+ 885 0358 D6       		.byte	-42
+ 886 0359 0F       		.byte	15
+ 887 035a EC       		.byte	-20
+ 888 035b 10       		.byte	16
+ 889 035c 1B       		.byte	27
+ 890 035d 01       		.byte	1
+ 891 035e 27       		.byte	39
+ 892 035f 01       		.byte	1
+ 893 0360 31       		.byte	49
+ 894 0361 01       		.byte	1
+ 895 0362 40       		.byte	64
+ 896 0363 60       		.byte	96
+ 897 0364 41       		.byte	65
+ 898 0365 02       		.byte	2
+ 899 0366 49       		.byte	73
+ 900 0367 FF       		.byte	-1
+ 901 0368 4A       		.byte	74
+ 902 0369 FF       		.byte	-1
+ 903 036a 4B       		.byte	75
+ 904 036b FF       		.byte	-1
+ 905 036c 4D       		.byte	77
+ 906 036d A0       		.byte	-96
+ 907 036e 4F       		.byte	79
+ 908 036f 04       		.byte	4
+ 909 0370 50       		.byte	80
+ 910 0371 18       		.byte	24
+ 911 0372 59       		.byte	89
+ 912 0373 04       		.byte	4
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 17
+
+
+ 913 0374 5A       		.byte	90
+ 914 0375 04       		.byte	4
+ 915 0376 5C       		.byte	92
+ 916 0377 10       		.byte	16
+ 917 0378 5D       		.byte	93
+ 918 0379 01       		.byte	1
+ 919 037a 5F       		.byte	95
+ 920 037b 01       		.byte	1
+ 921 037c 60       		.byte	96
+ 922 037d 40       		.byte	64
+ 923 037e 62       		.byte	98
+ 924 037f C0       		.byte	-64
+ 925 0380 64       		.byte	100
+ 926 0381 40       		.byte	64
+ 927 0382 65       		.byte	101
+ 928 0383 40       		.byte	64
+ 929 0384 66       		.byte	102
+ 930 0385 C0       		.byte	-64
+ 931 0386 68       		.byte	104
+ 932 0387 C0       		.byte	-64
+ 933 0388 6A       		.byte	106
+ 934 0389 C0       		.byte	-64
+ 935 038a 6C       		.byte	108
+ 936 038b C0       		.byte	-64
+ 937 038c 6E       		.byte	110
+ 938 038d C0       		.byte	-64
+ 939 038e 87       		.byte	-121
+ 940 038f 02       		.byte	2
+ 941 0390 92       		.byte	-110
+ 942 0391 01       		.byte	1
+ 943 0392 9B       		.byte	-101
+ 944 0393 01       		.byte	1
+ 945 0394 A1       		.byte	-95
+ 946 0395 01       		.byte	1
+ 947 0396 A6       		.byte	-90
+ 948 0397 02       		.byte	2
+ 949 0398 AB       		.byte	-85
+ 950 0399 02       		.byte	2
+ 951 039a B0       		.byte	-80
+ 952 039b 02       		.byte	2
+ 953 039c B3       		.byte	-77
+ 954 039d 02       		.byte	2
+ 955 039e B4       		.byte	-76
+ 956 039f 01       		.byte	1
+ 957 03a0 B7       		.byte	-73
+ 958 03a1 01       		.byte	1
+ 959 03a2 BF       		.byte	-65
+ 960 03a3 04       		.byte	4
+ 961 03a4 C0       		.byte	-64
+ 962 03a5 20       		.byte	32
+ 963 03a6 C1       		.byte	-63
+ 964 03a7 06       		.byte	6
+ 965 03a8 C5       		.byte	-59
+ 966 03a9 D1       		.byte	-47
+ 967 03aa C7       		.byte	-57
+ 968 03ab 02       		.byte	2
+ 969 03ac C8       		.byte	-56
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 18
+
+
+ 970 03ad 13       		.byte	19
+ 971 03ae C9       		.byte	-55
+ 972 03af FF       		.byte	-1
+ 973 03b0 CA       		.byte	-54
+ 974 03b1 FF       		.byte	-1
+ 975 03b2 CB       		.byte	-53
+ 976 03b3 FF       		.byte	-1
+ 977 03b4 CD       		.byte	-51
+ 978 03b5 AF       		.byte	-81
+ 979 03b6 CE       		.byte	-50
+ 980 03b7 0F       		.byte	15
+ 981 03b8 CF       		.byte	-49
+ 982 03b9 04       		.byte	4
+ 983 03ba D0       		.byte	-48
+ 984 03bb 18       		.byte	24
+ 985 03bc D2       		.byte	-46
+ 986 03bd 80       		.byte	-128
+ 987 03be D4       		.byte	-44
+ 988 03bf 05       		.byte	5
+ 989 03c0 D8       		.byte	-40
+ 990 03c1 04       		.byte	4
+ 991 03c2 D9       		.byte	-39
+ 992 03c3 04       		.byte	4
+ 993 03c4 DA       		.byte	-38
+ 994 03c5 04       		.byte	4
+ 995 03c6 DB       		.byte	-37
+ 996 03c7 04       		.byte	4
+ 997 03c8 DC       		.byte	-36
+ 998 03c9 11       		.byte	17
+ 999 03ca DD       		.byte	-35
+ 1000 03cb 11       		.byte	17
+ 1001 03cc DF       		.byte	-33
+ 1002 03cd 01       		.byte	1
+ 1003 03ce E0       		.byte	-32
+ 1004 03cf 40       		.byte	64
+ 1005 03d0 E2       		.byte	-30
+ 1006 03d1 C0       		.byte	-64
+ 1007 03d2 E4       		.byte	-28
+ 1008 03d3 40       		.byte	64
+ 1009 03d4 E5       		.byte	-27
+ 1010 03d5 40       		.byte	64
+ 1011 03d6 E6       		.byte	-26
+ 1012 03d7 C0       		.byte	-64
+ 1013 03d8 E8       		.byte	-24
+ 1014 03d9 C0       		.byte	-64
+ 1015 03da EA       		.byte	-22
+ 1016 03db C0       		.byte	-64
+ 1017 03dc EC       		.byte	-20
+ 1018 03dd C0       		.byte	-64
+ 1019 03de EE       		.byte	-18
+ 1020 03df C0       		.byte	-64
+ 1021 03e0 09       		.byte	9
+ 1022 03e1 02       		.byte	2
+ 1023 03e2 10       		.byte	16
+ 1024 03e3 20       		.byte	32
+ 1025 03e4 18       		.byte	24
+ 1026 03e5 04       		.byte	4
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 19
+
+
+ 1027 03e6 19       		.byte	25
+ 1028 03e7 22       		.byte	34
+ 1029 03e8 1B       		.byte	27
+ 1030 03e9 10       		.byte	16
+ 1031 03ea 22       		.byte	34
+ 1032 03eb 44       		.byte	68
+ 1033 03ec 27       		.byte	39
+ 1034 03ed 80       		.byte	-128
+ 1035 03ee 29       		.byte	41
+ 1036 03ef 22       		.byte	34
+ 1037 03f0 2C       		.byte	44
+ 1038 03f1 20       		.byte	32
+ 1039 03f2 30       		.byte	48
+ 1040 03f3 20       		.byte	32
+ 1041 03f4 35       		.byte	53
+ 1042 03f5 20       		.byte	32
+ 1043 03f6 3A       		.byte	58
+ 1044 03f7 04       		.byte	4
+ 1045 03f8 40       		.byte	64
+ 1046 03f9 04       		.byte	4
+ 1047 03fa 46       		.byte	70
+ 1048 03fb 04       		.byte	4
+ 1049 03fc 48       		.byte	72
+ 1050 03fd 28       		.byte	40
+ 1051 03fe 49       		.byte	73
+ 1052 03ff 01       		.byte	1
+ 1053 0400 4F       		.byte	79
+ 1054 0401 20       		.byte	32
+ 1055 0402 50       		.byte	80
+ 1056 0403 08       		.byte	8
+ 1057 0404 52       		.byte	82
+ 1058 0405 04       		.byte	4
+ 1059 0406 59       		.byte	89
+ 1060 0407 01       		.byte	1
+ 1061 0408 5A       		.byte	90
+ 1062 0409 88       		.byte	-120
+ 1063 040a 71       		.byte	113
+ 1064 040b 02       		.byte	2
+ 1065 040c 83       		.byte	-125
+ 1066 040d 80       		.byte	-128
+ 1067 040e C2       		.byte	-62
+ 1068 040f 08       		.byte	8
+ 1069 0410 C4       		.byte	-60
+ 1070 0411 04       		.byte	4
+ 1071 0412 CA       		.byte	-54
+ 1072 0413 45       		.byte	69
+ 1073 0414 CC       		.byte	-52
+ 1074 0415 24       		.byte	36
+ 1075 0416 CE       		.byte	-50
+ 1076 0417 02       		.byte	2
+ 1077 0418 D0       		.byte	-48
+ 1078 0419 24       		.byte	36
+ 1079 041a D2       		.byte	-46
+ 1080 041b 24       		.byte	36
+ 1081 041c D6       		.byte	-42
+ 1082 041d 0B       		.byte	11
+ 1083 041e EE       		.byte	-18
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 20
+
+
+ 1084 041f 01       		.byte	1
+ 1085 0420 AA       		.byte	-86
+ 1086 0421 40       		.byte	64
+ 1087 0422 B4       		.byte	-76
+ 1088 0423 01       		.byte	1
+ 1089 0424 EC       		.byte	-20
+ 1090 0425 10       		.byte	16
+ 1091 0426 32       		.byte	50
+ 1092 0427 20       		.byte	32
+ 1093 0428 CC       		.byte	-52
+ 1094 0429 10       		.byte	16
+ 1095 042a 86       		.byte	-122
+ 1096 042b 20       		.byte	32
+ 1097 042c A6       		.byte	-90
+ 1098 042d 20       		.byte	32
+ 1099 042e E6       		.byte	-26
+ 1100 042f 40       		.byte	64
+ 1101 0430 63       		.byte	99
+ 1102 0431 20       		.byte	32
+ 1103 0432 D8       		.byte	-40
+ 1104 0433 40       		.byte	64
+ 1105 0434 7D       		.byte	125
+ 1106 0435 20       		.byte	32
+ 1107 0436 DE       		.byte	-34
+ 1108 0437 01       		.byte	1
+ 1109 0438 0D       		.byte	13
+ 1110 0439 10       		.byte	16
+ 1111 043a 0E       		.byte	14
+ 1112 043b 01       		.byte	1
+ 1113 043c A5       		.byte	-91
+ 1114 043d 10       		.byte	16
+ 1115 043e C2       		.byte	-62
+ 1116 043f 01       		.byte	1
+ 1117 0440 45       		.byte	69
+ 1118 0441 08       		.byte	8
+ 1119 0442 A5       		.byte	-91
+ 1120 0443 10       		.byte	16
+ 1121 0444 B1       		.byte	-79
+ 1122 0445 10       		.byte	16
+ 1123 0446 B2       		.byte	-78
+ 1124 0447 01       		.byte	1
+ 1125 0448 D0       		.byte	-48
+ 1126 0449 01       		.byte	1
+ 1127 044a EE       		.byte	-18
+ 1128 044b 05       		.byte	5
+ 1129 044c 98       		.byte	-104
+ 1130 044d 40       		.byte	64
+ 1131 044e A5       		.byte	-91
+ 1132 044f 18       		.byte	24
+ 1133 0450 B0       		.byte	-80
+ 1134 0451 40       		.byte	64
+ 1135 0452 E8       		.byte	-24
+ 1136 0453 01       		.byte	1
+ 1137 0454 25       		.byte	37
+ 1138 0455 10       		.byte	16
+ 1139 0456 5F       		.byte	95
+ 1140 0457 20       		.byte	32
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 21
+
+
+ 1141 0458 83       		.byte	-125
+ 1142 0459 20       		.byte	32
+ 1143 045a AB       		.byte	-85
+ 1144 045b 10       		.byte	16
+ 1145 045c C8       		.byte	-56
+ 1146 045d 20       		.byte	32
+ 1147 045e D6       		.byte	-42
+ 1148 045f 20       		.byte	32
+ 1149 0460 E2       		.byte	-30
+ 1150 0461 80       		.byte	-128
+ 1151 0462 EE       		.byte	-18
+ 1152 0463 80       		.byte	-128
+ 1153 0464 B5       		.byte	-75
+ 1154 0465 10       		.byte	16
+ 1155 0466 58       		.byte	88
+ 1156 0467 40       		.byte	64
+ 1157 0468 98       		.byte	-104
+ 1158 0469 40       		.byte	64
+ 1159 046a A5       		.byte	-91
+ 1160 046b 08       		.byte	8
+ 1161 046c B5       		.byte	-75
+ 1162 046d 10       		.byte	16
+ 1163 046e D4       		.byte	-44
+ 1164 046f 01       		.byte	1
+ 1165 0470 EC       		.byte	-20
+ 1166 0471 08       		.byte	8
+ 1167 0472 B5       		.byte	-75
+ 1168 0473 08       		.byte	8
+ 1169 0474 EC       		.byte	-20
+ 1170 0475 08       		.byte	8
+ 1171 0476 00       		.byte	0
+ 1172 0477 04       		.byte	4
+ 1173 0478 0C       		.byte	12
+ 1174 0479 04       		.byte	4
+ 1175 047a 0E       		.byte	14
+ 1176 047b 04       		.byte	4
+ 1177 047c 10       		.byte	16
+ 1178 047d 02       		.byte	2
+ 1179 047e 1A       		.byte	26
+ 1180 047f 02       		.byte	2
+ 1181 0480 00       		.byte	0
+ 1182 0481 03       		.byte	3
+ 1183 0482 00       		.byte	0
+ 1184 0483 00       		.byte	0
+ 1185 0484 00       		.byte	0
+ 1186 0485 08       		.byte	8
+ 1187 0486 03       		.byte	3
+ 1188 0487 00       		.byte	0
+ 1189 0488 1F       		.byte	31
+ 1190 0489 04       		.byte	4
+ 1191 048a 00       		.byte	0
+ 1192 048b 00       		.byte	0
+ 1193 048c 03       		.byte	3
+ 1194 048d 0C       		.byte	12
+ 1195 048e 40       		.byte	64
+ 1196 048f 00       		.byte	0
+ 1197 0490 08       		.byte	8
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 22
+
+
+ 1198 0491 00       		.byte	0
+ 1199 0492 00       		.byte	0
+ 1200 0493 01       		.byte	1
+ 1201 0494 13       		.byte	19
+ 1202 0495 00       		.byte	0
+ 1203 0496 0C       		.byte	12
+ 1204 0497 00       		.byte	0
+ 1205 0498 02       		.byte	2
+ 1206 0499 02       		.byte	2
+ 1207 049a 80       		.byte	-128
+ 1208 049b 0C       		.byte	12
+ 1209 049c 1C       		.byte	28
+ 1210 049d 0E       		.byte	14
+ 1211 049e 03       		.byte	3
+ 1212 049f 00       		.byte	0
+ 1213 04a0 1F       		.byte	31
+ 1214 04a1 00       		.byte	0
+ 1215 04a2 00       		.byte	0
+ 1216 04a3 01       		.byte	1
+ 1217 04a4 01       		.byte	1
+ 1218 04a5 0C       		.byte	12
+ 1219 04a6 A0       		.byte	-96
+ 1220 04a7 02       		.byte	2
+ 1221 04a8 04       		.byte	4
+ 1222 04a9 0E       		.byte	14
+ 1223 04aa 00       		.byte	0
+ 1224 04ab 00       		.byte	0
+ 1225 04ac 0C       		.byte	12
+ 1226 04ad 00       		.byte	0
+ 1227 04ae 00       		.byte	0
+ 1228 04af 00       		.byte	0
+ 1229 04b0 00       		.byte	0
+ 1230 04b1 00       		.byte	0
+ 1231 04b2 00       		.byte	0
+ 1232 04b3 02       		.byte	2
+ 1233 04b4 20       		.byte	32
+ 1234 04b5 0E       		.byte	14
+ 1235 04b6 0F       		.byte	15
+ 1236 04b7 00       		.byte	0
+ 1237 04b8 10       		.byte	16
+ 1238 04b9 01       		.byte	1
+ 1239 04ba C0       		.byte	-64
+ 1240 04bb 00       		.byte	0
+ 1241 04bc 00       		.byte	0
+ 1242 04bd 00       		.byte	0
+ 1243 04be 08       		.byte	8
+ 1244 04bf 08       		.byte	8
+ 1245 04c0 00       		.byte	0
+ 1246 04c1 00       		.byte	0
+ 1247 04c2 50       		.byte	80
+ 1248 04c3 10       		.byte	16
+ 1249 04c4 35       		.byte	53
+ 1250 04c5 02       		.byte	2
+ 1251 04c6 04       		.byte	4
+ 1252 04c7 00       		.byte	0
+ 1253 04c8 01       		.byte	1
+ 1254 04c9 E0       		.byte	-32
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 23
+
+
+ 1255 04ca 0C       		.byte	12
+ 1256 04cb 00       		.byte	0
+ 1257 04cc 06       		.byte	6
+ 1258 04cd FF       		.byte	-1
+ 1259 04ce FF       		.byte	-1
+ 1260 04cf FF       		.byte	-1
+ 1261 04d0 62       		.byte	98
+ 1262 04d1 A0       		.byte	-96
+ 1263 04d2 F0       		.byte	-16
+ 1264 04d3 41       		.byte	65
+ 1265 04d4 0C       		.byte	12
+ 1266 04d5 00       		.byte	0
+ 1267 04d6 00       		.byte	0
+ 1268 04d7 00       		.byte	0
+ 1269 04d8 00       		.byte	0
+ 1270 04d9 00       		.byte	0
+ 1271 04da 02       		.byte	2
+ 1272 04db 12       		.byte	18
+ 1273 04dc 04       		.byte	4
+ 1274 04dd 04       		.byte	4
+ 1275 04de 04       		.byte	4
+ 1276 04df 04       		.byte	4
+ 1277 04e0 22       		.byte	34
+ 1278 04e1 22       		.byte	34
+ 1279 04e2 00       		.byte	0
+ 1280 04e3 01       		.byte	1
+ 1281 04e4 00       		.byte	0
+ 1282 04e5 00       		.byte	0
+ 1283 04e6 00       		.byte	0
+ 1284 04e7 00       		.byte	0
+ 1285 04e8 00       		.byte	0
+ 1286 04e9 00       		.byte	0
+ 1287 04ea 40       		.byte	64
+ 1288 04eb 02       		.byte	2
+ 1289 04ec 00       		.byte	0
+ 1290 04ed 10       		.byte	16
+ 1291 04ee 30       		.byte	48
+ 1292 04ef 10       		.byte	16
+ 1293 04f0 00       		.byte	0
+ 1294 04f1 10       		.byte	16
+ 1295 04f2 10       		.byte	16
+ 1296 04f3 12       		.byte	18
+ 1297 04f4 00       		.byte	0
+ 1298 04f5 00       		.byte	0
+ 1299 04f6 00       		.byte	0
+ 1300 04f7 00       		.byte	0
+ 1301 04f8 00       		.byte	0
+ 1302 04f9 00       		.byte	0
+ 1303 04fa 00       		.byte	0
+ 1304 04fb 00       		.byte	0
+ 1305 04fc 00       		.byte	0
+ 1306 04fd 00       		.byte	0
+ 1307 04fe 00       		.byte	0
+ 1308 04ff 00       		.byte	0
+ 1309 0500 00       		.byte	0
+ 1310 0501 00       		.byte	0
+ 1311 0502 00       		.byte	0
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 24
+
+
+ 1312 0503 00       		.byte	0
+ 1313 0504 42       		.byte	66
+ 1314 0505 00       		.byte	0
+ 1315 0506 00       		.byte	0
+ 1316 0507 63       		.byte	99
+ 1317 0508 63       		.byte	99
+ 1318 0509 00       		.byte	0
+ 1319 050a 00       		.byte	0
+ 1320 050b 00       		.byte	0
+ 1321 050c 80       		.byte	-128
+ 1322 050d 00       		.byte	0
+ 1323 050e 00       		.byte	0
+ 1324 050f 00       		.byte	0
+ 1325 0510 3C       		.byte	60
+ 1326 0511 00       		.byte	0
+ 1327 0512 00       		.byte	0
+ 1328 0513 00       		.byte	0
+ 1329 0514 00       		.byte	0
+ 1330 0515 00       		.byte	0
+ 1331 0516 00       		.byte	0
+ 1332 0517 00       		.byte	0
+ 1333 0518 00       		.byte	0
+ 1334 0519 08       		.byte	8
+ 1335 051a 08       		.byte	8
+ 1336 051b 00       		.byte	0
+ 1337 051c 08       		.byte	8
+ 1338 051d 00       		.byte	0
+ 1339 051e 00       		.byte	0
+ 1340 051f 00       		.byte	0
+ 1341 0520 04       		.byte	4
+ 1342 0521 00       		.byte	0
+ 1343 0522 00       		.byte	0
+ 1344 0523 0F       		.byte	15
+ 1345 0524 0F       		.byte	15
+ 1346 0525 00       		.byte	0
+ 1347 0526 04       		.byte	4
+ 1348 0527 00       		.byte	0
+ 1349 0528 00       		.byte	0
+ 1350 0529 00       		.byte	0
+ 1351 052a 00       		.byte	0
+ 1352 052b 00       		.byte	0
+ 1353 052c 80       		.byte	-128
+ 1354 052d 7F       		.byte	127
+ 1355 052e 7F       		.byte	127
+ 1356 052f 00       		.byte	0
+ 1357 0530 00       		.byte	0
+ 1358 0531 00       		.byte	0
+ 1359 0532 00       		.byte	0
+ 1360 0533 00       		.byte	0
+ 1361 0534 25       		.byte	37
+ 1362 0535 00       		.byte	0
+ 1363 0536 18       		.byte	24
+ 1364 0537 01       		.byte	1
+ 1365              		.section	.cywolatch,"a",%progbits
+ 1366              		.align	2
+ 1367              		.type	cy_meta_wonvl, %object
+ 1368              		.size	cy_meta_wonvl, 4
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 25
+
+
+ 1369              	cy_meta_wonvl:
+ 1370 0000 BC       		.byte	-68
+ 1371 0001 90       		.byte	-112
+ 1372 0002 AC       		.byte	-84
+ 1373 0003 AF       		.byte	-81
+ 1374              		.section	.cycustnvl,"a",%progbits
+ 1375              		.align	2
+ 1376              		.type	cy_meta_custnvl, %object
+ 1377              		.size	cy_meta_custnvl, 4
+ 1378              	cy_meta_custnvl:
+ 1379 0000 00       		.byte	0
+ 1380 0001 00       		.byte	0
+ 1381 0002 40       		.byte	64
+ 1382 0003 05       		.byte	5
+ 1383              		.section	.cymeta,"a",%progbits
+ 1384              		.align	2
+ 1385              		.type	cy_metadata, %object
+ 1386              		.size	cy_metadata, 12
+ 1387              	cy_metadata:
+ 1388 0000 00       		.byte	0
+ 1389 0001 01       		.byte	1
+ 1390 0002 2E       		.byte	46
+ 1391 0003 16       		.byte	22
+ 1392 0004 10       		.byte	16
+ 1393 0005 69       		.byte	105
+ 1394 0006 00       		.byte	0
+ 1395 0007 01       		.byte	1
+ 1396 0008 00       		.byte	0
+ 1397 0009 00       		.byte	0
+ 1398 000a 00       		.byte	0
+ 1399 000b 00       		.byte	0
+ 1400              		.section	.cyflashprotect,"a",%progbits
+ 1401              		.align	2
+ 1402              		.type	cy_meta_flashprotect, %object
+ 1403              		.size	cy_meta_flashprotect, 256
+ 1404              	cy_meta_flashprotect:
+ 1405 0000 00000000 		.space	256
+ 1405      00000000 
+ 1405      00000000 
+ 1405      00000000 
+ 1405      00000000 
+ 1406              		.text
+ 1407              	.Letext0:
+ 1408              		.file 1 "d:\\psoc\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\includ
+ 1409              		.file 2 "d:\\psoc\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.1\\arm-none-eabi\\includ
+ 1410              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 1411              		.section	.debug_info,"",%progbits
+ 1412              	.Ldebug_info0:
+ 1413 0000 32010000 		.4byte	0x132
+ 1414 0004 0400     		.2byte	0x4
+ 1415 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1416 000a 04       		.byte	0x4
+ 1417 000b 01       		.uleb128 0x1
+ 1418 000c 99000000 		.4byte	.LASF17
+ 1419 0010 0C       		.byte	0xc
+ 1420 0011 F3010000 		.4byte	.LASF18
+ 1421 0015 0A000000 		.4byte	.LASF19
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 26
+
+
+ 1422 0019 00000000 		.4byte	.Ldebug_line0
+ 1423 001d 02       		.uleb128 0x2
+ 1424 001e 01       		.byte	0x1
+ 1425 001f 06       		.byte	0x6
+ 1426 0020 E7010000 		.4byte	.LASF0
+ 1427 0024 03       		.uleb128 0x3
+ 1428 0025 00000000 		.4byte	.LASF9
+ 1429 0029 01       		.byte	0x1
+ 1430 002a 1D       		.byte	0x1d
+ 1431 002b 2F000000 		.4byte	0x2f
+ 1432 002f 02       		.uleb128 0x2
+ 1433 0030 01       		.byte	0x1
+ 1434 0031 08       		.byte	0x8
+ 1435 0032 8B000000 		.4byte	.LASF1
+ 1436 0036 02       		.uleb128 0x2
+ 1437 0037 02       		.byte	0x2
+ 1438 0038 05       		.byte	0x5
+ 1439 0039 D4010000 		.4byte	.LASF2
+ 1440 003d 02       		.uleb128 0x2
+ 1441 003e 02       		.byte	0x2
+ 1442 003f 07       		.byte	0x7
+ 1443 0040 39010000 		.4byte	.LASF3
+ 1444 0044 02       		.uleb128 0x2
+ 1445 0045 04       		.byte	0x4
+ 1446 0046 05       		.byte	0x5
+ 1447 0047 DE010000 		.4byte	.LASF4
+ 1448 004b 02       		.uleb128 0x2
+ 1449 004c 04       		.byte	0x4
+ 1450 004d 07       		.byte	0x7
+ 1451 004e 27010000 		.4byte	.LASF5
+ 1452 0052 02       		.uleb128 0x2
+ 1453 0053 08       		.byte	0x8
+ 1454 0054 05       		.byte	0x5
+ 1455 0055 C6010000 		.4byte	.LASF6
+ 1456 0059 02       		.uleb128 0x2
+ 1457 005a 08       		.byte	0x8
+ 1458 005b 07       		.byte	0x7
+ 1459 005c 7B010000 		.4byte	.LASF7
+ 1460 0060 04       		.uleb128 0x4
+ 1461 0061 04       		.byte	0x4
+ 1462 0062 05       		.byte	0x5
+ 1463 0063 696E7400 		.ascii	"int\000"
+ 1464 0067 02       		.uleb128 0x2
+ 1465 0068 04       		.byte	0x4
+ 1466 0069 07       		.byte	0x7
+ 1467 006a 6E010000 		.4byte	.LASF8
+ 1468 006e 03       		.uleb128 0x3
+ 1469 006f 92010000 		.4byte	.LASF10
+ 1470 0073 02       		.byte	0x2
+ 1471 0074 18       		.byte	0x18
+ 1472 0075 24000000 		.4byte	0x24
+ 1473 0079 05       		.uleb128 0x5
+ 1474 007a 91000000 		.4byte	0x91
+ 1475 007e 8A000000 		.4byte	0x8a
+ 1476 0082 06       		.uleb128 0x6
+ 1477 0083 8A000000 		.4byte	0x8a
+ 1478 0087 3705     		.2byte	0x537
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 27
+
+
+ 1479 0089 00       		.byte	0
+ 1480 008a 02       		.uleb128 0x2
+ 1481 008b 04       		.byte	0x4
+ 1482 008c 07       		.byte	0x7
+ 1483 008d BD010000 		.4byte	.LASF11
+ 1484 0091 07       		.uleb128 0x7
+ 1485 0092 6E000000 		.4byte	0x6e
+ 1486 0096 08       		.uleb128 0x8
+ 1487 0097 5C010000 		.4byte	.LASF12
+ 1488 009b 03       		.byte	0x3
+ 1489 009c 1F       		.byte	0x1f
+ 1490 009d A7000000 		.4byte	0xa7
+ 1491 00a1 05       		.uleb128 0x5
+ 1492 00a2 03       		.byte	0x3
+ 1493 00a3 00000000 		.4byte	cy_meta_configecc
+ 1494 00a7 07       		.uleb128 0x7
+ 1495 00a8 79000000 		.4byte	0x79
+ 1496 00ac 05       		.uleb128 0x5
+ 1497 00ad 91000000 		.4byte	0x91
+ 1498 00b1 BC000000 		.4byte	0xbc
+ 1499 00b5 09       		.uleb128 0x9
+ 1500 00b6 8A000000 		.4byte	0x8a
+ 1501 00ba 03       		.byte	0x3
+ 1502 00bb 00       		.byte	0
+ 1503 00bc 08       		.uleb128 0x8
+ 1504 00bd 4C010000 		.4byte	.LASF13
+ 1505 00c1 03       		.byte	0x3
+ 1506 00c2 D3       		.byte	0xd3
+ 1507 00c3 CD000000 		.4byte	0xcd
+ 1508 00c7 05       		.uleb128 0x5
+ 1509 00c8 03       		.byte	0x3
+ 1510 00c9 00000000 		.4byte	cy_meta_custnvl
+ 1511 00cd 07       		.uleb128 0x7
+ 1512 00ce AC000000 		.4byte	0xac
+ 1513 00d2 08       		.uleb128 0x8
+ 1514 00d3 AF010000 		.4byte	.LASF14
+ 1515 00d7 03       		.byte	0x3
+ 1516 00d8 E1       		.byte	0xe1
+ 1517 00d9 E3000000 		.4byte	0xe3
+ 1518 00dd 05       		.uleb128 0x5
+ 1519 00de 03       		.byte	0x3
+ 1520 00df 00000000 		.4byte	cy_meta_wonvl
+ 1521 00e3 07       		.uleb128 0x7
+ 1522 00e4 AC000000 		.4byte	0xac
+ 1523 00e8 05       		.uleb128 0x5
+ 1524 00e9 91000000 		.4byte	0x91
+ 1525 00ed F8000000 		.4byte	0xf8
+ 1526 00f1 09       		.uleb128 0x9
+ 1527 00f2 8A000000 		.4byte	0x8a
+ 1528 00f6 FF       		.byte	0xff
+ 1529 00f7 00       		.byte	0
+ 1530 00f8 08       		.uleb128 0x8
+ 1531 00f9 9A010000 		.4byte	.LASF15
+ 1532 00fd 03       		.byte	0x3
+ 1533 00fe EF       		.byte	0xef
+ 1534 00ff 09010000 		.4byte	0x109
+ 1535 0103 05       		.uleb128 0x5
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 28
+
+
+ 1536 0104 03       		.byte	0x3
+ 1537 0105 00000000 		.4byte	cy_meta_flashprotect
+ 1538 0109 07       		.uleb128 0x7
+ 1539 010a E8000000 		.4byte	0xe8
+ 1540 010e 05       		.uleb128 0x5
+ 1541 010f 91000000 		.4byte	0x91
+ 1542 0113 1E010000 		.4byte	0x11e
+ 1543 0117 09       		.uleb128 0x9
+ 1544 0118 8A000000 		.4byte	0x8a
+ 1545 011c 0B       		.byte	0xb
+ 1546 011d 00       		.byte	0
+ 1547 011e 0A       		.uleb128 0xa
+ 1548 011f 7F000000 		.4byte	.LASF16
+ 1549 0123 03       		.byte	0x3
+ 1550 0124 1C01     		.2byte	0x11c
+ 1551 0126 30010000 		.4byte	0x130
+ 1552 012a 05       		.uleb128 0x5
+ 1553 012b 03       		.byte	0x3
+ 1554 012c 00000000 		.4byte	cy_metadata
+ 1555 0130 07       		.uleb128 0x7
+ 1556 0131 0E010000 		.4byte	0x10e
+ 1557 0135 00       		.byte	0
+ 1558              		.section	.debug_abbrev,"",%progbits
+ 1559              	.Ldebug_abbrev0:
+ 1560 0000 01       		.uleb128 0x1
+ 1561 0001 11       		.uleb128 0x11
+ 1562 0002 01       		.byte	0x1
+ 1563 0003 25       		.uleb128 0x25
+ 1564 0004 0E       		.uleb128 0xe
+ 1565 0005 13       		.uleb128 0x13
+ 1566 0006 0B       		.uleb128 0xb
+ 1567 0007 03       		.uleb128 0x3
+ 1568 0008 0E       		.uleb128 0xe
+ 1569 0009 1B       		.uleb128 0x1b
+ 1570 000a 0E       		.uleb128 0xe
+ 1571 000b 10       		.uleb128 0x10
+ 1572 000c 17       		.uleb128 0x17
+ 1573 000d 00       		.byte	0
+ 1574 000e 00       		.byte	0
+ 1575 000f 02       		.uleb128 0x2
+ 1576 0010 24       		.uleb128 0x24
+ 1577 0011 00       		.byte	0
+ 1578 0012 0B       		.uleb128 0xb
+ 1579 0013 0B       		.uleb128 0xb
+ 1580 0014 3E       		.uleb128 0x3e
+ 1581 0015 0B       		.uleb128 0xb
+ 1582 0016 03       		.uleb128 0x3
+ 1583 0017 0E       		.uleb128 0xe
+ 1584 0018 00       		.byte	0
+ 1585 0019 00       		.byte	0
+ 1586 001a 03       		.uleb128 0x3
+ 1587 001b 16       		.uleb128 0x16
+ 1588 001c 00       		.byte	0
+ 1589 001d 03       		.uleb128 0x3
+ 1590 001e 0E       		.uleb128 0xe
+ 1591 001f 3A       		.uleb128 0x3a
+ 1592 0020 0B       		.uleb128 0xb
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 29
+
+
+ 1593 0021 3B       		.uleb128 0x3b
+ 1594 0022 0B       		.uleb128 0xb
+ 1595 0023 49       		.uleb128 0x49
+ 1596 0024 13       		.uleb128 0x13
+ 1597 0025 00       		.byte	0
+ 1598 0026 00       		.byte	0
+ 1599 0027 04       		.uleb128 0x4
+ 1600 0028 24       		.uleb128 0x24
+ 1601 0029 00       		.byte	0
+ 1602 002a 0B       		.uleb128 0xb
+ 1603 002b 0B       		.uleb128 0xb
+ 1604 002c 3E       		.uleb128 0x3e
+ 1605 002d 0B       		.uleb128 0xb
+ 1606 002e 03       		.uleb128 0x3
+ 1607 002f 08       		.uleb128 0x8
+ 1608 0030 00       		.byte	0
+ 1609 0031 00       		.byte	0
+ 1610 0032 05       		.uleb128 0x5
+ 1611 0033 01       		.uleb128 0x1
+ 1612 0034 01       		.byte	0x1
+ 1613 0035 49       		.uleb128 0x49
+ 1614 0036 13       		.uleb128 0x13
+ 1615 0037 01       		.uleb128 0x1
+ 1616 0038 13       		.uleb128 0x13
+ 1617 0039 00       		.byte	0
+ 1618 003a 00       		.byte	0
+ 1619 003b 06       		.uleb128 0x6
+ 1620 003c 21       		.uleb128 0x21
+ 1621 003d 00       		.byte	0
+ 1622 003e 49       		.uleb128 0x49
+ 1623 003f 13       		.uleb128 0x13
+ 1624 0040 2F       		.uleb128 0x2f
+ 1625 0041 05       		.uleb128 0x5
+ 1626 0042 00       		.byte	0
+ 1627 0043 00       		.byte	0
+ 1628 0044 07       		.uleb128 0x7
+ 1629 0045 26       		.uleb128 0x26
+ 1630 0046 00       		.byte	0
+ 1631 0047 49       		.uleb128 0x49
+ 1632 0048 13       		.uleb128 0x13
+ 1633 0049 00       		.byte	0
+ 1634 004a 00       		.byte	0
+ 1635 004b 08       		.uleb128 0x8
+ 1636 004c 34       		.uleb128 0x34
+ 1637 004d 00       		.byte	0
+ 1638 004e 03       		.uleb128 0x3
+ 1639 004f 0E       		.uleb128 0xe
+ 1640 0050 3A       		.uleb128 0x3a
+ 1641 0051 0B       		.uleb128 0xb
+ 1642 0052 3B       		.uleb128 0x3b
+ 1643 0053 0B       		.uleb128 0xb
+ 1644 0054 49       		.uleb128 0x49
+ 1645 0055 13       		.uleb128 0x13
+ 1646 0056 3F       		.uleb128 0x3f
+ 1647 0057 19       		.uleb128 0x19
+ 1648 0058 02       		.uleb128 0x2
+ 1649 0059 18       		.uleb128 0x18
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 30
+
+
+ 1650 005a 00       		.byte	0
+ 1651 005b 00       		.byte	0
+ 1652 005c 09       		.uleb128 0x9
+ 1653 005d 21       		.uleb128 0x21
+ 1654 005e 00       		.byte	0
+ 1655 005f 49       		.uleb128 0x49
+ 1656 0060 13       		.uleb128 0x13
+ 1657 0061 2F       		.uleb128 0x2f
+ 1658 0062 0B       		.uleb128 0xb
+ 1659 0063 00       		.byte	0
+ 1660 0064 00       		.byte	0
+ 1661 0065 0A       		.uleb128 0xa
+ 1662 0066 34       		.uleb128 0x34
+ 1663 0067 00       		.byte	0
+ 1664 0068 03       		.uleb128 0x3
+ 1665 0069 0E       		.uleb128 0xe
+ 1666 006a 3A       		.uleb128 0x3a
+ 1667 006b 0B       		.uleb128 0xb
+ 1668 006c 3B       		.uleb128 0x3b
+ 1669 006d 05       		.uleb128 0x5
+ 1670 006e 49       		.uleb128 0x49
+ 1671 006f 13       		.uleb128 0x13
+ 1672 0070 3F       		.uleb128 0x3f
+ 1673 0071 19       		.uleb128 0x19
+ 1674 0072 02       		.uleb128 0x2
+ 1675 0073 18       		.uleb128 0x18
+ 1676 0074 00       		.byte	0
+ 1677 0075 00       		.byte	0
+ 1678 0076 00       		.byte	0
+ 1679              		.section	.debug_aranges,"",%progbits
+ 1680 0000 14000000 		.4byte	0x14
+ 1681 0004 0200     		.2byte	0x2
+ 1682 0006 00000000 		.4byte	.Ldebug_info0
+ 1683 000a 04       		.byte	0x4
+ 1684 000b 00       		.byte	0
+ 1685 000c 0000     		.2byte	0
+ 1686 000e 0000     		.2byte	0
+ 1687 0010 00000000 		.4byte	0
+ 1688 0014 00000000 		.4byte	0
+ 1689              		.section	.debug_line,"",%progbits
+ 1690              	.Ldebug_line0:
+ 1691 0000 0F010000 		.section	.debug_str,"MS",%progbits,1
+ 1691      02000901 
+ 1691      00000201 
+ 1691      FB0E0D00 
+ 1691      01010101 
+ 1692              	.LASF9:
+ 1693 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1693      6E74385F 
+ 1693      7400
+ 1694              	.LASF19:
+ 1695 000a 443A5C50 		.ascii	"D:\\Polytech\\MA1 2022-2023 ULB\\Q2\\ELEC-H310 -- D"
+ 1695      6F6C7974 
+ 1695      6563685C 
+ 1695      4D413120 
+ 1695      32303232 
+ 1696 0039 69676974 		.ascii	"igital Electronics\\Coding\\INFO_H310\\Lab03\\Lab03"
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 31
+
+
+ 1696      616C2045 
+ 1696      6C656374 
+ 1696      726F6E69 
+ 1696      63735C43 
+ 1697 0068 5F4D7953 		.ascii	"_MySelf\\Design01.cydsn\000"
+ 1697      656C665C 
+ 1697      44657369 
+ 1697      676E3031 
+ 1697      2E637964 
+ 1698              	.LASF16:
+ 1699 007f 63795F6D 		.ascii	"cy_metadata\000"
+ 1699      65746164 
+ 1699      61746100 
+ 1700              	.LASF1:
+ 1701 008b 756E7369 		.ascii	"unsigned char\000"
+ 1701      676E6564 
+ 1701      20636861 
+ 1701      7200
+ 1702              	.LASF17:
+ 1703 0099 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1703      43313120 
+ 1703      352E342E 
+ 1703      31203230 
+ 1703      31363036 
+ 1704 00cc 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1704      20726576 
+ 1704      6973696F 
+ 1704      6E203233 
+ 1704      37373135 
+ 1705 00ff 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1705      66756E63 
+ 1705      74696F6E 
+ 1705      2D736563 
+ 1705      74696F6E 
+ 1706              	.LASF5:
+ 1707 0127 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1707      20756E73 
+ 1707      69676E65 
+ 1707      6420696E 
+ 1707      7400
+ 1708              	.LASF3:
+ 1709 0139 73686F72 		.ascii	"short unsigned int\000"
+ 1709      7420756E 
+ 1709      7369676E 
+ 1709      65642069 
+ 1709      6E7400
+ 1710              	.LASF13:
+ 1711 014c 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1711      6574615F 
+ 1711      63757374 
+ 1711      6E766C00 
+ 1712              	.LASF12:
+ 1713 015c 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1713      6574615F 
+ 1713      636F6E66 
+ 1713      69676563 
+ 1713      6300
+ARM GAS  C:\Users\thoma\AppData\Local\Temp\cca3Omix.s 			page 32
+
+
+ 1714              	.LASF8:
+ 1715 016e 756E7369 		.ascii	"unsigned int\000"
+ 1715      676E6564 
+ 1715      20696E74 
+ 1715      00
+ 1716              	.LASF7:
+ 1717 017b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1717      206C6F6E 
+ 1717      6720756E 
+ 1717      7369676E 
+ 1717      65642069 
+ 1718              	.LASF10:
+ 1719 0192 75696E74 		.ascii	"uint8_t\000"
+ 1719      385F7400 
+ 1720              	.LASF15:
+ 1721 019a 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1721      6574615F 
+ 1721      666C6173 
+ 1721      6870726F 
+ 1721      74656374 
+ 1722              	.LASF14:
+ 1723 01af 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1723      6574615F 
+ 1723      776F6E76 
+ 1723      6C00
+ 1724              	.LASF11:
+ 1725 01bd 73697A65 		.ascii	"sizetype\000"
+ 1725      74797065 
+ 1725      00
+ 1726              	.LASF6:
+ 1727 01c6 6C6F6E67 		.ascii	"long long int\000"
+ 1727      206C6F6E 
+ 1727      6720696E 
+ 1727      7400
+ 1728              	.LASF2:
+ 1729 01d4 73686F72 		.ascii	"short int\000"
+ 1729      7420696E 
+ 1729      7400
+ 1730              	.LASF4:
+ 1731 01de 6C6F6E67 		.ascii	"long int\000"
+ 1731      20696E74 
+ 1731      00
+ 1732              	.LASF0:
+ 1733 01e7 7369676E 		.ascii	"signed char\000"
+ 1733      65642063 
+ 1733      68617200 
+ 1734              	.LASF18:
+ 1735 01f3 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1735      72617465 
+ 1735      645F536F 
+ 1735      75726365 
+ 1735      5C50536F 
+ 1736              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

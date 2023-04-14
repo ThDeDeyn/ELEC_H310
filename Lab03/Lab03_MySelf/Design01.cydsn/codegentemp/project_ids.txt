@@ -1,0 +1,6 @@
+D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab03\Lab03_MySelf\Design01.cydsn\Design01.cyprj|582a0323-02ff-4ece-8fba-27901f0dc7c0
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|bf385f6e-eefb-442a-a454-7da6618968cc
+C:\Users\thoma\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|f4b49288-269b-45d2-a85a-f4ba69b1eee3
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|2286d6dd-4107-40fa-9f11-638eeefe180f
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b8dbbe10-28b0-45e9-8d60-68300de2ab8a
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|978d7831-084f-4eba-b848-a3954a704fbe
