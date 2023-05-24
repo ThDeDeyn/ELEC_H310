@@ -140,18 +140,6 @@
 <v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_LCDPort.lst</v>
 <v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_PM.lst</v>
 <v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\LED01.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\LED02.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\LED03.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\LED04.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\LEFT.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\Photores.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\POT.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\RIGHT.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW0.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW1.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW2.lst</v>
-<v>Lab02_MySelf\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\ROW3.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -207,7 +195,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1439, 703" SelectedTabbedMdiWindow="f13de1bf-549a-4374-9b50-3a57cb4f40ad"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="e7c9f11a-a428-4c2c-beae-39d26d4f9b22" /><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab02\Lab02_MySelf\Design01.cydsn\main.c" Guid="a0f8491b-4760-42cd-bcaf-aed504ba2af0" /><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab02\Lab02_MySelf\Design01.cydsn\TopDesign\TopDesign.cysch" Guid="f13de1bf-549a-4374-9b50-3a57cb4f40ad" /><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab02\Lab02_MySelf\Design01.cydsn\Design01.cydwr" Guid="4bfb882e-5a04-4994-813d-0222a777cf3c" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1055, 487" SelectedTabbedMdiWindow="a0f8491b-4760-42cd-bcaf-aed504ba2af0"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="e7c9f11a-a428-4c2c-beae-39d26d4f9b22" /><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab02\Lab02_MySelf\Design01.cydsn\main.c" Guid="a0f8491b-4760-42cd-bcaf-aed504ba2af0" /><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab02\Lab02_MySelf\Design01.cydsn\TopDesign\TopDesign.cysch" Guid="f13de1bf-549a-4374-9b50-3a57cb4f40ad" /><DocumentWindow Key="D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Lab02\Lab02_MySelf\Design01.cydsn\Design01.cydwr" Guid="4bfb882e-5a04-4994-813d-0222a777cf3c" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

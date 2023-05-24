@@ -165,7 +165,7 @@ int synthesizer(){
             DAC_SetValue(value); 
             j++;
             if(j == N){ j = 0;}
-        }
+    }
 
 return 0;
 }

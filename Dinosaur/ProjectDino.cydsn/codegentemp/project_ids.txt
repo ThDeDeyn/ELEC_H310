@@ -1,0 +1,6 @@
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|19448d7c-3818-44c3-b856-b74d74d91977
+C:\Users\thoma\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|d915406e-8975-45b9-9e0e-1c35025007ef
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|24badae8-22ea-4915-9fcb-9c130b239ac7
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|8deaa9eb-723c-470d-896a-a3359ce31478
+D:\PSoC\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9d31cd63-9ff8-444e-a4c7-e907248c3abc
+D:\Polytech\MA1 2022-2023 ULB\Q2\ELEC-H310 -- Digital Electronics\Coding\INFO_H310\Dinosaur\ProjectDino.cydsn\ProjectDino.cyprj|f3dacad5-0201-467c-a282-fdd6afd33468

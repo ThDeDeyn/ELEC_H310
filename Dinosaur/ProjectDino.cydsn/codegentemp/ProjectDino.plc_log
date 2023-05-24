@@ -1,0 +1,3 @@
+I2659: No Constrained paths were found. The placer will run in non-timing driven mode.
+E2705: Port 12 can only support one interrupt at a time and cannot include pin component "SW2(0)" since the port is already assigned an interrupt from "SW1".
+E2055: An error occurred during placement of the design.
